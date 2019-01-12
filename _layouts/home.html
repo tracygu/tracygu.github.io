@@ -1,0 +1,134 @@
+---
+layout: default
+---
+
+
+<div id="home" class="col-12 col-lg-11 col-xl-9 mt-3 mb-3 pr-0 pl-0">
+
+  <div id="post-list">
+
+    {% for post in paginator.posts %}
+    <div class="post-preview bg-white card-block mb-3 pt-4 pl-3 pr-3 pl-md-4 pr-md-4">
+      <h1 class="pt-2 pt-md-3 pl-md-3 pr-md-3 pl-lg-2 pr-lg-2">
+        <a href="{{ post.url }}">{{ post.title }}</a>
+      </h1>
+      <div class="post-content pl-md-3 pr-md-3 pl-lg-2 pr-lg-2">
+        <p>
+        {{ post.content | strip_html | truncate: 200 }}
+        </p>
+      </div>
+
+      <div class="post-meta text-muted font-weight-light d-flex justify-content-between pt-1 pl-md-3 pr-md-3  pl-lg-2 pr-lg-2">
+        <span>
+          <!-- posted date -->
+          <i class="far fa-calendar-alt fa-fw"></i>
+          {{ post.date | date: "%b %-d, %Y" }}
+          <!-- page views -->
+          <i class="far fa-eye fa-fw"></i>
+          <span id="pv_{{-post.title-}}" class="pageviews"><i class="fas fa-spinner fa-spin"></i></span>
+        </span>
+        <span>
+          <!-- categories -->
+          {% if post.categories.size > 0 %}
+          <i class="far fa-folder-open fa-fw"></i>
+            {% for category in post.categories %}
+          <a href='/categories/{{category | downcase}}'>{{category}}</a>
+              {% unless forloop.last %}/{% endunless %}
+            {% endfor %}
+          {% endif %}
+        </span>
+      </div>
+    </div> <!-- .post-review -->
+    {% endfor %}
+  </div> <!-- #post-list -->
+
+  <ul class="pagination mt-4 mb-4 mb-lg-5 pl-lg-4">
+    <!-- left arrow -->
+
+    {% if paginator.previous_page %}
+      <li class="page-item">
+        <a class="page-link btn-box-shadow" href="{{ paginator.previous_page_path }}">
+          <i class="fas fa-angle-left"></i>
+        </a>
+      </li>
+    {% else %}
+      <li class="page-item disabled">
+        <a class="page-link btn-box-shadow" href="#"><i class="fas fa-angle-left"></i></a>
+      </li>
+    {% endif %}
+
+
+    <!-- page numbers -->
+    {% assign left_ellipsis = false %}
+    {% assign right_ellipsis = false %}
+
+    {% for i in (1..paginator.total_pages) %}
+
+      {% assign pre = paginator.page | minus: 1 %}
+      {% assign next = paginator.page | plus: 1 %}
+      {% assign pre_less = pre | minus: 1 %}
+      {% assign next_more = next | plus: 1 %}
+      {% assign show = false %}
+
+      {% if paginator.page == 1 %}
+        {% if i <= 3 or i == paginator.total_pages %}
+          {% assign show = true %}
+        {% endif %}
+      {% elsif paginator.page == paginator.total_pages %}
+        {% if i == 1 or i >= pre_less %}
+          {% assign show = true %}
+        {% endif %}
+      {% else %}
+        {% if i == 1 or i == paginator.total_pages%}
+          {% assign show = true %}
+        {% elsif i >= pre and i <= next %}
+          {% assign show = true %}
+        {% endif %}
+      {% endif %}
+
+      {% if show %}
+        <!-- show number -->
+        <li class="page-item {% if i == paginator.page %} active{% endif %}">
+          <a class="page-link btn-box-shadow" href="/{% if i > 1%}page{{ i }}{% endif %}">{{ i }}</a>
+        </li>
+      {% else %}
+        <!-- hide number -->
+        {% if i < pre and left_ellipsis == false %}
+          <li class="page-item disabled">
+            <span class="page-link btn-box-shadow">...</span>
+          </li>
+          {% assign left_ellipsis = true %}
+        {% elsif i > next and right_ellipsis == false %}
+          <li class="page-item disabled">
+            <span class="page-link btn-box-shadow">...</span>
+          </li>
+          {% assign right_ellipsis = true %}
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+
+    <!-- right arrow -->
+
+    {% if paginator.next_page %}
+      <li class="page-item">
+        <a class="page-link btn-box-shadow" href="{{ paginator.next_page_path }}">
+          <i class="fas fa-angle-right"></i>
+        </a>
+      </li>
+    {% else %}
+      <li class="page-item disabled">
+        <a class="page-link btn-box-shadow" href="#"><i class="fas fa-angle-right"></i></a>
+      </li>
+    {% endif %}
+
+  </ul> <!-- .pagination -->
+
+</div> <!-- .col-12.col-sm-10 -->
+
+{% comment %}
+{% if site.data.settings.disqus.comments %}
+<script src="/assets/lib/iDisqus/disqus-config.min.js" async></script>
+{% endif %}
+{% endcomment %}
+<script src="/assets/js/dist/pageviews.min.js" async></script>
+<script src="/assets/js/dist/countUp.min.js" async></script>

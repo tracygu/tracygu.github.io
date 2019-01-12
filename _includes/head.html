@@ -1,0 +1,35 @@
+<head>
+  <title>
+    {% if page.title.en == "Home" %}
+      {{ site.data.settings.title }}
+    {% else %}
+      {% if site.data.settings.lang == 'zh' and page.title.zh %}
+        {% assign title = page.title.zh %}
+      {% elsif site.data.settings.lang == 'en' and page.title.en %}
+        {% assign title =  page.title.en %}
+      {% else %}
+        {% assign title = page.title %}
+      {% endif %}
+      {{ title }} | {{ site.data.settings.title }}
+    {% endif %}
+  </title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="apple-touch-icon" href="favicon.ico">
+  <link rel="stylesheet" href="/assets/lib/bootstrap-4.0.0-dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/assets/lib/fontawesome-5.1.0/css/all.css">
+  <link rel="stylesheet" href="/assets/css/styles.css">
+
+  <script src="/assets/lib/jquery-3.2.1/jquery.min.js"></script>
+  <script src="/assets/lib/bootstrap-4.0.0-dist/js/bootstrap.min.js" async></script>
+  <script id="dsq-count-scr" src="//{{ site.data.settings.disqus.shortname }}.disqus.com/count.js" async></script>
+  <script src="/assets/js/common.js" async></script>
+
+  {% if jekyll.environment == 'production' %}
+    {% include google-analytics.html %}
+  {% endif %}
+
+  <!-- Use Atom -->
+  {% feed_meta %}
+</head>

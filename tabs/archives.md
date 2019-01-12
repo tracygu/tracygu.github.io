@@ -1,0 +1,36 @@
+---
+layout: page
+title:
+  zh: 归档
+  en: Archives
+breadcrumb:
+  -
+    label: Home
+    url: /
+---
+
+<div id="archives" class="pl-xl-2">
+{% for post in site.posts %}
+  {% capture this_year %}{{ post.date | date: "%Y" }}{% endcapture %}
+  {% capture pre_year %}{{ post.previous.date | date: "%Y" }}{% endcapture %}
+  {% if forloop.first %}
+  <p class="lead">{{this_year}}</p>
+  <ul class="list-unstyled">
+  {% endif %}
+    <li>
+      <div>
+        <span class="small font-weight-light">{{ post.date | date: "%b %d" }}</span>
+        <a href="{{ post.url }}">{{ post.title }}</a>
+      </div>
+    </li>
+  {% if forloop.last %}
+  </ul>
+  {% else %}
+    {% if this_year != pre_year %}
+  </ul>
+  <p class="lead">{{pre_year}}</p>
+  <ul class="list-unstyled">
+    {% endif %}
+  {% endif %}
+{% endfor %}
+</div>

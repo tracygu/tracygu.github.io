@@ -1,0 +1,36 @@
+<div id="disqus_thread" class="pt-2 pb-4 pl-md-2 pr-md-2 pl-xl-0 pr-xl-0">
+  <p class="font-italic text-muted small">Comments powered by <a href="https://disqus.com/">Disqus</a>.</p>
+</div>
+
+<script>
+/**
+ *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+ *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+var disqus_config = function() {
+  this.page.url = '{{ site.url }}{{ page.url }}';
+  this.page.identifier = '{{ page.url }}';
+};
+
+(function() {
+  var is_blocked = true;
+  var d = document,
+    s = d.createElement('script');
+  s.src = 'https://{{ site.data.settings.disqus.shortname }}.disqus.com/embed.js';
+  s.setAttribute('data-timestamp', +new Date());
+
+  s.onload = function() {
+    is_blocked = false;
+  };
+
+  (d.head || d.body).appendChild(s);
+
+  setTimeout(function() {
+    if (is_blocked) {
+      var prompt = d.querySelector('#disqus_thread>p');
+      prompt.innerHTML = prompt.innerHTML + " (Blocked by the fucking GFW)";
+    }
+  }, 3000);
+
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>

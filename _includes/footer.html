@@ -1,0 +1,25 @@
+<footer class="d-flex w-100 justify-content-center">
+  <div class="d-flex justify-content-around  align-items-center">
+    <div class="copyright font-weight-light">
+    {% assign first = site.data.meta.publication-date | plus: 0 %}
+    {% assign last =  'now' | date: "%Y" | plus: 0 %}
+      <p class="mb-0">
+        <span>© {% if last > first %}{{ first }}-{% endif%}{{ last }}</span>
+        <span class="copyright-owner">{{site.data.profile.name }}</span>
+        <br>Powered by <a href="https://jekyllrb.com" target="_blank">Jekyll</a>.
+        <br>Hosted by <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>
+        & <a href="https://pages.coding.me" target="_blank">Coding Pages</a>.
+      </p>
+    </div>
+    <div class="license">
+      <a href="http://creativecommons.org/licenses/by-nc/4.0/">
+        <i class="fab fa-creative-commons"></i>
+        <i class="fab fa-creative-commons-by"></i>
+        <i class="fab fa-creative-commons-nc"></i>
+      </a>
+      <br>
+      <p class="mb-0">Content on this site is licensed under a <a href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License</a>.</p>
+    </div>
+
+  </div> <!-- .d-flex -->
+</footer>

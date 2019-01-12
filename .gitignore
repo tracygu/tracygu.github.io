@@ -1,0 +1,22 @@
+.svn
+target
+build
+*.class
+.*
+*.log
+*.log.*
+.idea
+*.iml
+*.pyc
+
+# jekyll debug
+_site
+
+# jekyll run locally
+*.sh
+
+# Jeykll Gemfile.lock
+Gemfile.lock
+
+# yui-compressor
+*.jar

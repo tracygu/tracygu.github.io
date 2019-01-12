@@ -1,0 +1,19 @@
+---
+layout: page
+---
+
+<div id="tag-page">
+  <h1>
+    <i class="fa fa-tag fa-fw text-muted"></i>
+    {{ page.title }}
+    <span class="lead pl-2">{{ site.tags[page.tag] | size }}</span>
+  </h1>
+  <ul class="post-content">
+    {% for post in site.tags[page.tag] %}
+    <li>
+      <a href="{{ post.url | absolute_url }}">{{ post.title }}</a>&nbsp;
+      <span class="text-muted small font-weight-light">{{ post.date | date: "%Y-%m-%d" }}</span>
+    </li>
+    {% endfor %}
+</ul>
+</div>

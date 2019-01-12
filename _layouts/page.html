@@ -1,0 +1,29 @@
+---
+layout: default
+---
+
+<div class="col-12 col-lg-11 col-xl-9 pl-0 pr-0 mt-3 mb-3">
+  <div id="page" class="post pl-3 pr-3 pl-md-4 pr-md-4 pl-lg-5 pr-lg-5 pb-5 bg-white">
+    {% case site.data.settings.lang %}
+    {% when 'en' %}
+      {% if page.title.en %}
+        {% unless page.location %}
+        <h1 class="pl-md-3 pr-md-3 pl-lg-0 pr-lg-0 {% if page.compact_title %}hide-title{% endif %}">{{ page.title.en }}</h1>
+        {% endunless %}
+      {% endif %}
+    {% when 'zh' %}
+      {% if page.title.zh %}
+        {% unless page.title.zh == "首页"  %}
+      <h1 class="pl-md-3 pr-md-3 pl-lg-0 pr-lg-0">{{ page.title.zh }}</h1>
+        {% endunless %}
+      {% endif %}
+    {% else %}
+      <h1 class="pl-md-3 pr-md-3 pl-lg-0 pr-lg-0">Unknown lang setting: '{{ site.data.settings.lang }}'!</h1>
+    {% endcase %}
+
+    <div class="post-content mt-5 pl-md-3 pr-md-3 pl-lg-0 pr-lg-0">
+      {{ content }}
+    </div>
+
+  </div> <!-- end .post -->
+</div><!-- end .col-12 -->

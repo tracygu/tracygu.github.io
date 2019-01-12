@@ -1,0 +1,44 @@
+<div id="topbar" class="bg-white row justify-content-center topbar-down">
+
+  <div id="topbar-main" class="d-flex h-100 align-items-center justify-content-between col-12 col-md-12 col-lg-11 col-xl-11 pl-md-2 pr-md-2 pl-lg-2 pr-lg-2">
+
+    <span id="breadcrumb">
+      <i class="fas fa-location-arrow fa-fw"></i>
+      {% assign index = 0 %}
+      {% assign last = page.breadcrumb.size | minus: 1 %}
+      {% for item in page.breadcrumb %}
+        {% if item.url %}
+        <a href="{{ item.url | remove: '.html'}}">{{ item.label }}</a>
+        {% else %}
+          {{ item.label }}
+        {% endif %}
+
+        {% if index < last %}>{% endif %}
+        {% assign index = index | plus: 1 %}
+      {% endfor %}
+
+      {% if site.data.settings.title != page.location %}
+        {% if page.breadcrumb.size > 0%} > {% endif %}
+        {% if page.title.en %}{{ page.title.en }}{% else %}{{ page.title }}{% endif %}
+      {% endif %}
+
+    </span><!-- endof #breadcrumb -->
+
+    <i id="sidebar-trigger" class="fas fa-bars fa-fw"></i>
+
+    <div id="topbar-title">
+      {% if page.location %}
+        {{-page.location-}}
+      {% else %}
+        {{-page.title.en-}}
+      {% endif %}
+    </div>
+    <i id="search-trigger" class="fas fa-search fa-fw"></i>
+    <span id="search-wrap">
+      <i class="fas fa-search fa-fw"></i>
+      <input class="form-control" id="search-input" type="search" placeholder="Search...">
+    </span>
+    <a href="javascript:;">Cancel</a>
+  </div>
+
+</div>

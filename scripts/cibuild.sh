@@ -37,7 +37,6 @@ combine() {
 
 
 build() {
-  ## Check lasmod of posts and the Category, Tag pages.
   export TZ='Asia/Shanghai' # the lastmod detection needs this
   echo "date: $(date)"
   python ./scripts/pages_generator.py
@@ -69,7 +68,7 @@ deploy() {
     cd ../repos_${i}/
 
     git add -A
-    git commit -m "Travis-CI automated deployment #${TRAVIS_BUILD_NUMBER}."
+    git commit -m "Travis-CI automated deployment of framework #${TRAVIS_BUILD_NUMBER}."
     git push ${DEPOLYS[${i}]} master:master
 
     echo "Push to ${DEPOLYS[${i}]}"

@@ -632,6 +632,7 @@ footer a:hover {
 
 .post-tag:hover, .tag:hover {
   background: rgb(222, 226, 230);
+  transition: background 0.35s ease-in-out;
 }
 
 a.post-tag {

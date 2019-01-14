@@ -6,6 +6,8 @@ META_REPOS=https://${GITHUB_TOKEN}@github.com/cotes2020/blog-meta.git
 GITHUB_DEPOLY=https://${GITHUB_TOKEN}@github.com/cotes2020/cotes2020.github.io.git
 CODING_DEPOLY=https://cotes:${CODING_TOKEN}@git.dev.tencent.com/cotes/cotes.coding.me.git
 
+POST_CACHE=../blog-posts
+META_CACHE=../blog-meta
 
 init() {
   # skip if build is triggered by pull request
@@ -20,25 +22,36 @@ init() {
   if [ -d "_site" ]; then
     rm -rf _site
   fi
+
+  if [ -d  ${POST_CACHE} ]; then
+    rm -rf ${POST_CACHE}
+  fi
+
+  if [ -d ${META_CACHE} ]; then
+    rm -rf ${META_CACHE}
+  fi
 }
 
 combine() {
-  # Combine repositories
-  git clone --depth=1 ${POST_REPOS} ./blog-posts
-  cp -r ./blog-posts/* ./
-  rm -rf ./blog-posts
+  git clone --depth=1 ${POST_REPOS} ${POST_CACHE}
+  cp -r ${POST_CACHE}/* ./
+  # rm -rf ${POST_CACHE}
   echo "[INFO] Combined posts."
 
-  git clone --depth=1 ${META_REPOS} ./blog-meta
-  cp -r ./blog-meta/* ./
-  rm -rf ./blog-meta
+  git clone --depth=1 ${META_REPOS} ${META_CACHE}
+  cp -r ${META_CACHE}/* ./
+  # rm -rf ${META_CACHE}
   echo "[INFO] Combined meta-data."
+
+  cp -r ./* ${POST_CACHE}/  # based on posts.
 }
 
 
 build() {
+  cd ${POST_CACHE}
+
   export TZ='Asia/Shanghai' # the lastmod detection needs this
-  echo "date: $(date)"
+  echo "[INFO] Current date: $(date)"
   python ./scripts/pages_generator.py
 
   # build Jekyll ouput to directory ./_site
@@ -55,23 +68,26 @@ deploy() {
 
   for i in "${!DEPOLYS[@]}"
   do
-    echo "TRAVIS_BUILD_DIR=${TRAVIS_BUILD_DIR}"
-    cd ${TRAVIS_BUILD_DIR}
+    # echo "[INFO] TRAVIS_BUILD_DIR=${TRAVIS_BUILD_DIR}"
+    echo "[INFO] PWD: $(pwd)"
 
-    if [ -d "../repos_${i}" ]; then
-      rm -rf ../repos_${i}
+    if [ -d "../depoly_${i}" ]; then
+      rm -rf ../depoly_${i}
     fi
 
-    git clone --depth=1 ${DEPOLYS[${i}]} ../repos_${i}
+    git clone --depth=1 ${DEPOLYS[${i}]} ../depoly_${i}
 
-    rm -rf ../repos_${i}/* && cp -a _site/* ../repos_${i}/
-    cd ../repos_${i}/
+    rm -rf ../depoly_${i}/*
+    cp -r _site/* ../depoly_${i}/
 
+    cd ../depoly_${i}/
     git add -A
     git commit -m "Travis-CI automated deployment of framework #${TRAVIS_BUILD_NUMBER}."
     git push ${DEPOLYS[${i}]} master:master
 
-    echo "Push to ${DEPOLYS[${i}]}"
+    echo "[INFO] Push to remote: ${DEPOLYS[${i}]}"
+    cd -
+
   done
 }
 

@@ -40,7 +40,8 @@ combine() {
     "LICENSE"
     "_posts"
     "categories"
-    "tags")
+    "tags"
+    "norobots")
 
   for i in "${!EXAMPLE[@]}"
   do

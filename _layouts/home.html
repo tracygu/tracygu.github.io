@@ -42,9 +42,10 @@ layout: default
     {% endfor %}
   </div> <!-- #post-list -->
 
+  {% if paginator.total_pages > 0 %}
   <ul class="pagination mt-4 mb-4 mb-lg-5 pl-lg-4">
-    <!-- left arrow -->
 
+    <!-- left arrow -->
     {% if paginator.previous_page %}
       <li class="page-item">
         <a class="page-link btn-box-shadow" href="{{ paginator.previous_page_path }}">
@@ -56,6 +57,7 @@ layout: default
         <a class="page-link btn-box-shadow" href="#"><i class="fas fa-angle-left"></i></a>
       </li>
     {% endif %}
+    <!-- endof left arrow -->
 
 
     <!-- page numbers -->
@@ -122,6 +124,7 @@ layout: default
     {% endif %}
 
   </ul> <!-- .pagination -->
+  {% endif %}
 
 </div> <!-- .col-12.col-sm-10 -->
 

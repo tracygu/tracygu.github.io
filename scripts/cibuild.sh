@@ -34,17 +34,13 @@ init() {
 
 combine() {
   git clone --depth=50 ${POST_REPOS} ${POST_CACHE}
-  cd ${POST_CACHE}
-
-  cd ${TRAVIS_BUILD_DIR} # back to framework respository
   rm -f ./tabs/about.md
   rm -f LICENSE
-
-  cp -r ./* ${POST_CACHE}
+  cp -a ./* ${POST_CACHE}
   echo "[INFO] Combined posts."
 
   git clone --depth=1 ${META_REPOS} ${META_CACHE}
-  cp -r ${META_CACHE}/* ${POST_CACHE}
+  cp -a ${META_CACHE}/* ${POST_CACHE}
   rm -rf ${META_CACHE}
   echo "[INFO] Combined meta-data."
 }

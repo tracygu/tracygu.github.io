@@ -9,6 +9,7 @@ CODING_DEPOLY=https://cotes:${CODING_TOKEN}@git.dev.tencent.com/cotes/cotes.codi
 POST_CACHE=../blog-posts
 META_CACHE=../blog-meta
 
+
 init() {
   # skip if build is triggered by pull request
   if [ $TRAVIS_PULL_REQUEST == "true" ]; then
@@ -31,6 +32,7 @@ init() {
     rm -rf ${META_CACHE}
   fi
 }
+
 
 combine() {
   git clone --depth=50 ${POST_REPOS} ${POST_CACHE}
@@ -59,7 +61,7 @@ build() {
 
 
 deploy() {
-  ## Git settings
+  # Git settings
   git config --global user.email "travis@travis-ci.org"
   git config --global user.name "Travis-CI"
 
@@ -90,11 +92,13 @@ deploy() {
   done
 }
 
+
 main() {
   init
   combine
   build
   deploy
 }
+
 
 main

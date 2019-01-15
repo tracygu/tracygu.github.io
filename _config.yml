@@ -78,7 +78,6 @@ compress_html:
 exclude:
   - vendor # Avoid Jekyll mitankenly read and explode on the Travis vender directory.
   - scripts
-  - README
   - Gemfile.lock
   - Gemfile
   - assets/css/src

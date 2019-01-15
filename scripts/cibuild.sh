@@ -38,6 +38,7 @@ combine() {
   EXAMPLE=(
     "tabs/about.md"
     "LICENSE"
+    "README.md"
     "_posts"
     "categories"
     "tags"

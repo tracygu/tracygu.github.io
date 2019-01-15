@@ -35,9 +35,19 @@ init() {
 
 
 combine() {
+  EXAMPLE=(
+    "tabs/about.md"
+    "LICENSE"
+    "_posts"
+    "categories"
+    "tags")
+
+  for i in "${!EXAMPLE[@]}"
+  do
+    rm -rf ${EXAMPLE[${i}]}
+  done
+
   git clone --depth=50 ${POST_REPOS} ${POST_CACHE}
-  rm -f ./tabs/about.md
-  rm -f LICENSE
   cp -a ./* ${POST_CACHE}
   echo "[INFO] Combined posts."
 

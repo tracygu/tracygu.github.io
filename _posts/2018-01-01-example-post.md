@@ -1,9 +1,9 @@
 ---
 title: "Example Post"
 date: 2018-01-01 00:00:00 +0800
-categories: [Blog, Example] 
+categories: [Blog, Example]
 tags: [example]
-comments: true 
+comments: true
 toc: true
 ---
 
@@ -150,13 +150,6 @@ server {
 ## Image Sample
 
 ![](http://ww1.sinaimg.cn/large/bd030aafgy1forx33re4mj20o10jztoc.jpg)
-
-* Invalid Sina Image
-
-![](https://ws1.sinaimg.cn/large/bd030aafgy1fuf66e2fqjj20n60i8n02.jpg)
-
-
-![](https://ws1.sinaimg.cn/large/bd030aafgy1fuf684g7sxj20n60dx76b.jpg)
 
 
 ## Footnote Sample

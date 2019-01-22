@@ -5,10 +5,8 @@
     {% assign last =  'now' | date: "%Y" | plus: 0 %}
       <p class="mb-0">
         <span>© {% if last > first %}{{ first }}-{% endif%}{{ last }}</span>
-        <span class="copyright-owner">{{site.data.profile.name }}</span>
-        <br>Powered by <a href="https://jekyllrb.com" target="_blank">Jekyll</a>.
-        <br>Hosted by <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>
-        & <a href="https://pages.coding.me" target="_blank">Coding Pages</a>.
+        <span class="copyright-owner">{{ site.data.profile.name }}</span>.
+        <br>Powered by <a href="https://jekyllrb.com" target="_blank">Jekyll</a>, hosted by <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.
       </p>
     </div>
     <div class="license">

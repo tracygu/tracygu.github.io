@@ -11,6 +11,8 @@ branches:
   only:
   - master
 sudo: required
+git:
+  depth: 1
 cache: bundler
 notifications:
   email:

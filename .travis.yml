@@ -1,6 +1,8 @@
 language: generic
+sudo: required
 install:
-- pip install ruamel.yaml
+- sudo pip install --upgrade pip
+- sudo pip install ruamel.yaml
 - bundle install
 script:
 - bash ./scripts/cibuild.sh

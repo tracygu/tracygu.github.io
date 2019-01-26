@@ -1,16 +1,12 @@
-language: ruby
-rvm: 2.4.1
+language: generic
 install:
+- pip install ruamel.yaml
 - bundle install
-- sudo pip install --upgrade pip
-- sudo pip install -U pip setuptools wheel
-- sudo pip install ruamel.yaml
 script:
 - bash ./scripts/cibuild.sh
 branches:
   only:
   - master
-sudo: required
 git:
   depth: 1
 cache: bundler

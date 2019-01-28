@@ -6,6 +6,8 @@ META_REPOS=https://${GITHUB_TOKEN}@github.com/cotes2020/blog-meta.git
 GITHUB_DEPOLY=https://${GITHUB_TOKEN}@github.com/cotes2020/cotes2020.github.io.git
 CODING_DEPOLY=https://cotes:${CODING_TOKEN}@git.dev.tencent.com/cotes/cotes.coding.me.git
 
+DEPOLYS=(${GITHUB_DEPOLY} ${CODING_DEPOLY})
+
 POST_CACHE=../blog-posts
 META_CACHE=../blog-meta
 
@@ -35,7 +37,7 @@ init() {
 
 
 combine() {
-  EXAMPLE=(
+  TEMPLATE=(
     "tabs/about.md"
     "LICENSE"
     "README.md"
@@ -44,9 +46,9 @@ combine() {
     "tags"
     "norobots")
 
-  for i in "${!EXAMPLE[@]}"
+  for i in "${!TEMPLATE[@]}"
   do
-    rm -rf ${EXAMPLE[${i}]}
+    rm -rf ${TEMPLATE[${i}]}
   done
 
   git clone --depth=50 ${POST_REPOS} ${POST_CACHE}
@@ -77,8 +79,6 @@ deploy() {
   git config --global user.email "travis@travis-ci.org"
   git config --global user.name "Travis-CI"
 
-  DEPOLYS=(${GITHUB_DEPOLY} ${CODING_DEPOLY})
-
   for i in "${!DEPOLYS[@]}"
   do
     # echo "[INFO] TRAVIS_BUILD_DIR=${TRAVIS_BUILD_DIR}"
@@ -95,10 +95,11 @@ deploy() {
 
     cd ../depoly_${i}/
     git add -A
-    git commit -m "Travis-CI automated deployment of framework #${TRAVIS_BUILD_NUMBER}."
+    git commit -m "Travis-CI automated deployment #${TRAVIS_BUILD_NUMBER} of the framework."
     git push ${DEPOLYS[${i}]} master:master
 
     echo "[INFO] Push to remote: ${DEPOLYS[${i}]}"
+    echo $'\n'
     cd -
 
   done

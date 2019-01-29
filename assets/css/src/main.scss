@@ -385,6 +385,10 @@ h1>a, p>a, span>a,
   color: #2a408e;
 }
 
+#main-wrap {
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Microsoft YaHei", "Source Han Sans SC", "Noto Sans CJK SC", "WenQuanYi Micro Hei", sans-serif;
+}
+
 #post-wrap .post-content a {
   border-bottom: 1px dotted #c2c6cc;
 }
@@ -486,10 +490,6 @@ table th, table td {
 .post>h1 {
   margin-top: 3.5rem;
   margin-bottom: 1.5rem;
-}
-
-.post-content {
-  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Microsoft YaHei", "Source Han Sans SC", "Noto Sans CJK SC", "WenQuanYi Micro Hei", sans-serif;
 }
 
 #breadcrumb a:hover,

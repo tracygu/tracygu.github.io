@@ -3,7 +3,7 @@ rvm: 2.4.1
 install:
 - pip install --user --upgrade pip
 - pip install --user ruamel.yaml
-- bundle install
+- bundle install --path $HOME/.cache/bundle
 script:
 - bash ./scripts/cibuild.sh
 branches:
@@ -12,8 +12,9 @@ branches:
 git:
   depth: 1
 cache:
-- bundler
-- pip
+  bundler: true
+  directories:
+    - $HOME/.cache/bundle
 notifications:
   email:
     recipients:

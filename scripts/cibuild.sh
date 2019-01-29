@@ -82,7 +82,8 @@ deploy() {
   for i in "${!DEPOLYS[@]}"
   do
     # echo "[INFO] TRAVIS_BUILD_DIR=${TRAVIS_BUILD_DIR}"
-    echo "[INFO] PWD: $(pwd)"
+    echo
+    echo "[INFO] \$PWD=$(pwd)"
 
     if [ -d "../depoly_${i}" ]; then
       rm -rf ../depoly_${i}
@@ -99,7 +100,6 @@ deploy() {
     git push ${DEPOLYS[${i}]} master:master
 
     echo "[INFO] Push to remote: ${DEPOLYS[${i}]}"
-    echo $'\n'
     cd -
 
   done

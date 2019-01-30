@@ -6,9 +6,6 @@ Author: Cotes Chung
 Date: 23 Feb 2018
 
 Generates html page for every single category and tag of posts.
-
-This script MUST BE run before deployment locally or on remote.
-
 '''
 
 import os
@@ -20,23 +17,34 @@ from ruamel.yaml import YAML
 from utils.frontmatter_getter import get_yaml
 
 
-DRAFTS_PATH = '_drafts'
-POSTS_PATHS = ['_posts']
+DRAFTS_DIR = '_drafts'
+POSTS_DIR = ['_posts']
 
-CATEGORIES_PATH = 'categories'
+CATEGORIES_DIR = 'categories'
 CATEGORY_LAYOUT = 'category'
 
-TAG_PATH = 'tags'
+TAG_DIR = 'tags'
 TAG_LAYOUT = 'tag'
 
-OPTS = ['--draft']
+
+def get_path(dir):
+    path = os.path.abspath(__file__)
+    count = 2
+    r_index = len(path)
+    while r_index > 0:
+        r_index -= 1
+        if (path[r_index] == '/'):
+            count -= 1
+            if count == 0:
+                return path[:r_index + 1] + dir
 
 
 def get_categories():
     all_categories = []
     yaml = YAML()
 
-    for path in POSTS_PATHS:
+    for dir in POSTS_DIR:
+        path = get_path(dir)
         for file in glob.glob(os.path.join(path, '*.md')):
             meta = yaml.load(get_yaml(file)[0])
 
@@ -71,35 +79,37 @@ def get_categories():
     return all_categories
 
 
-def generate_category_pages():
+def generate_category_pages(is_verbose):
     categories = get_categories()
-    if os.path.exists(CATEGORIES_PATH):
-        shutil.rmtree(CATEGORIES_PATH)
+    path = get_path(CATEGORIES_DIR)
 
-    os.makedirs(CATEGORIES_PATH)
+    if os.path.exists(path):
+        shutil.rmtree(path)
+
+    os.makedirs(path)
 
     for category in categories:
-        new_page = CATEGORIES_PATH + '/' + category.lower() + '.html'
+        new_page = path + '/' + category.lower() + '.html'
         with open(new_page, 'w+') as html:
             html.write("---\n")
             html.write("layout: {}\n".format(CATEGORY_LAYOUT))
             html.write("title: {}\n".format(category.encode('utf-8')))
             html.write("category: {}\n".format(category.encode('utf-8')))
             html.write("---")
-            print("[INFO] Created page: " + new_page.lower())
-    print("[NOTICE] Succeed! {} category-pages created.\n"
-          .format(len(categories)))
 
-    # subprocess.call(["git", "add", CATEGORIES_PATH])
-    # subprocess.call(["git", "commit", "-m",
-    #                 "[Automation] Update page to Categories."])
+            if is_verbose:
+                print("[INFO] Created page: " + new_page.lower())
+
+    print("Succeed! {} category-pages created."
+          .format(len(categories)))
 
 
 def get_all_tags():
     all_tags = []
     yaml = YAML()
 
-    for path in POSTS_PATHS:
+    for dir in POSTS_DIR:
+        path = get_path(dir)
         for file in glob.glob(os.path.join(path, '*.md')):
             meta = yaml.load(get_yaml(file)[0])
 
@@ -114,39 +124,58 @@ def get_all_tags():
     return all_tags
 
 
-def generate_tag_pages():
+def generate_tag_pages(is_verbose):
     all_tags = get_all_tags()
-    if os.path.exists(TAG_PATH):
-        shutil.rmtree(TAG_PATH)
+    tag_path = get_path(TAG_DIR)
 
-    os.makedirs(TAG_PATH)
+    if os.path.exists(tag_path):
+        shutil.rmtree(tag_path)
+
+    os.makedirs(tag_path)
 
     for tag in all_tags:
-        tag_page = TAG_PATH + '/' + tag.lower() + '.html'
+        tag_page = tag_path + '/' + tag.lower() + '.html'
         with open(tag_page, 'w+') as html:
             html.write("---\n")
             html.write("layout: {}\n".format(TAG_LAYOUT))
             html.write("title: {}\n".format(tag.encode('utf-8')))
             html.write("tag: {}\n".format(tag.encode('utf-8')))
             html.write("---")
-            print("[INFO] Created page: " + tag_page.lower())
-    print("[NOTICE] Succeed! {} tag-pages created.\n".format(len(all_tags)))
+
+            if is_verbose:
+                print("[INFO] Created page: " + tag_page.lower())
+
+    print("Succeed! {} tag-pages created.".format(len(all_tags)))
+
+
+def help():
+    print("Usage: "
+          "python pages_generator.py [ -d | --drafts ] [ -v | --verbose ]\n\n"
+          "Optional arguments:\n"
+          "-d, --drafts         Enable drafts\n"
+          "-v, --verbose        Print verbose logs\n")
 
 
 def main():
+
+    is_verbose = False
+    argv_index = 0
+
     if len(sys.argv) > 1:
-        if sys.argv[1] == '--drafts':
-            POSTS_PATHS.insert(0, DRAFTS_PATH)
-        else:
-            print "Oops! Unknown argument: "
-            for err_argv in sys.argv[1:]:
-                print "\'err_argv\'"
+        for arg in sys.argv:
+            if argv_index > 0:
+                if arg == '-d' or arg == '--drafts':
+                    POSTS_DIR.insert(0, DRAFTS_DIR)
+                elif arg == '-v' or arg == '--verbose':
+                    is_verbose = True
+                else:
+                    print("Oops! Unknown argument: '{}'\n".format(arg))
+                    help()
+                    return
+            argv_index += 1
 
-            print "Do you mean: --drafts ?"
-            return
-
-    generate_category_pages()
-    generate_tag_pages()
+    generate_category_pages(is_verbose)
+    generate_tag_pages(is_verbose)
 
 
 main()

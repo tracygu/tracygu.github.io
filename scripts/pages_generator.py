@@ -5,7 +5,7 @@
 Author: Cotes Chung
 Date: 23 Feb 2018
 
-Generates html page for every single category and tag of posts.
+Generates html page of categories and tags by posts.
 '''
 
 import os
@@ -57,7 +57,6 @@ def get_categories():
                 else:
                     if meta['category'] not in all_categories:
                         all_categories.append(meta['category'])
-
             else:
                 if 'categories' in meta:
                     if type(meta['categories']) == str:
@@ -69,7 +68,6 @@ def get_categories():
                     for ctg in meta['categories']:
                         if ctg not in all_categories:
                             all_categories.append(ctg)
-
                 else:
                     err_msg = (
                         "[Error] File:{} at least "
@@ -141,7 +139,7 @@ def generate_tag_pages(is_verbose):
             html.write("title: {}\n".format(tag.encode('utf-8')))
             html.write("tag: {}\n".format(tag.encode('utf-8')))
             html.write("---")
-
+            
             if is_verbose:
                 print("[INFO] Created page: " + tag_page.lower())
 
@@ -157,10 +155,9 @@ def help():
 
 
 def main():
-
     is_verbose = False
     argv_index = 0
-
+    
     if len(sys.argv) > 1:
         for arg in sys.argv:
             if argv_index > 0:

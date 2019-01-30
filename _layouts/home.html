@@ -91,7 +91,7 @@ layout: default
       {% if show %}
         <!-- show number -->
         <li class="page-item {% if i == paginator.page %} active{% endif %}">
-          <a class="page-link btn-box-shadow" href="/{% if i > 1%}page{{ i }}{% endif %}">{{ i }}</a>
+          <a class="page-link btn-box-shadow" href="/{% if i > 1%}page{{ i }}/{% endif %}">{{ i }}</a>
         </li>
       {% else %}
         <!-- hide number -->

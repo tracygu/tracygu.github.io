@@ -3,10 +3,7 @@
 POST_REPOS=https://${GITHUB_TOKEN}@github.com/cotes2020/blog-posts.git
 META_REPOS=https://${GITHUB_TOKEN}@github.com/cotes2020/blog-meta.git
 
-GITHUB_DEPOLY=https://${GITHUB_TOKEN}@github.com/cotes2020/cotes2020.github.io.git
-CODING_DEPOLY=https://cotes:${CODING_TOKEN}@git.dev.tencent.com/cotes/cotes.coding.me.git
-
-DEPOLYS=(${GITHUB_DEPOLY} ${CODING_DEPOLY})
+GH_DEPLOY=https://${GITHUB_TOKEN}@github.com/cotes2020/cotes2020.github.io.git
 
 POST_CACHE=../blog-posts
 META_CACHE=../blog-meta
@@ -79,30 +76,25 @@ deploy() {
   git config --global user.email "travis@travis-ci.org"
   git config --global user.name "Travis-CI"
 
-  for i in "${!DEPOLYS[@]}"
-  do
-    # echo "[INFO] TRAVIS_BUILD_DIR=${TRAVIS_BUILD_DIR}"
-    echo
-    echo "[INFO] \$PWD=$(pwd)"
+  # echo "[INFO] TRAVIS_BUILD_DIR=${TRAVIS_BUILD_DIR}"
+  echo
+  echo "[INFO] \$PWD=$(pwd)"
 
-    if [ -d "../depoly_${i}" ]; then
-      rm -rf ../depoly_${i}
-    fi
+  if [ -d "../deploy" ]; then
+    rm -rf ../deploy
+  fi
 
-    git clone --depth=1 ${DEPOLYS[${i}]} ../depoly_${i}
+  git clone --depth=1 $GH_DEPLOY ../deploy
 
-    rm -rf ../depoly_${i}/*
-    cp -r _site/* ../depoly_${i}/
+  rm -rf ../deploy/*
+  cp -r _site/* ../deploy/
 
-    cd ../depoly_${i}/
-    git add -A
-    git commit -m "Travis-CI automated deployment #${TRAVIS_BUILD_NUMBER} of the framework."
-    git push ${DEPOLYS[${i}]} master:master
+  cd ../deploy/
+  git add -A
+  git commit -m "Travis-CI automated deployment #${TRAVIS_BUILD_NUMBER} of the framework."
+  git push $GH_DEPLOY master:master
 
-    echo "[INFO] Push to remote: ${DEPOLYS[${i}]}"
-    cd -
-
-  done
+  echo "[INFO] Push to remote: ${GH_DEPLOY}"
 }
 
 

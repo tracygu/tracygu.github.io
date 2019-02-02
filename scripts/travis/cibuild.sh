@@ -67,7 +67,7 @@ build() {
 
   export TZ='Asia/Shanghai' # the lastmod detection needs this
   echo "[INFO] Current date: $(date)"
-  python ./scripts/pages_generator.py
+  python ./scripts/tools/pages_generator.py
 
   # build Jekyll ouput to directory ./_site
   JEKYLL_ENV=production bundle exec jekyll build

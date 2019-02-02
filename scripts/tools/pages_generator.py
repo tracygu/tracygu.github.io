@@ -26,10 +26,12 @@ CATEGORY_LAYOUT = 'category'
 TAG_DIR = 'tags'
 TAG_LAYOUT = 'tag'
 
+LEVEL = 3  # Tree level for current script file.
+
 
 def get_path(dir):
     path = os.path.abspath(__file__)
-    count = 2
+    count = LEVEL
     r_index = len(path)
     while r_index > 0:
         r_index -= 1

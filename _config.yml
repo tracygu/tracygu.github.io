@@ -76,10 +76,10 @@ compress_html:
     envs: []
 
 exclude:
-  - vendor # Avoid Jekyll mitankenly read and explode on the Travis vender directory.
-  - scripts
+  - vendor/ # Avoid Jekyll mitankenly read and explode on the Travis vender directory.
+  - scripts/
   - Gemfile.lock
   - Gemfile
-  - assets/css/src
-  - assets/js/src
-  - assets/js/dist/commons
+  - assets/css/src/
+  - assets/js/src/
+  - assets/js/dist/commons/

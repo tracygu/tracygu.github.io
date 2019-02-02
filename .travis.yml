@@ -3,17 +3,14 @@ rvm: 2.4.1
 install:
   - pip install --user --upgrade pip
   - pip install --user ruamel.yaml
-  - bundle install --path $HOME/.cache/bundle
+  - bundle install --path vendor/bundle
 script:
   - bash ./scripts/travis/cibuild.sh
 branches:
   only: master
 git:
   depth: 1
-cache:
-  bundler: true
-  directories:
-    - $HOME/.cache/bundle
+cache: bundler
 notifications:
   email:
     recipients:

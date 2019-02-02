@@ -82,3 +82,4 @@ exclude:
   - Gemfile
   - assets/css/src
   - assets/js/src
+  - assets/js/dist/commons

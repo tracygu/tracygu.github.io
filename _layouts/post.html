@@ -28,7 +28,7 @@ layout: default
       <span>
         {% if site.data.settings.disqus.comments and page.comments %}
         <i class="far fa-comments fa-fw"></i>
-        Comments: <a href="#comment" data-disqus-url="{{ site.meta.url }}{{ page.url }}">
+        Comments: <a href="#comment" data-disqus-url="{{ site.data.meta.url }}{{ page.url }}">
           <i class="fas fa-spinner fa-spin"></i>
         </a>
         {% endif %}

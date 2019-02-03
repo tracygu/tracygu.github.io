@@ -7,6 +7,7 @@ GH_DEPLOY=https://${GITHUB_TOKEN}@github.com/cotes2020/cotes2020.github.io.git
 
 POST_CACHE=../blog-posts
 META_CACHE=../blog-meta
+DEPLOY_CACHE=../deploy
 
 
 init() {
@@ -80,16 +81,16 @@ deploy() {
   echo
   echo "[INFO] \$PWD=$(pwd)"
 
-  if [ -d "../deploy" ]; then
-    rm -rf ../deploy
+  if [ -d "$DEPLOY_CACHE" ]; then
+    rm -rf $DEPLOY_CACHE
   fi
 
-  git clone --depth=1 $GH_DEPLOY ../deploy
+  git clone --depth=1 $GH_DEPLOY $DEPLOY_CACHE
 
-  rm -rf ../deploy/*
-  cp -r _site/* ../deploy/
+  rm -rf $DEPLOY_CACHE/*
+  cp -r _site/* $DEPLOY_CACHE
 
-  cd ../deploy/
+  cd $DEPLOY_CACHE
   git add -A
   git commit -m "Travis-CI automated deployment #${TRAVIS_BUILD_NUMBER} of the framework."
   git push $GH_DEPLOY master:master

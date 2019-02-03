@@ -8,4 +8,4 @@ User-agent: *
 Disallow: /assts/
 Disallow: /norobots/
 
-Sitemap: {{ site.meta.url }}/sitemap.xml
+Sitemap: {{ site.data.meta.url }}/sitemap.xml

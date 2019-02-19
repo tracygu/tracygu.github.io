@@ -2,11 +2,7 @@ title: 'Cotes Blog'
 slogan: "The slogan to your site."
 description: "The site description." # RSS feed
 
-disqus:
-  comments: true  # ture - enable, false - disable
-  shortname: 'your_disqus_shortname'
-
-google-ID: 'your_google_id'
+comments: true  # ture - enable, false - disable
 
 lang: en # Must be 'en' or 'zh'
 

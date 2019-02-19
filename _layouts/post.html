@@ -26,7 +26,7 @@ layout: default
       <!-- comments -->
       <!--
       <span>
-        {% if site.data.settings.disqus.comments and page.comments %}
+        {% if site.data.settings.comments and page.comments %}
         <i class="far fa-comments fa-fw"></i>
         Comments: <a href="#comment" data-disqus-url="{{ site.data.meta.url }}{{ page.url }}">
           <i class="fas fa-spinner fa-spin"></i>
@@ -91,7 +91,7 @@ layout: default
 
   {% comment %}{% include social-sharing.html %}{% endcomment %}
 
-  {% if site.data.settings.disqus.comments and page.comments %}
+  {% if site.data.settings.comments and page.comments %}
     {% include disqus.html %}
   {% endif %}
 

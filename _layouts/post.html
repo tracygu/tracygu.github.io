@@ -7,12 +7,13 @@ layout: default
     <h1 data-toc-skip>{{ page.title }}</h1>
 
     <div class="post-meta text-muted font-weight-light d-flex flex-wrap">
+      {% assign DATE_FORMAT = "%b %-d, %Y" %}
       <span>
         <i class="far fa-calendar-alt fa-fw"></i>
-        {% assign post_date = page.date | date: "%b %-d, %Y" %}
-        Posted on: {{ page.date | date: "%b %-d, %Y" }}
+        {% assign post_date = page.date | date: DATE_FORMAT %}
+        Posted on: {{ post_date }}
         <!-- lastmod -->
-        {% assign last_mod = page.last_modified_at | date: "%b %-d, %Y" %}
+        {% assign last_mod = page.last_modified_at | date: DATE_FORMAT %}
         {% if last_mod != post_date %}
         · Updated on: {{ last_mod }}
         {% endif %}

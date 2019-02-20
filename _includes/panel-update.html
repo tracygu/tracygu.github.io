@@ -1,0 +1,24 @@
+<div id="panel-update" class="bg-white card-block post pl-4 pr-4">
+  {% capture posts %}
+  {% for post in site.posts %}
+    {{ post.last_modified_at }}#{{ post.title }}#{{ post.url }}
+
+    {% if forloop.last == false %}|{% endif %}
+  {% endfor %}
+  {% endcapture %}
+
+  <h3>Recent Update</h3>
+  <ul class="post-content pl-2 mt-2 mb-4">
+  {% assign MAX_SIZE = 5 %}
+  {% assign sum = 0 %}
+  {% assign sorted_posts = posts | split: "|" | sort | reverse %}
+  {% for post in sorted_posts %}
+    {% assign meta = post | split: "#" %}
+    <li type="circle"><a href="{{ meta[2] }}">{{ meta[1] }}</a></li>
+    {% assign sum = sum | plus: 1 %}
+    {% if sum >= MAX_SIZE %}
+      {% break %}
+    {% endif %}
+  {% endfor %}
+  </ul>
+</div>

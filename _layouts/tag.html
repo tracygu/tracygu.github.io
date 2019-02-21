@@ -10,7 +10,7 @@ layout: page
   </h1>
   <ul class="post-content">
     {% for post in site.tags[page.tag] %}
-    <li>
+    <li type="circle">
       <a href="{{ post.url | absolute_url }}">{{ post.title }}</a>&nbsp;
       <span class="text-muted small font-weight-light">{{ post.date | date: "%Y-%m-%d" }}</span>
     </li>

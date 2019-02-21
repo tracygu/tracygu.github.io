@@ -30,12 +30,19 @@ $(function() {
       if ( $('#toc').length > 0) {
         $('#toc').removeClass('topbar-down');
       }
+      if ( $('.panel-group').length > 0) {
+        $('.panel-group').removeClass('topbar-down');
+      }
+
     } else {
       // Scroll Up
       if (st + $(window).height() < $(document).height()) {
         $('#topbar').removeClass('topbar-up').addClass('topbar-down');
         if ( $('#toc').length > 0) {
           $('#toc').addClass('topbar-down');
+        }
+        if ( $('.panel-group').length > 0) {
+          $('.panel-group').addClass('topbar-down');
         }
       }
     }

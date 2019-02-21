@@ -356,6 +356,11 @@ footer .license a {
   position: -webkit-sticky; /* Safari */
   position: sticky;
   top: 1rem;
+  transition: top 0.2s ease-in-out;
+}
+
+.panel-group.topbar-down {
+  top: 4rem;
 }
 
 .panel-group>div:not(:first-child) {
@@ -369,7 +374,6 @@ footer .license a {
   margin-top: 0;
   color: gray;
   border-bottom: 1px solid #dae0e5;
-  // font-family: "Oswald","Helvetica Neue",Arial,sans-serif;
   letter-spacing: -0.02em;
 }
 
@@ -1352,5 +1356,13 @@ html, body {
 
   #main-wrap .col-xl-9 {
     max-width: 54%;
+  }
+
+  #main-wrap .col-xl-8 {
+    max-width: 54%;
+  }
+
+  #main-wrap .col-xl-3 {
+    max-width: 18%;
   }
 }

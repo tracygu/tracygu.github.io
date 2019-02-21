@@ -1,0 +1,33 @@
+<div id="panel-tags" class="bg-white card-block post pl-4 pr-4">
+  {% capture posts %}
+  {% for post in site.posts %}
+    {{ post.last_modified_at }}#{{ post.title }}#{{ post.url }}
+
+    {% if forloop.last == false %}|{% endif %}
+  {% endfor %}
+  {% endcapture %}
+
+  <h3>Trending Tags</h3>
+  <div class="post-content d-flex flex-wrap pl-2 mt-2 mb-4">
+  {% capture temp %}
+    {% for tag in site.tags %}
+      {{ tag | last | size }}-{{ tag | first }}
+    {% endfor %}
+  {% endcapture %}
+
+  {% assign MAX = 10 %}
+  {% assign count = 0 %}
+  {% assign trends = temp | split: " " | sort | reverse %}
+  {% for trend in trends %}
+    {% assign count = count | plus: 1 %}
+    {% assign detail = trend | split: "-" %}
+    <div class="font-weight-light">
+      <a class="tag" href="/tags/{{detail[1]}}/">{{ detail[1] }}</a>
+    </div>
+    {% if count >= MAX %}
+      {% break %}
+    {% endif %}
+  {% endfor %}
+
+  </div>
+</div>

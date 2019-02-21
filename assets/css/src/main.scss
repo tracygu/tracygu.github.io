@@ -351,26 +351,33 @@ footer .license a {
   font-size: 1rem;
 }
 
-/*--- right-sidebar ---*/
-#right-sidebar > div {
+/*--- Panels ---*/
+.panel-group {
   position: -webkit-sticky; /* Safari */
   position: sticky;
   top: 1rem;
 }
 
-#right-sidebar h3 {
+.panel-group>div:not(:first-child) {
+  margin-top: 1rem;
+  position: static;
+}
+
+.panel-group h3 {
   padding-top: 1.5rem;
   padding-bottom: .5rem;
   margin-top: 0;
   color: gray;
   border-bottom: 1px solid #dae0e5;
+  // font-family: "Oswald","Helvetica Neue",Arial,sans-serif;
+  letter-spacing: -0.02em;
 }
 
-#right-sidebar ul {
-  padding-inline-start: 1.5rem !important;
+.panel-group ul {
+  padding-inline-start: 1.2rem !important;
 }
 
-#right-sidebar li {
+.panel-group li {
   margin-bottom: .5rem;
 }
 
@@ -543,6 +550,7 @@ footer a:hover {
 
 .post-preview .post-content {
   margin-top: 1rem;
+  color: dimgray;
 }
 
 #post {
@@ -1134,8 +1142,8 @@ html, body {
 @media all and (min-width: 1200px) {
 
   #back-to-top {
-    bottom: 9.3rem;
-    right: 3.5rem;
+    bottom: 4.3rem;
+    right: 4.3rem;
   }
 
   #search-input {

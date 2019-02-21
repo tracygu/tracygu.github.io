@@ -2,7 +2,6 @@
   {% capture posts %}
   {% for post in site.posts %}
     {{ post.last_modified_at }}#{{ post.title }}#{{ post.url }}
-
     {% if forloop.last == false %}|{% endif %}
   {% endfor %}
   {% endcapture %}

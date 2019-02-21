@@ -385,6 +385,11 @@ footer .license a {
   margin-bottom: .5rem;
 }
 
+.panel-group .tag {
+  margin-right: .4rem;
+}
+
+
 /*--- button back-to-top ---*/
 
 #back-to-top {
@@ -549,11 +554,18 @@ footer a:hover {
 
 .post-preview {
   padding-top: 2rem;
-  padding-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #dae0e5;
+  border-bottom-style: dashed;
+}
+
+.post-preview>h1 {
+  font-size: 1.4rem;
 }
 
 .post-preview .post-content {
-  margin-top: 1rem;
+  margin-top: .6rem;
+  margin-bottom: .6rem;
   color: dimgray;
 }
 
@@ -569,7 +581,7 @@ footer a:hover {
 }
 
 /* Make preview shorter in Home page*/
-.post-preview .post-content>p:first-child {
+.post-preview .post-content>p {
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
@@ -1160,11 +1172,6 @@ html, body {
     width: 20rem;
   }
 
-  .post-preview {
-    padding-left: 2.5rem!important;
-    padding-right: 2.5rem!important;
-  }
-
 }
 
 /* Hide SideBar and TOC */
@@ -1239,16 +1246,7 @@ html, body {
     letter-spacing: 0;
   }
 
-  .post-preview {
-    padding-top: .5rem;
-    padding-bottom: 1rem;
-  }
-
-  .post-preview>h1 {
-    font-size: 1.3rem;
-  }
-
-  .post-preview .post-content>p:first-child {
+  .post-preview .post-content>p {
     -webkit-line-clamp: 2;
   }
 

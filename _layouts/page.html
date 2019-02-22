@@ -2,8 +2,8 @@
 layout: default
 ---
 
-<div class="col-12 col-lg-11 col-xl-8 mt-3 mb-3 pl-0 pr-0">
-  <div id="page" class="post pl-3 pr-3 pl-md-4 pr-md-4 pl-lg-5 pr-lg-5 pb-5 bg-white">
+<div class="col-12 col-lg-11 col-xl-9 pl-0 pl-md-4 pr-0 pr-md-4">
+  <div id="page" class="post pb-5 pl-3 pr-3 pl-md-0 pr-md-0 pl-xl-2">
     {% case site.data.settings.lang %}
     {% when 'en' %}
       {% if page.title.en %}
@@ -21,16 +21,13 @@ layout: default
       <h1 class="pl-md-3 pr-md-3 pl-lg-0 pr-lg-0">Unknown lang setting: '{{ site.data.settings.lang }}'!</h1>
     {% endcase %}
 
-    <div class="post-content mt-5 pl-md-3 pr-md-3 pl-lg-0 pr-lg-0">
+    <div class="post-content mt-5">
       {{ content }}
     </div>
 
   </div> <!-- end .post -->
 </div><!-- end .col-12 -->
 
-<div class="col-xl-3 mt-3 mb-3">
-  <div class="panel-group">
-  {% include panel-update.html %}
-  {% include panel-tags.html %}
-  </div>
+<div id="panel-wrap" class="col-xl-3 mt-5 mb-3 pl-0">
+  {% include panel.html %}
 </div>

@@ -13,7 +13,7 @@ $(function(){
     }
   }
 
-  var isHome = $("#home").length? true : false;
+  var isHome = $("#post-list").length? true : false;
 
   $(window).scroll(function (){
     if (isHome || $("div.post>h1").is(":hidden")) {

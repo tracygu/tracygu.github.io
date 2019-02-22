@@ -2,8 +2,8 @@
 layout: default
 ---
 
-<div id="post-wrap" class="col-12 col-md-12 col-lg-11 col-xl-9 mt-3 mb-3 pl-md-3 pr-md-3 pl-xl-5 pr-xl-5 bg-white">
-  <div class="post pl-md-4 pr-md-4 pl-xl-0 pr-xl-0">
+<div id="post-wrap" class="col-12 col-md-12 col-lg-11 col-xl-9 mb-3 pl-md-3 pr-md-3 pl-xl-4 pr-xl-0">
+  <div class="post pl-md-2 pr-md-2 pl-xl-2 pr-xl-2">
     <h1 data-toc-skip>{{ page.title }}</h1>
 
     <div class="post-meta text-muted font-weight-light d-flex flex-wrap">
@@ -72,7 +72,7 @@ layout: default
     </div><!-- endof .post-tail -->
   </div> <!-- .post -->
 
-  <div class="post-pager d-flex justify-content-between pl-md-2 pr-md-2 pl-xl-0 pr-xl-0">
+  <div class="post-pager d-flex justify-content-between pl-md-2 pr-md-2 pl-xl-2 pr-xl-2">
   {% if page.previous.url %}
     <a href="{{page.previous.url}}" class="btn btn-outline-primary">
   {% else %}
@@ -98,12 +98,16 @@ layout: default
 
 </div> <!-- end col-12.col-sm-8 -->
 
-<!-- TOC -->
-{% if page.toc %}
-<div id="toc-wrap" class="col-xl-2 mt-3 mb-3 bg-white">
-  <nav id="toc" data-toggle="toc" class="sticky-top topbar-down"></nav>
-</div>
-{% endif %}
+<div id="post-panel" class="col-xl-3 mt-5 mb-3 pl-0">
+  {% include panel.html %}
+
+  {% if page.toc %}
+  <div id="toc-wrap" class="topbar-down pr-4">
+    <h3 data-toc-skip class="pl-3 pt-2">Contents</h3>
+    <nav id="toc" data-toggle="toc"></nav>
+  </div>
+  {% endif %}
+</div> <!-- #post-panel -->
 
 
 <link rel="stylesheet" href="/assets/lib/bootstrap-toc-1.0.0/bootstrap-toc.min.css">

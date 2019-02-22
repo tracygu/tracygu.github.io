@@ -27,8 +27,8 @@ $(function() {
     if (st > lastScrollTop && st > topbarHeight) {
       // Scroll Down
       $('#topbar').removeClass('topbar-down').addClass('topbar-up');
-      if ( $('#toc').length > 0) {
-        $('#toc').removeClass('topbar-down');
+      if ( $('#toc-wrap').length > 0) {
+        $('#toc-wrap').removeClass('topbar-down');
       }
       if ( $('.panel-group').length > 0) {
         $('.panel-group').removeClass('topbar-down');
@@ -38,8 +38,8 @@ $(function() {
       // Scroll Up
       if (st + $(window).height() < $(document).height()) {
         $('#topbar').removeClass('topbar-up').addClass('topbar-down');
-        if ( $('#toc').length > 0) {
-          $('#toc').addClass('topbar-down');
+        if ( $('#toc-wrap').length > 0) {
+          $('#toc-wrap').addClass('topbar-down');
         }
         if ( $('.panel-group').length > 0) {
           $('.panel-group').addClass('topbar-down');

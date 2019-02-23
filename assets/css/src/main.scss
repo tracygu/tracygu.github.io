@@ -281,7 +281,7 @@ body {
 }
 
 #main>div.row>div {
-  min-height: calc(100vh - 3rem - 8rem); /* 3rem for topbar, 8rem for footer */
+  min-height: calc(100vh - 3rem - 8rem - 4rem); /* 3rem for topbar, 8rem for footer, 4rem for topbar-down */
 }
 
 #topbar.row,
@@ -1286,6 +1286,7 @@ html, body {
 
 /* Compact icons in sidebar & TOC hidden */
 @media all and (min-width: 832px) and (max-width: 1200px) {
+
   #sidebar {
     width: 210px;
   }
@@ -1342,6 +1343,10 @@ html, body {
 
   #topbar-main {
     padding: 0;
+  }
+
+  #main>div.row>div {
+    min-height: calc(100vh - 3rem - 8rem); /* 3rem for topbar, 8rem for footer*/
   }
 
 }

@@ -179,7 +179,6 @@ body {
   box-shadow: 0 4px 12px 0 rgba(0,0,0,.05);
 }
 
-
 #topbar i {
   color: #797878;
 }
@@ -277,7 +276,8 @@ body {
 }
 
 #main>div.row>div {
-  min-height: calc(100vh - 3rem - 8rem - 4rem); /* 3rem for topbar, 8rem for footer, 4rem for topbar-down */
+  min-height: calc(100vh - 3rem - 8rem); /* 3rem for topbar, 8rem for footer */
+  margin-top: 3rem; /* same as the height of topbar */
 }
 
 #topbar.row,
@@ -292,6 +292,9 @@ footer {
   bottom: 0;
   height: 8rem; /* see the height of #main-wrap */
   background: #686868;
+  font-size: 0.8rem;
+  font-weight: 100;
+  color: #dddddd;
 }
 
 footer>div {
@@ -307,13 +310,6 @@ footer a:hover {
 
 footer>.d-flex>div {
   width: 370px;
-}
-
-footer {
-  font-size: 0.8rem;
-  font-weight: 100;
-  color: #dddddd;
-
 }
 
 footer .copyright a,
@@ -342,6 +338,7 @@ footer .license a {
   top: 1rem;
   transition: top 0.2s ease-in-out;
   padding-right: 1.5rem;
+  margin-top: 3rem;
   margin-bottom: 6rem;
 }
 
@@ -1148,9 +1145,6 @@ html, body {
     display: none;
   }
 
-  #main>div.row {
-    padding-top: 3rem; /* same as topbar height */
-  }
 }
 
 @media all and (min-width: 992px) and (max-width: 1024px) {
@@ -1222,9 +1216,17 @@ html, body {
   }
 
   #topbar {
-    position: sticky;
     position: -webkit-sticky;
-    top: 0!important;
+    position: sticky;
+    left: 0;
+  }
+
+  .topbar-up {
+    top: 0 !important;
+  }
+
+  #main>div.row>div {
+    margin-top: 0;
   }
 
   #topbar-title,
@@ -1339,10 +1341,6 @@ html, body {
 
   #topbar-main {
     padding: 0;
-  }
-
-  #main>div.row>div {
-    min-height: calc(100vh - 3rem - 8rem); /* 3rem for topbar, 8rem for footer*/
   }
 
 }

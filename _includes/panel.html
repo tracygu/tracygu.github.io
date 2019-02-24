@@ -1,5 +1,5 @@
 <div class="panel-group">
-  <div id="panel-update" class="post">
+  <div id="panel-update" class="post mb-4"">
     {% capture posts %}
     {% for post in site.posts %}
       {{ post.last_modified_at }}#{{ post.title }}#{{ post.url }}
@@ -8,7 +8,7 @@
     {% endcapture %}
 
     <h3 data-toc-skip>Recent Update</h3>
-    <ul class="post-content pl-2 mt-2 mb-4">
+    <ul class="post-content pl-2 mt-2 pb-1">
     {% assign MAX_SIZE = 5 %}
     {% assign sum = 0 %}
     {% assign sorted_posts = posts | split: "|" | sort | reverse %}
@@ -25,7 +25,7 @@
 
   <div id="panel-tags" class="post">
     <h3 data-toc-skip>Trending Tags</h3>
-    <div class="post-content d-flex flex-wrap mt-2 mb-4">
+    <div class="post-content d-flex flex-wrap mt-2 pb-1">
       {% capture temp %}
         {% for tag in site.tags %}
           {{ tag | last | size }}#{{ tag | first }}

@@ -14,7 +14,7 @@ breadcrumb:
   {% capture this_year %}{{ post.date | date: "%Y" }}{% endcapture %}
   {% capture pre_year %}{{ post.previous.date | date: "%Y" }}{% endcapture %}
   {% if forloop.first %}
-  <p class="lead">{{this_year}}</p>
+  <span class="lead">{{this_year}}</span>
   <ul class="list-unstyled">
   {% endif %}
     <li>
@@ -28,7 +28,7 @@ breadcrumb:
   {% else %}
     {% if this_year != pre_year %}
   </ul>
-  <p class="lead">{{pre_year}}</p>
+  <span class="lead">{{pre_year}}</span>
   <ul class="list-unstyled">
     {% endif %}
   {% endif %}

@@ -938,24 +938,36 @@ a.post-tag:hover {
 
 /*--- Page Category and Tag ---*/
 
-#category-page ul>li,
-#tag-page ul>li {
-  line-height: 1.2rem;
+#page-category ul>li,
+#page-tag ul>li {
+  line-height: 1.3rem;
   padding: .6rem 0;
 }
 
-#tag-page ul>li>a,
-#category-page ul>li>a, {
+#page-tag ul>li>a,
+#page-category ul>li>a, {
   font-size: 1.1rem;
 }
 
-#tag-page h1>i {
+#page-tag h1>i {
   font-size: 1rem;
 }
 
-#category-page h1>i {
+#page-category h1>i {
   font-size: 1.4rem;
 }
+
+#page-category a:hover,
+#page-tag a:hover {
+  margin-bottom: -1px;  // Avoid jumping
+}
+
+.dash {
+  flex: 1;
+  margin: 0 .5rem .5rem .5rem;
+  border-bottom: 2px dotted silver;
+}
+
 
 /* --- Effects classes ---*/
 
@@ -1044,11 +1056,6 @@ html, body {
     padding-top: 0;
   }
 
-  #category-page>h1>i,
-  #tag-page>h1>i {
-    margin-left: 1rem;
-  }
-
   #archives {
     margin-top: -1rem;
   }
@@ -1058,6 +1065,14 @@ html, body {
   }
 
   #archives li>div {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  #page-tag ul>li>a,
+  #page-category ul>li>a {
+    font-size: 1rem;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;

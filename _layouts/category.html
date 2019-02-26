@@ -2,18 +2,19 @@
 layout: page
 ---
 
-<div id="category-page">
+<div id="page-category">
   <h1>
     <i class="far fa-folder-open fa-fw text-muted"></i>
     {{ page.title }}
     <span class="lead pl-2">{{ site.categories[page.category] | size }}</span>
   </h1>
 
-  <ul class="post-content">
+  <ul class="post-content pl-0">
     {% for post in site.categories[page.category] %}
-    <li type="circle">
-      <a href="{{ post.url | absolute_url }}">{{ post.title }}</a>&nbsp;
-      <span class="text-muted small font-weight-light">{{ post.date | date: "%Y-%m-%d" }}</span>
+    <li class="d-flex justify-content-between pl-md-3 pr-md-3">
+      <a href="{{ post.url | absolute_url }}">{{ post.title }}</a>
+      <span class="dash"></span>
+      <span class="text-muted small font-weight-light">{{ post.date | date: "%Y/%m/%d" }}</span>
     </li>
     {% endfor %}
   </ul>

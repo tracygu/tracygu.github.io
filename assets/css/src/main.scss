@@ -1083,6 +1083,10 @@ html, body {
     height: 14rem;
   }
 
+  #main>div.row>div {
+    min-height: calc(100vh - 3rem - 14rem);
+  }
+
   #main-wrap {
     padding-bottom: 14rem;
   }

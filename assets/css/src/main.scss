@@ -486,6 +486,10 @@ a.reversefootnote {
   position: absolute;
 }
 
+.post-content p>em { /* MarkDown italic */
+  padding-right: .2rem;
+}
+
 /*--- Begin of Markdown table style ---*/
 
 table {

@@ -936,7 +936,7 @@ a.post-tag:hover {
 
 #page-category ul>li,
 #page-tag ul>li {
-  line-height: 1.3rem;
+  line-height: 1.5rem;
   padding: .6rem 0;
 }
 
@@ -959,7 +959,6 @@ a.post-tag:hover {
 }
 
 .dash {
-  flex: 1;
   margin: 0 .5rem .5rem .5rem;
   border-bottom: 2px dotted silver;
 }
@@ -1068,7 +1067,6 @@ html, body {
 
   #page-tag ul>li>a,
   #page-category ul>li>a {
-    font-size: 1rem;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;

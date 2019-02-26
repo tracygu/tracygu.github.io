@@ -12,7 +12,7 @@ layout: page
     {% for post in site.tags[page.tag] %}
     <li class="d-flex justify-content-between pl-md-3 pr-md-3">
       <a href="{{ post.url | absolute_url }}">{{ post.title }}</a>
-      <span class="dash"></span>
+      <span class="dash flex-grow-1"></span>
       <span class="text-muted small font-weight-light">{{ post.date | date: "%Y/%m/%d" }}</span>
     </li>
     {% endfor %}

@@ -8,13 +8,13 @@
     {% endcapture %}
 
     <h3 data-toc-skip>Recent Update</h3>
-    <ul class="post-content pl-2 mt-2 pb-1">
+    <ul class="post-content pl-1 mt-2 pb-1">
     {% assign MAX_SIZE = 5 %}
     {% assign sum = 0 %}
     {% assign sorted_posts = posts | split: "|" | sort | reverse %}
     {% for post in sorted_posts %}
       {% assign meta = post | split: "#" %}
-      <li type="circle"><a href="{{ meta[2] }}">{{ meta[1] }}</a></li>
+      <li type="none"><a href="{{ meta[2] }}">{{ meta[1] }}</a></li>
       {% assign sum = sum | plus: 1 %}
       {% if sum >= MAX_SIZE %}
         {% break %}

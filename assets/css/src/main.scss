@@ -641,7 +641,7 @@ footer a:hover {
 }
 
 /* meta icons of posts */
-#post-list .post-meta > span i:not(:first-child) {
+#post-list .post-meta>span i:not(:first-child) {
   margin-left: 2rem;
 }
 
@@ -1034,8 +1034,16 @@ html, body {
     margin-top: 2.5rem;
   }
 
-  #post-list .post-meta > span i:not(:first-child) {
-    margin-left: 1.2rem;
+  #post-list .post-meta>span i:not(:first-child) {
+    margin-left: 1rem;
+  }
+
+  #post-list div.post-meta>span:last-child {
+    /* categories of post list in HOME */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 40%;
   }
 
   .post .post-meta>span:first-child {

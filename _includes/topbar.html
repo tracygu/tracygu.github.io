@@ -13,12 +13,12 @@
           {{ item.label }}
         {% endif %}
 
-        {% if index < last %}>{% endif %}
+        {% if index < last %}&rsaquo;{% endif %}
         {% assign index = index | plus: 1 %}
       {% endfor %}
 
       {% if site.data.settings.title != page.location %}
-        {% if page.breadcrumb.size > 0%} > {% endif %}
+        {% if page.breadcrumb.size > 0%}&rsaquo;{% endif %}
         {% if page.title.en %}{{ page.title.en }}{% else %}{{ page.title }}{% endif %}
       {% endif %}
 

@@ -189,9 +189,11 @@ body {
 }
 
 #breadcrumb i {
-  font-size: .7rem;
+  font-size: 0.6rem;
   margin-right: .35rem;
   color: #999;
+  position: relative;
+  bottom: 2px;
 }
 
 #sidebar-trigger,

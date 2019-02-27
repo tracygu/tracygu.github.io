@@ -15,7 +15,7 @@ layout: default
         <!-- lastmod -->
         {% assign last_mod = page.last_modified_at | date: DATE_FORMAT %}
         {% if last_mod != post_date %}
-        · Updated on: {{ last_mod }}
+        · Updated: {{ last_mod }}
         {% endif %}
       </span>
 

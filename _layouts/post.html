@@ -6,7 +6,7 @@ layout: default
   <div class="post pl-md-2 pr-md-2 pl-xl-2 pr-xl-2">
     <h1 data-toc-skip>{{ page.title }}</h1>
 
-    <div class="post-meta text-muted font-weight-light d-flex flex-wrap">
+    <div class="post-meta text-muted d-flex flex-wrap">
       {% assign DATE_FORMAT = "%b %-d, %Y" %}
       <span>
         <i class="far fa-calendar-alt fa-fw"></i>
@@ -50,7 +50,7 @@ layout: default
       <div class="mb-2 mr-5">
         <i class="far fa-folder-open fa-fw mr-1"></i>
         {%- for category in page.categories -%}
-        <a class="post-category font-weight-light" href='/categories/{{ category | downcase }}/'>{{ category }}</a>
+        <a class="post-category" href='/categories/{{ category | downcase }}/'>{{ category }}</a>
         {%- if forloop.last != true -%}&nbsp;&sol;&nbsp;{%- endif -%}
         {%- endfor -%}
       </div>
@@ -62,7 +62,7 @@ layout: default
         <i class="fas fa-tags fa-fw"></i>
         {% for tag in page.tags %}
         <a href="/tags/{{tag | replace:' ' , '-' }}/"
-          class="post-tag font-weight-light no-text-decoration" >
+          class="post-tag no-text-decoration" >
           {{ tag }}
         </a>
         {% endfor %}

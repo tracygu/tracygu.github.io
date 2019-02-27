@@ -36,7 +36,7 @@
       {% assign count = 0 %}
       {% assign trends = temp | split: " " | sort | reverse %}
 
-      <div class="font-weight-light">
+      <div>
       {% for trend in trends %}
         {% assign count = count | plus: 1 %}
         {% assign detail = trend | split: "#" %}

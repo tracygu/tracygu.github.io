@@ -20,7 +20,7 @@ sitemap:
 {% for tuple_tag in sort_tuple_tags %}
   {% assign tag = tuple_tag | first %}
   {% assign post_size  = tuple_tag | last | size %}
-  <div class="font-weight-light">
+  <div>
     <a class="tag" href="/tags/{{tag | downcase | replace:' ' , '-'}}/">{{ tag }}<span class="text-muted">{{ post_size }}</span></a>
   </div>
 {% endfor %}

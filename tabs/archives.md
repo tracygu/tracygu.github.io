@@ -19,7 +19,7 @@ breadcrumb:
   {% endif %}
     <li>
       <div>
-        <span class="date small font-weight-light">{{ post.date | date: "%b %d" }}</span>
+        <span class="date small text-muted">{{ post.date | date: "%b %d" }}</span>
         <a href="{{ post.url }}">{{ post.title }}</a>
       </div>
     </li>

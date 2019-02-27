@@ -15,6 +15,7 @@ body {
   background: #fafafa;
   color: #212121;
   -webkit-font-smoothing: antialiased;
+  font-family: "Source Sans Pro", sans-serif;
 }
 
 /*--- sidebar layout ---*/
@@ -42,7 +43,6 @@ body {
 #sidebar .nav-link {
   border-radius: 0;
   font-weight: 700;
-  font-size: 1rem;
   text-align: center;
 }
 
@@ -106,16 +106,15 @@ body {
 #site-title {
   font-weight: 700;
   font-size: 1.5rem;
-  // font-family: Lato, sans-serif;
   word-spacing: .5rem;
   padding: 2rem 0 .8rem;
 }
 
 #site-slogan {
-  font-size: .9rem;
-  font-family: Lato, sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
   text-align: center;
-  color: #656262;
+  color: rgb(113, 110, 109);;
   padding-bottom: 2rem;
   padding-left: 1.5rem;
   padding-right: 1.5rem;
@@ -295,7 +294,6 @@ footer {
   height: 8rem; /* see the height of #main-wrap */
   background: #686868;
   font-size: 0.8rem;
-  font-weight: 100;
   color: #dddddd;
 }
 
@@ -321,16 +319,17 @@ footer .license a {
 }
 
 .copyright>p>span {
-  line-height: 1.3rem;
+  line-height: 1.5rem;
 }
 
 .copyright-owner {
   margin-left: .2rem;
-  font-weight: 500;
+  font-weight: 600;
+  color: rgb(208, 204, 204);
 }
 
 .license>a{
-  font-size: 1rem;
+  font-size: .8rem;
 }
 
 /*--- Panels ---*/
@@ -414,10 +413,6 @@ h1>a, p>a, span>a,
 .post-content a,
 .post-tail a {
   color: #2a408e;
-}
-
-#main-wrap {
-  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Microsoft YaHei", "Source Han Sans SC", "Noto Sans CJK SC", "WenQuanYi Micro Hei", sans-serif;
 }
 
 #post-wrap {
@@ -561,7 +556,6 @@ footer a:hover {
 
 .post-preview>h1 {
   font-size: 1.4rem;
-  font-weight: 500;
 }
 
 .post-preview .post-content {
@@ -627,6 +621,10 @@ footer a:hover {
 
 /*--- post ---*/
 
+.post i.far, .post i.fas { // fontawesome icons
+  font-size: 86%;
+}
+
 .post-meta {
   font-size: 0.8rem;
 }
@@ -659,10 +657,6 @@ footer a:hover {
   margin-top: 5rem;
   border-bottom: 2px solid #f2f2f2;
   font-size: 0.8rem;
-}
-
-.post-tail i {
-  font-size: 86%;
 }
 
 .post-category {

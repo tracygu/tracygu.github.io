@@ -233,7 +233,9 @@ body {
 #topbar-title {
   display: none;
   font-size: 1.2rem;
-  font-weight: 500;
+  font-weight: 600;
+  font-family: sans-serif;
+  color: rgb(78, 78, 78);
   text-align: center;
   width: 70%;
   overflow: hidden;
@@ -1198,10 +1200,6 @@ html, body {
 
   #search-wrap.shown ~ a {
     padding-right: 1rem;
-  }
-
-  #search-wrap i {
-    margin-left: .7rem;
   }
 
   #search-input {

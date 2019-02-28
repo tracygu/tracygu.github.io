@@ -1,4 +1,5 @@
 /*--- root ---*/
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro|Oswald|Lato');
 
 html, body {
   height: 100%;
@@ -365,6 +366,7 @@ footer .license a {
   letter-spacing: -0.02em;
   font-size: 1rem;
   font-weight: 700;
+  font-family: 'Oswald', sans-serif;
 }
 
 .panel-group .post-content {
@@ -740,6 +742,7 @@ a.post-tag:hover {
 #toc-wrap>h3 {
   font-size: 1rem;
   font-weight: 700;
+  font-family: 'Oswald', sans-serif;
   color: gray;
 }
 
@@ -813,11 +816,13 @@ a.post-tag:hover {
   letter-spacing: 0;
   border: 1px solid #c5c6c7 !important;
   box-shadow: 0 0 3px 0 #e9ecef;
+  font-family: 'Lato', sans-serif;
 }
 
 .tag span {
-  font-size: 0.7em;
   margin-left: 0.6em;
+  font-size: 0.7em;
+  font-family: 'Oswald', sans-serif;
 }
 
 
@@ -839,9 +844,9 @@ a.post-tag:hover {
 
 #archives span.lead {
   font-size: 1.5rem;
+  font-family: 'Oswald', sans-serif;
   position: relative;
   left: 5px;
-  // background: antiquewhite;
 }
 
 #archives span.lead:not(:first-child) {

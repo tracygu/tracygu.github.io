@@ -1,5 +1,5 @@
 /*--- root ---*/
-@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro|Oswald|Lato');
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,900|Oswald|Lato');
 
 html, body {
   height: 100%;
@@ -11,7 +11,6 @@ html {
 }
 
 body {
-  font-size: 18px;
   line-height: 1.75rem;
   background: #fafafa;
   color: #212121;
@@ -104,7 +103,7 @@ body {
 }
 
 #site-title {
-  font-weight: 700;
+  font-weight: 900;
   font-size: 1.5rem;
   word-spacing: .5rem;
   padding: 2rem 0 .8rem;
@@ -178,7 +177,7 @@ body {
 }
 
 #topbar i {
-  color: #797878;
+  color: #999;
 }
 
 #breadcrumb {
@@ -596,6 +595,7 @@ footer a:hover {
   padding: 0;
   text-align: center;
   border-radius: 50%;
+  font-family: 'Lato', sans-serif;
 }
 
 .page-item.active .page-link {
@@ -629,7 +629,7 @@ footer a:hover {
 }
 
 .post-meta {
-  font-size: 0.8rem;
+  font-size: 0.85rem;
 }
 
 .post-lastmod {
@@ -659,7 +659,7 @@ footer a:hover {
 .post-tail {
   margin-top: 5rem;
   border-bottom: 2px solid #f2f2f2;
-  font-size: 0.8rem;
+  font-size: 0.85rem;
 }
 
 .post-category {
@@ -1142,11 +1142,6 @@ html, body {
 
 /* Hide SideBar and TOC */
 @media all and (max-width: 831px) {
-
-  h1 {
-    font-size: 1.6rem;
-    font-weight: 400;
-  }
 
   div.footnotes>ol>li {
     padding-top: 3.5rem;

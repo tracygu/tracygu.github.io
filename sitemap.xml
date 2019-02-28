@@ -24,7 +24,13 @@ sitemap:
     </url>
     {% endunless %}
   {% endfor %}
+
   {% for page in site.pages %}
+
+    {% if site.blocklist contains page.url %}
+      {% continue %}
+    {% endif %}
+
     {% unless page.sitemap.exclude == "yes" %}
     <url>
       <loc>{{ site.data.meta.url }}{{ page.url | remove: "index.html" }}</loc>
@@ -35,11 +41,13 @@ sitemap:
       {% else %}
         <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
       {% endif %}
+
       {% if page.sitemap.changefreq %}
         <changefreq>{{ page.sitemap.changefreq }}</changefreq>
       {% else %}
         <changefreq>monthly</changefreq>
       {% endif %}
+
       {% if page.sitemap.priority %}
         <priority>{{ page.sitemap.priority }}</priority>
       {% else %}

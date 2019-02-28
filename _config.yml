@@ -81,3 +81,10 @@ exclude:
   - assets/css/src/
   - assets/js/src/
   - assets/js/dist/commons/
+
+blocklist:
+  - /norobots/
+  - /assets/
+  - /tabs/
+  - /categories/
+  - /tags/

@@ -1,4 +1,6 @@
-/* Hide Header on on scroll down */
+/*
+  Hide Header on scroll down
+ */
 $(function() {
 
   var didScroll;
@@ -27,11 +29,17 @@ $(function() {
     if (st > lastScrollTop && st > topbarHeight) {
       // Scroll Down
       $('#topbar').removeClass('topbar-down').addClass('topbar-up');
+
       if ( $('#toc-wrap').length > 0) {
         $('#toc-wrap').removeClass('topbar-down');
       }
+
       if ( $('.panel-group').length > 0) {
         $('.panel-group').removeClass('topbar-down');
+      }
+
+      if ($('#search-input').is(':focus')) {
+        $('#search-input').blur(); // remove focus
       }
 
     } else {

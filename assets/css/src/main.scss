@@ -51,11 +51,51 @@ body {
   font-size: 1.2rem;
 }
 
-#sidebar .nav-link.active {
+#sidebar li.active>a.nav-link {
   background: rgba(0, 0, 0, 0.15);
-  border-right: 4px solid #dae0e5;
-  padding-left: 4px;
   color: #c1c3c5;
+}
+
+#sidebar ul {
+  height: 18rem;
+}
+
+.nav-hover {
+  background: #dae0e5;
+  display: block;
+  position: relative;
+  top: -83.7%;
+  left: 98%;
+  width: 4px;
+  height: 10%;
+  -webkit-transition: top 0.5s ease;
+  -moz-transition: top 0.5s ease;
+  transition: top 0.5s ease;
+}
+
+#sidebar ul>li.active:nth-child(1) ~ span.nav-hover,
+#sidebar ul>li.nav-item:nth-child(1):hover ~ span.nav-hover {
+  top: -83.7%;
+}
+
+#sidebar ul>li.active:nth-child(2) ~ span.nav-hover,
+#sidebar ul>li.nav-item:nth-child(2):hover ~ span.nav-hover {
+  top: -66.3%;
+}
+
+#sidebar ul>li.active:nth-child(3) ~ span.nav-hover,
+#sidebar ul>li.nav-item:nth-child(3):hover ~ span.nav-hover {
+  top: -48.6%;
+}
+
+#sidebar ul>li.active:nth-child(4) ~ span.nav-hover,
+#sidebar ul>li.nav-item:nth-child(4):hover ~ span.nav-hover {
+  top: -31.3%;
+}
+
+#sidebar ul>li.active:nth-child(5) ~ span.nav-hover,
+#sidebar ul>li.nav-item:nth-child(5):hover ~ span.nav-hover {
+  top: -13.9%;
 }
 
 .sidebar-expand {
@@ -74,11 +114,6 @@ body {
 
 .nav-link {
   color: #656262;
-}
-
-.nav-link>i {
-  margin: 0 1rem;
-  font-size: 1.02rem;
 }
 
 .nav-item a.nav-link {
@@ -1165,6 +1200,12 @@ html, body {
   #sidebar {
     transform: translateX(-260px); /* hide */
     -webkit-transform: translateX(-260px);
+  }
+
+  #sidebar .nav-hover {
+    -webkit-transition: none;
+    -moz-transition: none;
+    transition: none;
   }
 
   #logo {

@@ -13,7 +13,6 @@
   {% assign page_urls = page.url | split: "/" %}
 
   {% for item in site.data.settings.tabs %}
-
     {% assign ref = "/" %}
     {% if item.path %}
       {% assign ref = ref | append: item.path | append: "/" %}
@@ -28,13 +27,11 @@
       {% assign is_home_scope = true %}
     {% endif %}
 
-    <li class="nav-item">
-    {% if item.url == page_urls.last or item.name.en == "Home" and is_home_scope %}
-      <a class="nav-link active" href="{{ ref }}">
-    {%- else -%}
+    <li class="nav-item
+      {% if item.url == page_urls.last or item.name.en == "Home" and is_home_scope %}
+      active
+      {%- endif -%}">
       <a class="nav-link" href="{{ ref }}">
-    {%- endif -%}
-
       {% comment %}<i class="{{ item.icon }}"></i>{% endcomment %}
       {%- if site.data.settings.lang == 'zh' -%}
         {{ item.name.zh }}
@@ -44,6 +41,8 @@
       </a>
     </li> <!-- .nav-item -->
   {% endfor %}
+    <!-- hover status -->
+    <span class="nav-hover"></span>
 
   </ul> <!-- .nav-pills -->
 

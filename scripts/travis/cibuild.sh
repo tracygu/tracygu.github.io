@@ -62,8 +62,6 @@ combine() {
 
 build() {
   cd ${POST_CACHE}
-
-  echo "[INFO] Current date: $(date)"
   python ./scripts/tools/pages_generator.py
 
   # build Jekyll ouput to directory ./_site

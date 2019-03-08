@@ -2,12 +2,13 @@
 layout: default
 ---
 
+{% assign DATE_FORMAT = "%b %-d, %Y" %}
+
 <div id="post-wrap" class="col-12 col-md-12 col-lg-11 col-xl-9 mb-3 pl-md-3 pr-md-3 pl-xl-4 pr-xl-0">
   <div class="post pl-md-2 pr-md-2 pl-xl-2 pr-xl-2">
     <h1 data-toc-skip>{{ page.title }}</h1>
 
     <div class="post-meta text-muted d-flex flex-wrap">
-      {% assign DATE_FORMAT = "%b %-d, %Y" %}
       <span>
         <i class="far fa-calendar-alt fa-fw"></i>
         {% assign post_date = page.date | date: DATE_FORMAT %}

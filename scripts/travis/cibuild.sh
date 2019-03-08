@@ -63,7 +63,6 @@ combine() {
 build() {
   cd ${POST_CACHE}
 
-  export TZ='Asia/Shanghai' # the lastmod detection needs this
   echo "[INFO] Current date: $(date)"
   python ./scripts/tools/pages_generator.py
 

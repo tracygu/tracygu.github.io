@@ -60,6 +60,8 @@ defaults:
 feed:
   path: rss-feed.xml
 
+timezone: Asia/Shanghai
+
 sass:
   sass_dir: /assets/css
   style:  compressed

@@ -311,8 +311,11 @@ body {
 }
 
 #main>div.row>div {
-  min-height: calc(100vh - 3rem - 8rem); /* 3rem for topbar, 8rem for footer */
   margin-top: 3rem; /* same as the height of topbar */
+}
+
+#main>div.row>div:first-child {
+  min-height: calc(100vh - 3rem - 8rem); /* 3rem for topbar, 8rem for footer */
 }
 
 #topbar.row,
@@ -450,14 +453,11 @@ h1>a, p>a, span>a,
   color: #2a408e;
 }
 
-#post-wrap {
-  padding-right: 1rem!important;
-}
-
 #post-wrap .post-content a {
   border-bottom: 1px dotted #c2c6cc;
 }
 
+.page-item a:hover,
 #post-wrap .post-content a:hover {
   border-bottom: none!important;
 }
@@ -554,10 +554,8 @@ table th, table td {
 
 }
 
-/*--- End of Markdown table. ---*/
-
-.post>h1 {
-  margin-top: 3.5rem;
+.post h1 {
+  margin-top: 3rem;
   margin-bottom: 1.5rem;
 }
 
@@ -572,11 +570,13 @@ footer a:hover {
   border-bottom: 1px dotted #d2603a;
 }
 
-#page h1 {
-  margin-top: 3rem;
-}
 
 /*--- Home page ---*/
+
+#post-list {
+  margin-top: 1rem;
+  padding-right: .5rem;
+}
 
 .pagination {
   font-size: 1rem;
@@ -591,6 +591,7 @@ footer a:hover {
 
 .post-preview>h1 {
   font-size: 1.4rem;
+  margin: 0;
 }
 
 .post-preview i.far {
@@ -604,13 +605,6 @@ footer a:hover {
   color: dimgray;
 }
 
-.post-content {
-  margin-top: 3rem;
-  line-height: 1.8;
-  font-size: 1rem;
-  /*letter-spacing: 0.05em;*/
-}
-
 /* Make preview shorter in Home page*/
 .post-preview .post-content>p {
   overflow: hidden;
@@ -619,7 +613,6 @@ footer a:hover {
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
 }
-
 
 .page-item .page-link {
   color: #555555;
@@ -679,6 +672,13 @@ footer a:hover {
 .post-lastmod span {
   background: white;
   padding: 1em;
+}
+
+.post-content {
+  line-height: 1.8;
+  font-size: 1rem;
+  margin-top: 3rem;
+  /*letter-spacing: 0.05em;*/
 }
 
 /* meta icons of posts */
@@ -1085,10 +1085,6 @@ html, body {
     margin-top: 2.2rem;
   }
 
-  .post-content {
-    margin-top: 2.5rem;
-  }
-
   #post-list .post-meta>span i:not(:first-child) {
     margin-left: 1rem;
   }
@@ -1103,15 +1099,10 @@ html, body {
 
   .post .post-meta>span:first-child {
     margin-right: 0;
-    min-width: 100%;
   }
 
   .post-content {
     font-size: 1.08rem;
-  }
-
-  #post-list {
-    padding-top: 0;
   }
 
   #archives {
@@ -1140,7 +1131,7 @@ html, body {
     height: 14rem;
   }
 
-  #main>div.row>div {
+  #main>div.row>div:first-child {
     min-height: calc(100vh - 3rem - 14rem);
   }
 
@@ -1364,6 +1355,14 @@ html, body {
 
 @media all and (min-width: 1200px) {
 
+  #main>div.row .col-xl-8 {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 75%;
+    flex: 0 0 75%;
+    max-width: 75%;
+    padding-left: 3.5rem;
+  }
+
   #back-to-top {
     bottom: 9rem;
     right: 4.3rem;
@@ -1383,10 +1382,10 @@ html, body {
 
 @media all and (min-width: 1441px) {
   #topbar-main {
-    max-width: 70%;
+    max-width: 73%;
   }
 
-  #main-wrap .col-xl-9 {
+  #main>div.row .col-xl-8 {
     max-width: 60%;
   }
 

@@ -54,7 +54,7 @@ defaults:
     scope:
       path: "tabs"
     values:
-      compact_title: true
+      is_tab: true
 
 # RSS 2.0 can be used instead of Atom by uncommenting following two lines
 feed:

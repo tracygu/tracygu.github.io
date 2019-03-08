@@ -2,30 +2,32 @@
 layout: default
 ---
 
-<div class="col-12 col-lg-11 col-xl-9 pl-0 pl-md-4 pr-0 pr-md-4">
-  <div id="page" class="post pb-5 pl-3 pr-3 pl-md-0 pr-md-0 pl-xl-2">
-    {% case site.data.settings.lang %}
-    {% when 'en' %}
-      {% if page.title.en %}
-        {% unless page.location %}
-        <h1 class="pl-md-3 pr-md-3 pl-lg-0 pr-lg-0 {% if page.compact_title %}hide-title{% endif %}">{{ page.title.en }}</h1>
-        {% endunless %}
-      {% endif %}
-    {% when 'zh' %}
-      {% if page.title.zh %}
-        {% unless page.title.zh == "首页"  %}
-      <h1 class="pl-md-3 pr-md-3 pl-lg-0 pr-lg-0">{{ page.title.zh }}</h1>
-        {% endunless %}
-      {% endif %}
-    {% else %}
-      <h1 class="pl-md-3 pr-md-3 pl-lg-0 pr-lg-0">Unknown lang setting: '{{ site.data.settings.lang }}'!</h1>
-    {% endcase %}
+<div class="col-12 col-lg-11 col-xl-8 pb-3">
+  <div id="page" class="post pb-5 pl-sm-2 pr-sm-2 pl-xl-3">
+    {% if page.is_tab %}
+      {% case site.data.settings.lang %}
+        {% when 'en' %}
+          {% if page.title.en %}
+            {% assign title = page.title.en %}
+          {% endif %}
+        {% when 'zh' %}
+          {% if page.title.zh %}
+            {% assign title = page.title.zh %}
+          {% endif %}
+        {% else %}
+          {% assign title = page.title %}
+      {% endcase %}
 
-    <div class="post-content mt-5">
+    <h1 class="hide-title">{{ title }}</h1>
+    <div class="post-content">
       {{ content }}
     </div>
 
-  </div> <!-- end .post -->
+    {% else %}
+      {{ content }}
+    {% endif %}
+
+  </div> <!-- #page -->
 </div><!-- end .col-12 -->
 
 <div id="panel-wrap" class="col-xl-3 pl-2">

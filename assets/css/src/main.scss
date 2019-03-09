@@ -186,7 +186,6 @@ body {
   height: 100%;
   width: calc(100% - 260px);
   overflow: auto;
-  padding-bottom: 6rem;
 }
 
 #search-result-wrap>div.row>div {
@@ -323,7 +322,6 @@ body {
   margin-left: 260px;
   transition: transform 0.4s ease;
   -webkit-transition: transform 0.4s ease;
-  background: #fafafa;
 }
 
 #main>div.row>div {

@@ -120,41 +120,64 @@ body {
   padding: 0;
 }
 
-#logo {
+#logo-wrap {
   padding-top: 2rem;
-  padding-bottom: 0;
-  margin-right: 0; /* override BS4 */
-  color: #b6b6b6;
-  font-size: 1.5rem;
+  padding-bottom: 1.5rem;
 }
 
-#logo img {
+#logo {
   width: 6rem;
   height: 6rem;
   border-radius: 50%;
-  margin-right: 0.2em;
-  border: 2px solid;
+  border: 2px solid #b6b6b6;
+  overflow: hidden;
+  transform: translateZ(0); /* fixed the zoom in Safari */
+  -webkit-transition: border-color 0.35s ease-in-out;
+  -moz-transition: border-color 0.35s ease-in-out;
+  transition: border-color 0.35s ease-in-out;
 }
 
-#site-title {
+#logo:hover {
+  border-color: #fff;
+}
+
+#logo a {
+  width: 100%;
+  height: 100%;
+  display: block;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: url(/assets/img/site-logo.jpg);
+  -webkit-transition: all .5s !important;
+  -moz-transition: all .5s !important;
+  transition: all .5s !important;
+}
+
+#logo a:hover {
+  -ms-transform: scale(1.2);
+  -moz-transform: scale(1.2);
+  -webkit-transform: scale(1.2);
+  transform: scale(1.2);
+}
+
+#site-title a {
+  color: #b6b6b6;
   font-weight: 900;
   font-size: 1.5rem;
   word-spacing: .5rem;
-  padding: 2rem 0 .8rem;
+}
+
+#site-title a:hover {
+  color: #fff;
+  text-decoration: none;
 }
 
 #site-slogan {
   font-size: 1rem;
   text-align: center;
   color: rgb(113, 110, 109);;
-  padding-bottom: 2rem;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
   line-height: 1.2rem;
-}
-
-#logo:hover {
-  color: #fff;
+  padding: 1rem 1.5rem 2rem 1.5rem;
 }
 
 #search-result-wrap {
@@ -1067,10 +1090,6 @@ html, body {
 
 @media all and (max-width: 576px) {
 
-  #logo {
-    margin-bottom: 0;
-  }
-
   #site-title {
     height: 4rem;
   }
@@ -1203,10 +1222,6 @@ html, body {
     transition: none;
   }
 
-  #logo {
-    padding-top: 1.8rem;
-  }
-
   #main-wrap {
     margin-left: 0;
   }
@@ -1313,11 +1328,6 @@ html, body {
 
   #sidebar .nav-link {
     font-size: 1.1rem;
-  }
-
-  #logo img {
-    width: 5rem;
-    height: 5rem;
   }
 
   .contact a {

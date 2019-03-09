@@ -106,7 +106,6 @@ body {
 .main-wrap-expand {
   transform: translateX(260px) !important;
 }
-
 #nav-wrap {
   width: 100%;
   flex-grow: 1;
@@ -281,12 +280,6 @@ body {
   /*border-color: transparent;*/
 }
 
-#search-wrap a {
-  color: #2a408e;
-  text-decoration: none;
-  padding: 0 .5rem;
-}
-
 #topbar-title {
   display: none;
   font-size: 1.2rem;
@@ -393,9 +386,6 @@ footer .license a {
   color: rgb(208, 204, 204);
 }
 
-.license>a{
-  font-size: .8rem;
-}
 
 /*--- Panels ---*/
 .panel-group {
@@ -471,7 +461,7 @@ footer .license a {
 /*--- Typography ---*/
 
 #sidebar a,
-#footer a {
+footer a {
   transition: color 0.35s ease-in-out;
 }
 
@@ -676,21 +666,6 @@ footer a:hover {
   font-size: 0.85rem;
 }
 
-.post-lastmod {
-  margin-top: 3.5rem !important;
-  margin-left: 30%;
-  margin-right: 30%;
-  border-bottom: 2px dotted #f2f2f2;
-  text-align: center;
-  line-height: 0.1em;
-  font-size: 70%;
-}
-
-.post-lastmod span {
-  background: white;
-  padding: 1em;
-}
-
 .post-content {
   line-height: 1.8;
   font-size: 1rem;
@@ -762,10 +737,6 @@ a.post-tag:hover {
   border-color: gray;
 }
 
-.post-pager a.btn.disabled:focus {
-  box-shadow: none;
-}
-
 .post img {
   filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.08));
   margin-bottom: 1rem;
@@ -799,11 +770,6 @@ a.post-tag:hover {
 
 #toc li>a {
   padding-top: 0;
-}
-
-#toc ul:not(:first-child)>li>a {
-  line-height: 1.2rem;
-  padding-bottom: .5rem;
 }
 
 /* sharing */
@@ -1187,10 +1153,6 @@ html, body {
     text-align: left;
   }
 
-  #search-wrap a:last-child {
-    display: none;
-  }
-
 }
 
 /* iPad 9.7" horizontal */
@@ -1276,30 +1238,12 @@ html, body {
     letter-spacing: 0;
   }
 
-  .post-lastmod {
-    margin-left: 15%;
-    margin-right: 15%;
-  }
-
   #tags {
     -webkit-box-pack: center!important;
     -ms-flex-pack: center!important;
     justify-content: center!important;
   }
 
-  footer>span {
-    padding: 0 2rem;
-    line-height: 1.2rem;
-  }
-
-}
-
-@media all and (min-width: 768px) and (max-width: 1024px) {
-  .col-md-10 {
-    -ms-flex: 0 0 90%;
-    flex: 0 0 90%;
-    max-width: 90%;
-  }
 }
 
 /* Compact icons in sidebar & TOC hidden */

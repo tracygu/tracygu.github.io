@@ -49,7 +49,7 @@ combine() {
     rm -rf ${TEMPLATE[${i}]}
   done
 
-  git clone --depth=50 ${POST_REPOS} ${POST_CACHE}
+  git clone ${POST_REPOS} ${POST_CACHE}
   cp -a ./* ${POST_CACHE}
   echo "[INFO] Combined posts."
 

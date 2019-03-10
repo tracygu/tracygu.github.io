@@ -62,8 +62,8 @@ body {
 
 .nav-hover {
   background: #dae0e5;
-  display: block;
   position: relative;
+  display: none;
   top: -83.7%;
   left: 98%;
   width: 4px;
@@ -73,29 +73,34 @@ body {
   transition: top 0.5s ease;
 }
 
-#sidebar ul>li.active:nth-child(1) ~ span.nav-hover,
-#sidebar ul>li.nav-item:nth-child(1):hover ~ span.nav-hover {
+#sidebar ul>li.active:nth-child(1) ~ .nav-hover,
+#sidebar ul>li.nav-item:nth-child(1):hover ~ .nav-hover {
   top: -83.7%;
+  display: block;
 }
 
-#sidebar ul>li.active:nth-child(2) ~ span.nav-hover,
-#sidebar ul>li.nav-item:nth-child(2):hover ~ span.nav-hover {
+#sidebar ul>li.active:nth-child(2) ~ .nav-hover,
+#sidebar ul>li.nav-item:nth-child(2):hover ~ .nav-hover {
   top: -66.3%;
+  display: block;
 }
 
-#sidebar ul>li.active:nth-child(3) ~ span.nav-hover,
-#sidebar ul>li.nav-item:nth-child(3):hover ~ span.nav-hover {
+#sidebar ul>li.active:nth-child(3) ~ .nav-hover,
+#sidebar ul>li.nav-item:nth-child(3):hover ~ .nav-hover {
   top: -48.6%;
+  display: block;
 }
 
-#sidebar ul>li.active:nth-child(4) ~ span.nav-hover,
-#sidebar ul>li.nav-item:nth-child(4):hover ~ span.nav-hover {
+#sidebar ul>li.active:nth-child(4) ~ .nav-hover,
+#sidebar ul>li.nav-item:nth-child(4):hover ~ .nav-hover {
   top: -31.3%;
+  display: block;
 }
 
-#sidebar ul>li.active:nth-child(5) ~ span.nav-hover,
-#sidebar ul>li.nav-item:nth-child(5):hover ~ span.nav-hover {
+#sidebar ul>li.active:nth-child(5) ~ .nav-hover,
+#sidebar ul>li.nav-item:nth-child(5):hover ~ .nav-hover {
   top: -13.9%;
+  display: block;
 }
 
 .sidebar-expand {

@@ -35,7 +35,6 @@ body {
 }
 
 #sidebar .nav-item {
-  border-right: 1px solid #000;
   padding: .7rem 0;
 }
 
@@ -1058,10 +1057,6 @@ html, body {
 /*--- Responsive Design ---*/
 
 @media all and (max-width: 576px) {
-
-  #site-title {
-    height: 4rem;
-  }
 
   #main>div.row>div:first-child {
     min-height: calc(100vh - 3rem - 10rem); /* topbar is 3rem and footer is 10rem */

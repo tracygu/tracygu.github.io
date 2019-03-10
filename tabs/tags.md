@@ -3,10 +3,6 @@ layout: page
 title:
   zh: 标签
   en: Tags
-breadcrumb:
-  -
-    label: Home
-    url: /
 sitemap:
   priority: .5
 ---

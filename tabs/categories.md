@@ -3,10 +3,6 @@ layout: page
 title:
   zh: 分类
   en: Categories
-breadcrumb:
-  -
-    label: Home
-    url: /
 ---
 
 {% assign sort_categories = site.categories | sort %}

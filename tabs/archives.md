@@ -3,10 +3,6 @@ layout: page
 title:
   zh: 归档
   en: Archives
-breadcrumb:
-  -
-    label: Home
-    url: /
 ---
 
 <div id="archives" class="pl-xl-2">

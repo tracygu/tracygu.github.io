@@ -54,7 +54,7 @@ defaults:
     scope:
       path: tabs
     values:
-      is_tab: true
+      dynamic_title: true # hide title in mobile screens.
       breadcrumb:
         -
           label: Home

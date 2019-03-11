@@ -14,7 +14,7 @@
     {% assign sorted_posts = posts | split: "|" | sort | reverse %}
     {% for post in sorted_posts %}
       {% assign meta = post | split: "#" %}
-      <li type="none"><a href="{{ meta[2] }}">{{ meta[1] }}</a></li>
+      <li><a href="{{ meta[2] }}">{{ meta[1] }}</a></li>
       {% assign sum = sum | plus: 1 %}
       {% if sum >= MAX_SIZE %}
         {% break %}

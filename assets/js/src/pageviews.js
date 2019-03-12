@@ -22,13 +22,13 @@ function countPV(path, rows) {
   var fileName = path.replace(/\/posts\//g, '').replace(/\//g, '.html'); /* e.g. post-title.html */
   var count = 0;
 
-  var _2_gen_url = path.replace(/posts\//g, ''); /* permalink: "/post-title/" */
+  var _v2_url = path.replace(/posts\//g, ''); /* the v2.0+ blog permalink: "/post-title/" */
 
   for (var i = 0; i < rows.length; ++i) {
     var gaPath = rows[i][0];
     if (gaPath == path
-        || gaPath == _2_gen_url
-        || gaPath.concat('/') == _2_gen_url
+        || gaPath == _v2_url
+        || gaPath.concat('/') == _v2_url
         || gaPath.slice(gaPath.lastIndexOf('/') + 1) === fileName) {// old permalink record
       count += parseInt(rows[i][1]);
     }
@@ -70,9 +70,8 @@ function displayPageviews(rows, hasInit) {
 }
 
 $(function() {
+  // load pageview if this page has .pageviews
   if ($('.pageviews').length > 0) {
-    // load pageview if this page has .pageviews
-
     var hasInit = false;
 
     // Get data from daily cache.
@@ -81,18 +80,23 @@ $(function() {
       hasInit = true;
     });
 
-    $.ajax({
-      url: 'https://your-gae.appspot.com/query?id=the_secrt_id',
-      dataType: 'jsonp', // for cross-origin access
+    $.getJSON('/norobots/data.json', function(data){
+      $.ajax({
+        url: data.proxyUrl,
+        dataType: 'jsonp',
+        timeout: 2000,
+        success: function(data) {
+          displayPageviews(data.rows, hasInit);
+        },
+        error: function(xhr, status, err) {
+          console.log("Failed to load pageviews from proxy server.");
+          xhr.abort();
+          return;
+        }
+      });
 
-      timeout: 1000 * 3,
-
-      success: function(data) {
-        displayPageviews(data.rows, hasInit);
-      },
-      error: function() {
-        console.log('Failed to get pageviews from GAE');
-      }
     });
-  }
+
+  }// endif
+
 });

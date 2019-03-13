@@ -13,11 +13,12 @@ layout: default
         <span>
           <i class="far fa-calendar-alt fa-fw"></i>
           {% assign post_date = page.date | date: DATE_FORMAT %}
-          Posted on: {{ post_date }}
+          Posted {{ post_date }}
           <!-- lastmod -->
           {% assign last_mod = page.last_modified_at | date: DATE_FORMAT %}
           {% if last_mod != post_date %}
-          · Updated: {{ last_mod }}
+          ·
+          Updated {{ last_mod }}
           {% endif %}
         </span>
 

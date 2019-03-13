@@ -428,14 +428,32 @@ footer .license a {
   font-size: .9rem;
 }
 
-.panel-group li {
-  margin-bottom: .3rem;
-  list-style: none;
-}
-
 #panel-tags a.post-tag {
   line-height: 2rem;
   font-size: 90%;
+}
+
+#panel-update ul>li {
+  height: 1.8rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  list-style: none;
+}
+
+#panel-update ul>li::before {
+  background: #999;
+  border: 1px solid #ced4da;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  display: inline-block;
+  content: "";
+  position: relative;
+  bottom: .2rem;
+  margin-right: 0.2rem;
 }
 
 /*--- button back-to-top ---*/
@@ -685,7 +703,7 @@ footer a:hover {
 }
 
 .post-tail {
-  margin-top: 5rem;
+  margin-top: 4rem;
   border-bottom: 2px solid #f2f2f2;
   font-size: 0.85rem;
 }
@@ -980,6 +998,19 @@ a.post-tag:hover {
   padding: .6rem 0;
 }
 
+#page-category ul>li::before,
+#page-tag ul>li::before {
+    background: #999;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    display: block;
+    content: "";
+    position: relative;
+    top: .6rem;
+    margin-right: .5rem;
+}
+
 #page-tag ul>li>a,
 #page-category ul>li>a, {
   font-size: 1.1rem;
@@ -994,12 +1025,13 @@ a.post-tag:hover {
 }
 
 #page-category a:hover,
-#page-tag a:hover {
+#page-tag a:hover,
+#panel-update a:hover {
   margin-bottom: -1px;  // Avoid jumping
 }
 
 .dash {
-  margin: 0 .5rem .5rem .5rem;
+  margin: 0 .5rem .6rem .5rem;
   border-bottom: 2px dotted silver;
 }
 
@@ -1080,10 +1112,6 @@ html, body {
     overflow: hidden;
     text-overflow: ellipsis;
     max-width: 40%;
-  }
-
-  .post .post-meta>span:first-child {
-    margin-right: 0;
   }
 
   .post-content {

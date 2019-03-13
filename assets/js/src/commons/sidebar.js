@@ -1,26 +1,21 @@
 /*
-  Exapand or hide sidebar in small screens.
-*/
+ * Exapand or hide SideBar in small screens.
+ */
 $(function(){
 
   var isExpanded = false;
 
   $("#sidebar-trigger").click(function() {
-
     if (isExpanded == false) {
       $("#sidebar").addClass("sidebar-expand");
-      $("#main-wrap").addClass("main-wrap-expand");
       openModal();
-
       isExpanded = true;
     }
   });
 
   $("#mask").click(function() {
     $("#sidebar").removeClass("sidebar-expand");
-    $("#main-wrap").removeClass("main-wrap-expand");
     closeModal();
-
     isExpanded = false;
   });
 
@@ -47,13 +42,11 @@ $(function(){
   })('no-scroll');
 
   function openModal() {
-    $("#mask").show();
     ModalHelper.afterOpen();
   }
 
   function closeModal() {
     ModalHelper.beforeClose();
-    $('#mask').hide();
   }
 
 });

@@ -103,14 +103,6 @@ body {
   display: block;
 }
 
-.sidebar-expand {
-  transform: translateX(0) !important;
-  box-shadow: 4px 0 8px 0 rgba(0, 0, 0, 0.2), 6px 0 20px 0 rgba(0, 0, 0, 0.19) !important;
-}
-
-.main-wrap-expand {
-  transform: translateX(260px) !important;
-}
 #nav-wrap {
   width: 100%;
   flex-grow: 1;
@@ -182,6 +174,10 @@ body {
   padding: .6rem 1.5rem 2rem 1.5rem;
 }
 
+.sidebar-expand {
+  box-shadow: 4px 0 8px 0 rgba(0, 0, 0, 0.2), 6px 0 20px 0 rgba(0, 0, 0, 0.19) !important;
+}
+
 #search-result-wrap {
   display: none;
   position: fixed;
@@ -229,7 +225,7 @@ body {
   left: 260px; /* same as sidebar width */
   right: 0;
   transition: top 0.2s ease-in-out;
-  z-index: 2;
+  z-index: 1;
   border-bottom: 1px solid rgba(0, 0, 0, 0.07);
   box-shadow: 0 3px 8px 0 rgba(0,0,0,0.05);
 }
@@ -312,6 +308,11 @@ body {
   width: 100%;
   background: #c1c3c5;
   opacity: 0.5;
+  z-index: 1;
+}
+
+.sidebar-expand ~ #mask {
+  display: block!important;
 }
 
 /*--- main wrap ---*/
@@ -1004,7 +1005,7 @@ a.post-tag:hover {
 }
 
 
-/* --- Effects classes ---*/
+/* --- Effects classes --- */
 
 .input-focus {
 /*  -webkit-overflow-scrolling: touch !important;
@@ -1165,6 +1166,14 @@ html, body {
 
 /* Hide SideBar and TOC */
 @media all and (max-width: 831px) {
+
+  .sidebar-expand {
+    transform: translateX(0) !important;
+  }
+
+  .sidebar-expand ~ #main-wrap {
+    transform: translateX(260px) !important;
+  }
 
   div.footnotes>ol>li {
     padding-top: 3.5rem;

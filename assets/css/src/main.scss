@@ -50,12 +50,11 @@ body {
 }
 
 #sidebar .nav-item.active .nav-link {
-  background: rgba(0, 0, 0, 0.15);
   color: #c1c3c5;
 }
 
 #sidebar ul {
-  height: 15rem;
+  height: 16.5rem;
   display: -webkit-box;
   display: -ms-flexbox;
 }
@@ -67,7 +66,7 @@ body {
   top: 0;
   left: 98%;
   width: 4px;
-  height: 15%;
+  height: 10%;
   -webkit-transition: top 0.5s ease;
   -moz-transition: top 0.5s ease;
   transition: top 0.5s ease;
@@ -75,31 +74,31 @@ body {
 
 #sidebar ul>li.active:nth-child(1) ~ .cursor,
 #sidebar ul>li.nav-item:nth-child(1):hover ~ .cursor {
-  top: -97.5%;
+  top: -95%;
   display: block;
 }
 
 #sidebar ul>li.active:nth-child(2) ~ .cursor,
 #sidebar ul>li.nav-item:nth-child(2):hover ~ .cursor {
-  top: -77.5%;
+  top: -75%;
   display: block;
 }
 
 #sidebar ul>li.active:nth-child(3) ~ .cursor,
 #sidebar ul>li.nav-item:nth-child(3):hover ~ .cursor {
-  top: -57.5%;
+  top: -55%;
   display: block;
 }
 
 #sidebar ul>li.active:nth-child(4) ~ .cursor,
 #sidebar ul>li.nav-item:nth-child(4):hover ~ .cursor {
-  top: -37.5%;
+  top: -35%;
   display: block;
 }
 
 #sidebar ul>li.active:nth-child(5) ~ .cursor,
 #sidebar ul>li.nav-item:nth-child(5):hover ~ .cursor {
-  top: -17.5%;
+  top: -15%;
   display: block;
 }
 

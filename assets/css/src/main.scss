@@ -166,7 +166,7 @@ body {
 }
 
 #site-slogan {
-  font-size: 1rem;
+  font-size: 95%;
   text-align: center;
   color: rgb(113, 110, 109);;
   line-height: 1.2rem;
@@ -1302,6 +1302,8 @@ html, body {
 
   #site-slogan {
     font-size: 90%;
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 
   #sidebar .nav-link {

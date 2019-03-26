@@ -66,8 +66,8 @@ layout: default
           {% for tag in page.tags %}
           <a href="/tags/{{tag | replace:' ' , '-' }}/"
             class="post-tag no-text-decoration" >
-            {{ tag }}
-          </a>
+            {{- tag -}}
+          </a>{%- if forloop.last != true -%},{%- endif -%}
           {% endfor %}
         </div>
         {% endif %}

@@ -1327,8 +1327,12 @@ html, body {
 
 }
 
-/* TOC hidden in posts */
+/* Pannel hidden */
 @media all and (max-width: 1200px) {
+  #post-list {
+    padding-right: 0;
+  }
+
   #panel-wrap, #post-panel {
     display: none;
   }

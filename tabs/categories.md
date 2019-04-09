@@ -20,7 +20,7 @@ title:
       {% endif %}
     {% endfor %}
 
-    {% assign sub_categories = sub_categories | split: "|" | uniq %}
+    {% assign sub_categories = sub_categories | split: "|" | uniq | sort %}
     {% assign sub_categories_size = sub_categories | size %}
 
   <div class="card categories">

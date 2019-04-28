@@ -5,4 +5,4 @@ title:
   en: About
 ---
 
-The framework of [Cotes Blog](https://blog.cotes.in).
+The introduction about yourself and the website.

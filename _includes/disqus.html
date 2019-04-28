@@ -18,7 +18,7 @@ $(function() {
     url: "https://{{ site.data.meta.disqus-shortname }}.disqus.com/embed.js",
     dataType: "script",
     cache: true,
-    timeout: 2000,
+    timeout: 3000,
 
     success: function(s) {
       $('head').append(s);

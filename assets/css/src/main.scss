@@ -495,7 +495,6 @@ h1>a, p>a, span>a,
   border-bottom: 1px dotted #c2c6cc;
 }
 
-.page-item a:hover,
 #post-wrap .post-content a:hover {
   border-bottom: none!important;
 }
@@ -675,6 +674,10 @@ footer a:hover {
 
 .page-item:not(:last-child) {
   margin-right: 0.6rem;
+}
+
+.pagination a:hover {
+  border-bottom-style: none;
 }
 
 /*--- post ---*/

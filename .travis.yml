@@ -5,7 +5,7 @@ install:
   - pip install --user ruamel.yaml
   - bundle install --path vendor/bundle
 script:
-  - bash ./scripts/travis/cibuild.sh
+  - bash ./_scripts/travis/cibuild.sh
 branches:
   only: master
 git:

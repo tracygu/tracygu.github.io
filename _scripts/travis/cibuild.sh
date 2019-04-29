@@ -1,11 +1,11 @@
 #!/bin/bash
 
-POST_REPOS=https://${GITHUB_TOKEN}@github.com/cotes2020/blog-posts.git
+POSTS_REPOS=https://${GITHUB_TOKEN}@github.com/cotes2020/blog-posts.git
 META_REPOS=https://${GITHUB_TOKEN}@github.com/cotes2020/blog-meta.git
 
 GH_DEPLOY=https://${GITHUB_TOKEN}@github.com/cotes2020/cotes2020.github.io.git
 
-POST_CACHE=../blog-posts
+POSTS_CACHE=../blog-posts
 META_CACHE=../blog-meta
 DEPLOY_CACHE=../deploy
 
@@ -24,8 +24,8 @@ init() {
     rm -rf _site
   fi
 
-  if [ -d  ${POST_CACHE} ]; then
-    rm -rf ${POST_CACHE}
+  if [ -d  ${POSTS_CACHE} ]; then
+    rm -rf ${POSTS_CACHE}
   fi
 
   if [ -d ${META_CACHE} ]; then
@@ -49,20 +49,20 @@ combine() {
     rm -rf ${TEMPLATE[${i}]}
   done
 
-  git clone ${POST_REPOS} ${POST_CACHE}
-  cp -a ./* ${POST_CACHE}
+  git clone ${POSTS_REPOS} ${POSTS_CACHE}
+  cp -a ./* ${POSTS_CACHE}
   echo "[INFO] Combined posts."
 
   git clone --depth=1 ${META_REPOS} ${META_CACHE}
-  cp -a ${META_CACHE}/* ${POST_CACHE}
+  cp -a ${META_CACHE}/* ${POSTS_CACHE}
   rm -rf ${META_CACHE}
   echo "[INFO] Combined meta-data."
 }
 
 
 build() {
-  cd ${POST_CACHE}
-  python ./scripts/tools/pages_generator.py
+  cd ${POSTS_CACHE}
+  python ./_scripts/tools/pages_generator.py
 
   # build Jekyll ouput to directory ./_site
   JEKYLL_ENV=production bundle exec jekyll build

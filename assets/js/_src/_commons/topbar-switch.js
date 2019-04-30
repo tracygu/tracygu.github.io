@@ -9,7 +9,9 @@ $(function() {
   var topbarHeight = $('#topbar').outerHeight();
 
   $(window).scroll(function(event) {
-    didScroll = true;
+    if ($("#topbar-title").is(":hidden")) {
+      didScroll = true;
+    }
   });
 
   setInterval(function() {

@@ -16,14 +16,21 @@ $(function(){
   var isHome = $("#post-list").length? true : false;
 
   $(window).scroll(function (){
-    if (isHome || $("div.post>h1").is(":hidden")) {
+    if (isHome
+      || $("div.post>h1").is(":hidden") // is tab pages
+      || $("#topbar-title").is(":hidden") // not mobile screens
+      || $("#sidebar.sidebar-expand").length) { // when the sidebar trigger is clicked
       return false;
     }
 
     if ($(this).scrollTop() >= 95) {
-      $("#topbar-title").text(title);
+      if ($("#topbar-title").text() != title) {
+        $("#topbar-title").text(title);
+      }
     } else {
-      $("#topbar-title").text(DEFAULT);
+      if ($("#topbar-title").text() != DEFAULT) {
+        $("#topbar-title").text(DEFAULT);
+      }
     }
 
   })

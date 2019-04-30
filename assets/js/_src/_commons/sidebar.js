@@ -1,5 +1,5 @@
-/*
- * Exapand or hide SideBar in small screens.
+/**
+ * Expand or close the sidebar in mobile screens.
  */
 $(function(){
 

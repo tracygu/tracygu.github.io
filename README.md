@@ -1,4 +1,4 @@
-![](/assets/img/_mockups.png)
+![mockups](https://cotes.gitee.io/blog-pics/framework/mockups.png)
 
 ***
 

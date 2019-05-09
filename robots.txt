@@ -5,7 +5,7 @@ permalink: robots.txt
 
 User-agent: *
 
-Disallow: /assts/
+Disallow: /assets/
 Disallow: /norobots/
 
 Sitemap: {{ site.data.meta.url }}/sitemap.xml

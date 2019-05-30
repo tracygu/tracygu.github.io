@@ -1,7 +1,14 @@
+{% assign DATE_FORMAT = "%b %-d, %Y" %}
+
 <div class="panel-group">
   <div id="panel-update" class="post mb-4"">
     {% capture posts %}
     {% for post in site.posts %}
+      {% assign post_date = post.date | date: DATE_FORMAT %}
+      {% assign post_lastmod = post.last_modified_at | date: DATE_FORMAT %}
+      {% if post_date == post_lastmod %}
+        {% continue %}
+      {% endif%}
       {{ post.last_modified_at }}#{{ post.title }}#{{ post.url }}
       {% if forloop.last == false %}|{% endif %}
     {% endfor %}
@@ -13,8 +20,8 @@
     {% assign sum = 0 %}
     {% assign sorted_posts = posts | split: "|" | sort | reverse %}
     {% for post in sorted_posts %}
-      {% assign meta = post | split: "#" %}
-      <li><a href="{{ meta[2] }}">{{ meta[1] }}</a></li>
+      {% assign title = post | split: "#" %}
+      <li><a href="{{ title[2] }}">{{ title[1] }}</a></li>
       {% assign sum = sum | plus: 1 %}
       {% if sum >= MAX_SIZE %}
         {% break %}

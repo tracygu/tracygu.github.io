@@ -7,7 +7,6 @@ highlighter: rouge
 permalink: /posts/:title/
 plugins:
   - jekyll-paginate
-  - jekyll-sitemap
   - jekyll-feed
   - jekyll-redirect-from
   - jekyll-last-modified-at

@@ -572,17 +572,14 @@ table {
   margin-bottom: 1.5rem;
 }
 
-table, th, td {
-  border: 1px solid gray;
-}
-
 table th {
-  background: #eee;
+  background: #f8f9fa;
 }
 
 table th, table td {
-  padding: 0 .3rem;
-  font-size: 90%;
+  padding: .35rem .8rem;
+  font-size: 95%;
+  border: 1px solid #dbdfe4;
 }
 
 .post h1 {

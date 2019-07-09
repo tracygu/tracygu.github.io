@@ -17,9 +17,14 @@
         {% assign index = index | plus: 1 %}
       {% endfor %}
 
-      {% if site.data.settings.title != page.location %}
-        {% if page.breadcrumb.size > 0%}&rsaquo;{% endif %}
-        {% if page.title.en %}{{ page.title.en }}{% else %}{{ page.title }}{% endif %}
+      {% if page.title.en %}
+        {%if page.title.en != "Home" %}
+          {% if page.breadcrumb.size > 0 %}&rsaquo;{% endif %}
+          {{ page.title.en }}
+        {% endif %}
+      {% else %}
+        &rsaquo;
+        {{ page.title }}
       {% endif %}
 
     </span><!-- endof #breadcrumb -->
@@ -29,8 +34,12 @@
     <div id="topbar-title">
       {% if page.location %}
         {{-page.location-}}
-      {% else %}
-        {{-page.title.en-}}
+      {% elsif page.title.en %}
+        {% if page.title.en == 'Home' %}
+          {{-site.data.settings.title-}}
+        {% else %}
+          {{-page.title.en-}}
+        {% endif %}
       {% endif %}
     </div>
     <i id="search-trigger" class="fas fa-search fa-fw"></i>

@@ -14,7 +14,7 @@ plugins:
 defaults:
   -
     scope:
-      path: '' # An empty string here means all files in the project
+      path: "" # An empty string here means all files in the project
       type: posts
     values:
       layout: post
@@ -25,6 +25,11 @@ defaults:
         -
           label: Posts
           url: /
+  -
+    scope:
+      path: _drafts
+    values:
+      comments: false
   -
     scope:
       path: tags

@@ -141,7 +141,7 @@ def generate_tag_pages(is_verbose):
             html.write("title: {}\n".format(tag.encode('utf-8')))
             html.write("tag: {}\n".format(tag.encode('utf-8')))
             html.write("---")
-            
+
             if is_verbose:
                 print("[INFO] Created page: " + tag_page.lower())
 
@@ -159,7 +159,7 @@ def help():
 def main():
     is_verbose = False
     argv_index = 0
-    
+
     if len(sys.argv) > 1:
         for arg in sys.argv:
             if argv_index > 0:

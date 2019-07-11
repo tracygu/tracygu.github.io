@@ -64,7 +64,7 @@ layout: default
         <div class="mb-2">
           <i class="fas fa-tags fa-fw"></i>
           {% for tag in page.tags %}
-          <a href="/tags/{{tag | replace:' ' , '-' }}/"
+          <a href="/tags/{{ tag | downcase }}/"
             class="post-tag no-text-decoration" >
             {{- tag -}}
           </a>{%- if forloop.last != true -%},{%- endif -%}

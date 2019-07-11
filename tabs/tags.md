@@ -12,12 +12,18 @@ sitemap:
 'site.tags' looks like a Map, e.g. site.tags.MyTag[Post0, Post1, ...]
 {%endcomment%}
 <div id="tags" class="d-flex flex-wrap">
-{% assign sort_tuple_tags = site.tags | sort %}
-{% for tuple_tag in sort_tuple_tags %}
-  {% assign tag = tuple_tag | first %}
-  {% assign post_size  = tuple_tag | last | size %}
+
+{% assign tags = "" | split: "" %}
+{% for t in site.tags %}
+  {% assign tags = tags | push: t[0] %}
+{% endfor %}
+
+{% assign sorted_tags = tags | sort_natural %}
+
+{% for t in sorted_tags %}
   <div>
-    <a class="tag" href="/tags/{{tag | downcase | replace:' ' , '-'}}/">{{ tag }}<span class="text-muted">{{ post_size }}</span></a>
+    <a class="tag" href="/tags/{{ t | downcase }}/">{{ t }}<span class="text-muted">{{ site.tags[t].size }}</span></a>
   </div>
 {% endfor %}
+
 </div>

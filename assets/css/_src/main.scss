@@ -331,7 +331,8 @@ body {
 }
 
 #main>div.row>div:first-child {
-  min-height: calc(100vh - 3rem - 6rem); /* 3rem for topbar, 6rem for footer */
+  margin-bottom: 1rem;
+  min-height: calc(100vh - 3rem - 6rem - 1rem); /* 3rem for topbar, 6rem for footer, 1rem margin */
 }
 
 #topbar.row,
@@ -1094,7 +1095,7 @@ html, body {
 @media all and (max-width: 576px) {
 
   #main>div.row>div:first-child {
-    min-height: calc(100vh - 3rem - 10rem); /* topbar is 3rem and footer is 10rem */
+    min-height: calc(100vh - 3rem - 10rem - 1rem); /* topbar is 3rem and footer is 10rem */
   }
 
   #main-wrap {

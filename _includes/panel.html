@@ -35,7 +35,7 @@
     <div class="post-content d-flex flex-wrap mt-2 pb-1">
       {% capture tags_array %}
         {% for tag in site.tags %}
-          {{ tag[1] | size }}:{{ tag[0] | replace: ' ' , '_' }}
+          {{ tag[1] | size }}:{{ tag[0] | downcase | replace: ' ', '-' }}
         {% endfor %}
       {% endcapture %}
 
@@ -47,8 +47,8 @@
       <!-- <p>tags_array->{{ tags_array }}</p> -->
       {% for trend in trends %}
         {% assign count = count | plus: 1 %}
-        {% assign tag = trend | split: ":" | last | replace: '_' , ' ' %}
-        <a class="post-tag" href="/tags/{{ tag }}/">{{ tag }}</a>
+        {% assign tag = trend | split: ":" | last  %}
+        <a class="post-tag" href="/tags/{{ tag }}/">{{ tag | replace: '-', ' ' }}</a>
         {% if count >= MAX %}
           {% break %}
         {% endif %}

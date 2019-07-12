@@ -32,7 +32,7 @@ title:
       {% else %}
         <i class="far fa-folder fa-fw"></i>
       {% endif %}
-        <a href="/categories/{{ category_name | downcase }}/">{{ category_name }}</a>
+        <a href="/categories/{{ category_name | replace: ' ', '-' | downcase }}/">{{ category_name }}</a>
         <!-- content count -->
         {% assign top_posts_size = site.categories[category_name] | size %}
         <span class="text-muted small font-weight-light pl-2">
@@ -62,7 +62,7 @@ title:
       <ul class="list-group">
         {% for sub_category in sub_categories %}
         <li class="list-group-item">
-          <i class="far fa-folder fa-fw"></i>&nbsp;<a href="/categories/{{ sub_category | downcase }}/">{{ sub_category }}</a>
+          <i class="far fa-folder fa-fw"></i>&nbsp;<a href="/categories/{{ sub_category | replace: ' ', '-' | downcase }}/">{{ sub_category }}</a>
           {% assign posts_size = site.categories[sub_category] | size %}
           <span class="text-muted small font-weight-light pl-2">{{ posts_size }}
             post{% if posts_size > 1 %}s{% endif %}

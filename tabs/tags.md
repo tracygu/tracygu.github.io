@@ -9,10 +9,10 @@ sitemap:
 
 
 {%comment%}
-'site.tags' looks like a Map, e.g. site.tags.MyTag[Post0, Post1, ...]
+  'site.tags' looks like a Map, e.g. site.tags.MyTag.[ Post0, Post1, ... ]
+  Print the {{ site.tags }} will help you to understand it.
 {%endcomment%}
 <div id="tags" class="d-flex flex-wrap">
-
 {% assign tags = "" | split: "" %}
 {% for t in site.tags %}
   {% assign tags = tags | push: t[0] %}
@@ -22,7 +22,7 @@ sitemap:
 
 {% for t in sorted_tags %}
   <div>
-    <a class="tag" href="/tags/{{ t | downcase }}/">{{ t }}<span class="text-muted">{{ site.tags[t].size }}</span></a>
+    <a class="tag" href="/tags/{{ t | downcase | replace: ' ', '-' }}/">{{ t }}<span class="text-muted">{{ site.tags[t].size }}</span></a>
   </div>
 {% endfor %}
 

@@ -89,7 +89,7 @@ def generate_category_pages(is_verbose):
     os.makedirs(path)
 
     for category in categories:
-        new_page = path + '/' + category.lower() + '.html'
+        new_page = path + '/' + category.replace(' ', '-').lower() + '.html'
         with open(new_page, 'w+') as html:
             html.write("---\n")
             html.write("layout: {}\n".format(CATEGORY_LAYOUT))
@@ -98,7 +98,7 @@ def generate_category_pages(is_verbose):
             html.write("---")
 
             if is_verbose:
-                print("[INFO] Created page: " + new_page.lower())
+                print("[INFO] Created page: " + new_page)
 
     print("Succeed! {} category-pages created."
           .format(len(categories)))
@@ -134,7 +134,7 @@ def generate_tag_pages(is_verbose):
     os.makedirs(tag_path)
 
     for tag in all_tags:
-        tag_page = tag_path + '/' + tag.lower() + '.html'
+        tag_page = tag_path + '/' + tag.replace(' ', '-').lower() + '.html'
         with open(tag_page, 'w+') as html:
             html.write("---\n")
             html.write("layout: {}\n".format(TAG_LAYOUT))
@@ -143,7 +143,7 @@ def generate_tag_pages(is_verbose):
             html.write("---")
 
             if is_verbose:
-                print("[INFO] Created page: " + tag_page.lower())
+                print("[INFO] Created page: " + tag_page)
 
     print("Succeed! {} tag-pages created.".format(len(all_tags)))
 

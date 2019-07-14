@@ -480,13 +480,13 @@ footer .license a {
 
 /*--- Typography ---*/
 
-#sidebar a,
-footer a {
+#sidebar a {
   transition: color 0.35s ease-in-out;
 }
 
 h1>a, p>a, span>a,
 .post-content a,
+.post-meta a,
 .post-tail a {
   color: #2a408e;
 }
@@ -590,8 +590,7 @@ table th, table td {
 .post a:hover code,
 footer a:hover {
   color: #d2603a;
-  text-decoration: none;
-  border-bottom: 1px dotted #d2603a;
+  text-decoration: underline;
 }
 
 
@@ -605,6 +604,11 @@ footer a:hover {
 .pagination {
   font-size: 1rem;
   margin-bottom: 2rem!important;
+}
+
+.pagination a:hover {
+  border-bottom-style: none;
+  text-decoration: none;
 }
 
 .post-preview {
@@ -673,10 +677,6 @@ footer a:hover {
   margin-right: 0.6rem;
 }
 
-.pagination a:hover {
-  border-bottom-style: none;
-}
-
 /*--- post ---*/
 
 .post i.far, .post i.fas { // fontawesome icons
@@ -685,6 +685,7 @@ footer a:hover {
 
 .post-meta {
   font-size: 0.85rem;
+  word-spacing: 1px;
 }
 
 .post-content {
@@ -694,13 +695,26 @@ footer a:hover {
   /*letter-spacing: 0.05em;*/
 }
 
-/* meta icons of posts */
-#post-list .post-meta>span i:not(:first-child) {
-  margin-left: 2rem;
+#post-list .post-meta>span i:not(:first-child) { // post-meta icons on HOME
+  margin-left: 1.5rem;
 }
 
-.post .post-meta > span:not(:last-child) {
-  margin-right: 2rem;
+.post .post-meta > div:not(:first-child) {
+  margin-left: .7rem;
+}
+
+.post .post-meta>div:not(:first-child)::before {
+  content: "";
+  position: relative;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  width: .3rem;
+  height: .3rem;
+  right: .2rem;
+  bottom: .15rem;
+  display: inline-block;
+  background-color: #dbdfe4;
 }
 
 .post-tail {
@@ -716,7 +730,7 @@ footer a:hover {
 .post-tag {
   background: rgba(0, 0, 0, 0.075);
   border-radius: .34rem;
-  padding: 0 .25rem .1rem;
+  padding: .1rem .25rem;
   margin: 0 .1rem;
 }
 
@@ -861,6 +875,9 @@ a.post-tag:hover {
   font-family: 'Oswald', sans-serif;
 }
 
+a.tag:hover {
+  text-decoration: none;
+}
 
 /*--- Tab Archives --*/
 
@@ -1115,6 +1132,18 @@ html, body {
 
   .post-content {
     font-size: 1.08rem;
+  }
+
+  .post .post-meta>div:nth-child(2) {
+    margin-right: 1rem;
+  }
+
+  .post .post-meta>div:nth-child(3) {
+    margin-left: 0;
+  }
+
+  .post .post-meta>div:nth-child(3)::before {
+    display: none;
   }
 
   /* table text in small screens */

@@ -1032,12 +1032,14 @@ a.tag:hover {
   font-size: 1.1rem;
 }
 
-#page-tag h1>i {
+#page-tag h1>i { // tag icon
   font-size: 1rem;
+  transform: rotate(90deg);
+  padding-right: 1rem;
 }
 
 #page-category h1>i {
-  font-size: 1.4rem;
+  font-size: 1.25rem;
 }
 
 #page-category a:hover,

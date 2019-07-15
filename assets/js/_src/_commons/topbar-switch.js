@@ -1,5 +1,5 @@
 /*
-  Hide Header on scroll down
+ *  Hide Header on scroll down
  */
 $(function() {
 
@@ -9,7 +9,7 @@ $(function() {
   var topbarHeight = $('#topbar').outerHeight();
 
   $(window).scroll(function(event) {
-    if ($("#topbar-title").is(":hidden")) {
+    if ($("#topbar-title").is(":hidden")) { // Not in small screens
       didScroll = true;
     }
   });

@@ -1,22 +1,21 @@
 /*
-* Replace topbar title while scroll screens.
+*  Topbar title effect in mobile screens.
 */
 $(function(){
 
   var DEFAULT = $("#topbar-title").text().trim();
   var title = $("h1").text().trim();
 
-  if ($("#category-page").length || $("#tag-page").length) {
+  if ($("#page-category").length || $("#page-tag").length) {
     /* The title in Category or Tag page will be '$(title) $(count_of_posts)' */
     if (/\s/.test(title)) {
       title = title.split(' ')[0];
     }
   }
 
-  var isHome = $("#post-list").length? true : false;
-
-  $(window).scroll(function (){
-    if (isHome
+  // Replace topbar title while scroll screens.
+  $(window).scroll(function () {
+    if ($("#post-list").length // in Home page
       || $("div.post>h1").is(":hidden") // is tab pages
       || $("#topbar-title").is(":hidden") // not mobile screens
       || $("#sidebar.sidebar-expand").length) { // when the sidebar trigger is clicked
@@ -32,6 +31,5 @@ $(function(){
         $("#topbar-title").text(DEFAULT);
       }
     }
-
   })
 });

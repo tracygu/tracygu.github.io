@@ -426,7 +426,7 @@ footer .license a {
 
 #panel-tags a.post-tag {
   line-height: 2rem;
-  font-size: 90%;
+  font-size: 0.85rem;
 }
 
 #panel-tags>div.post-content>div {
@@ -486,8 +486,7 @@ footer .license a {
 
 h1>a, p>a, span>a,
 .post-content a,
-.post-meta a,
-.post-tail a {
+.post-meta a {
   color: #2a408e;
 }
 
@@ -593,7 +592,8 @@ table tbody td {
 #breadcrumb a:hover,
 #search-results a:hover,
 .post-preview a:hover,
-.post a:hover,
+.post-meta a:hover,
+.post-content a:hover,
 .post a:hover code,
 footer a:hover {
   color: #d2603a;
@@ -738,22 +738,23 @@ footer a:hover {
 .post-tag {
   background: rgba(0, 0, 0, 0.075);
   border-radius: .34rem;
-  padding: .1rem .25rem;
+  padding: .15rem .4rem;
   margin: 0 .1rem;
-}
-
-.post-tag:hover, .tag:hover {
-  background: rgb(222, 226, 230);
-  transition: background 0.35s ease-in-out;
-}
-
-a.post-tag {
   color: #818182;
   line-height: 1.6rem;
 }
 
-a.post-tag:hover {
+.post-tag:hover,
+.tag:hover {
+  background: rgb(222, 226, 230);
+  transition: background 0.35s ease-in-out;
+
+}
+
+.post-tag:hover {
   border-bottom: none;
+  text-decoration: none;
+  color: #d2603a;
 }
 
 .post-pager {

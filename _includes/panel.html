@@ -30,9 +30,9 @@
     </ul>
   </div><!-- #panel-update -->
 
-  <div id="panel-tags" class="post">
+  <div id="panel-tags">
     <h3 data-toc-skip>Trending Tags</h3>
-    <div class="post-content d-flex flex-wrap mt-2 pb-1">
+    <div class="d-flex flex-wrap mt-2 pb-1 pr-3">
       {% capture tags_array %}
         {% for tag in site.tags %}
           {{ tag[1] | size }}:{{ tag[0] | replace: ' ', '-' }}

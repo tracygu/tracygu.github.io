@@ -28,29 +28,35 @@ body {
   height: 100%;
   overflow-y: auto;
   width: 260px;
-  background: #000;
+  background: rgb(35, 37, 46);
   z-index: 99;
   transition: transform 0.4s ease;
   -webkit-transition: transform 0.4s ease;
 }
 
+#sidebar a {
+  color: rgba(255,255,255,0.5);
+  transition: color 0.35s ease-in-out;
+}
+
 #sidebar .nav-item {
   height: 20%;
+  padding: 0 2rem;
 }
 
 #sidebar .nav-link {
   border-radius: 0;
   font-size: 1.1rem;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 #sidebar .nav-item:hover .nav-link {
-  color: #c1c3c5;
   font-size: 1.2rem;
 }
 
+#sidebar .nav-item:hover .nav-link,
 #sidebar .nav-item.active .nav-link {
-  color: #c1c3c5;
+  color: #fcfcfc;
 }
 
 #sidebar ul {
@@ -60,12 +66,12 @@ body {
 }
 
 .cursor {
-  background: #dae0e5;
+  background: #fcfcfc;
   position: relative;
   display: none;
   top: 0;
-  left: 98%;
-  width: 4px;
+  left: 98.5%;
+  width: 3px;
   height: 10%;
   -webkit-transition: top 0.5s ease;
   -moz-transition: top 0.5s ease;
@@ -105,12 +111,6 @@ body {
 #nav-wrap {
   width: 100%;
   flex-grow: 1;
-}
-
-.nav-item .nav-link {
-  text-align: center;
-  padding: 0;
-  color: #656262;
 }
 
 #logo-wrap {
@@ -167,7 +167,7 @@ body {
 #site-slogan {
   font-size: 95%;
   text-align: center;
-  color: rgb(113, 110, 109);;
+  color: #828282;
   line-height: 1.2rem;
   padding: .6rem 1.5rem 2rem 1.5rem;
 }
@@ -198,6 +198,7 @@ body {
 }
 
 .contact {
+  font-size: 1.2rem;
   padding: 2rem 2.5rem;
   flex-shrink: 0;
   -webkit-flex-shrink: 0;
@@ -205,12 +206,7 @@ body {
   /*box-shadow: inset 0 0 0.25em 0 rgba(0, 0, 0, 0.22);*/
 }
 
-.contact a {
-  font-size: 1.2rem;
-  color: #656262;
-}
-
-.contact a:hover {
+#sidebar .contact a:hover {
   color: #fff;
 }
 
@@ -348,8 +344,8 @@ footer {
   height: 6rem; /* see the height of #main-wrap */
   padding: 1rem;
   font-size: 0.8rem;
-  color: #dddddd;
-  background: #686868;
+  color: #7a7b7d;
+  background: #f3f3f3;
 }
 
 footer>div.d-flex {
@@ -369,14 +365,13 @@ footer>.d-flex>div {
 
 footer .copyright a,
 footer .license a {
-  font-weight: 400;
-  color: #fff;
+  font-weight: 600;
+  color: inherit;
 }
 
 .copyright-owner {
-  margin-left: .2rem;
   font-weight: 600;
-  color: rgb(208, 204, 204);
+  margin-left: .2rem;
 }
 
 
@@ -474,10 +469,6 @@ footer .license a {
 }
 
 /*--- Typography ---*/
-
-#sidebar a {
-  transition: color 0.35s ease-in-out;
-}
 
 h1>a, p>a, span>a,
 .post-content a,

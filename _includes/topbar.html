@@ -3,28 +3,22 @@
   <div id="topbar-main" class="d-flex h-100 align-items-center justify-content-between col-12 col-md-12 col-lg-11 col-xl-11 pl-md-2 pr-md-2 pl-lg-2 pr-lg-2">
 
     <span id="breadcrumb">
-      <i class="fas fa-location-arrow fa-fw"></i>
-      {% assign index = 0 %}
-      {% assign last = page.breadcrumb.size | minus: 1 %}
       {% for item in page.breadcrumb %}
         {% if item.url %}
-        <a href="{{ item.url | remove: '.html'}}">{{ item.label }}</a>
+        <span>
+          <a href="{{ item.url | remove: '.html'}}">{{ item.label }}</a>
+        </span>
         {% else %}
-          {{ item.label }}
+        <span>{{ item.label }}</span>
         {% endif %}
-
-        {% if index < last %}&rsaquo;{% endif %}
-        {% assign index = index | plus: 1 %}
       {% endfor %}
 
       {% if page.title.en %}
         {%if page.title.en != "Home" %}
-          {% if page.breadcrumb.size > 0 %}&rsaquo;{% endif %}
-          {{ page.title.en }}
+          <span>{{ page.title.en }}</span>
         {% endif %}
       {% else %}
-        &rsaquo;
-        {{ page.title }}
+        <span>{{ page.title }}</span>
       {% endif %}
 
     </span><!-- endof #breadcrumb -->

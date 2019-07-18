@@ -701,7 +701,7 @@ footer a:hover,
   /*letter-spacing: 0.05em;*/
 }
 
-#post-list .post-meta>span i:not(:first-child) { // post-meta icons on HOME
+#post-list .post-meta i:not(:first-child) { // post-meta icons on HOME
   margin-left: 1.5rem;
 }
 
@@ -1130,14 +1130,6 @@ html, body {
     margin-left: 1rem;
   }
 
-  #post-list div.post-meta>span:last-child {
-    /* categories of post list in HOME */
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    max-width: 40%;
-  }
-
   .post-content {
     font-size: 1.08rem;
   }
@@ -1147,7 +1139,7 @@ html, body {
   }
 
   .post .post-meta>div:nth-child(3) {
-    margin-left: 0;
+    margin-left: .1rem;
   }
 
   .post .post-meta>div:nth-child(3)::before {

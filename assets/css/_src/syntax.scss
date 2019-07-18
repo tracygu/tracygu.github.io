@@ -90,7 +90,7 @@ figure.highlight,
   white-space: pre;
 }
 
-p>code, li>code, a>code {
+code.highlighter-rouge {
   padding: 2px 4px;
   margin: 0 .3rem;
   border-radius: 4px;
@@ -126,7 +126,11 @@ figure.highlight > code > table.rouge-table {
 }
 
 .code-padding {
-  padding: .7rem .9rem;
+  padding: .8rem 1.1rem;
+}
+
+figure.highlight, .highlighter-rouge { /* code snippet radius */
+  border-radius: 3px;
 }
 
 /*-- End of source codes style --*/
@@ -136,7 +140,6 @@ figure.highlight > code > table.rouge-table {
   color: black;
   margin-bottom: 1.2em;
   padding: .1rem .3rem;
-  border-radius: 4px;
 }
 
 .css .o,

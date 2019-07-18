@@ -1,9 +1,9 @@
 #!/bin/bash
 
-POSTS_REPOS=https://${GITHUB_TOKEN}@github.com/cotes2020/blog-posts.git
-META_REPOS=https://${GITHUB_TOKEN}@github.com/cotes2020/blog-meta.git
+POSTS_REPOS=https://${GH_TOKEN}@github.com/cotes2020/blog-posts.git
+META_REPOS=https://${GH_TOKEN}@github.com/cotes2020/blog-meta.git
 
-GH_DEPLOY=https://${GITHUB_TOKEN}@github.com/cotes2020/cotes2020.github.io.git
+GH_DEPLOY=https://${GH_TOKEN}@github.com/cotes2020/cotes2020.github.io.git
 
 POSTS_CACHE=../blog-posts
 META_CACHE=../blog-meta

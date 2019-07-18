@@ -381,6 +381,7 @@ footer .license a {
   padding-right: 1.5rem;
   margin-top: 3rem;
   margin-bottom: 6rem;
+  color: #6c757d;
 }
 
 .panel-group.topbar-down {
@@ -401,7 +402,6 @@ footer .license a {
   padding-bottom: .5rem;
   margin-top: 0;
   margin-bottom: 0;
-  color: gray;
   letter-spacing: -0.02em;
   font-size: 1rem;
   font-weight: 700;
@@ -412,13 +412,24 @@ footer .license a {
   font-size: .9rem;
 }
 
-#panel-tags a.post-tag {
-  line-height: 2rem;
-  font-size: 0.85rem;
-}
-
 #panel-tags>div.post-content>div {
   max-width: 80%;
+}
+
+#panel-tags .post-tag {
+  line-height: 2rem;
+  font-size: 0.85rem;
+  background: none;
+  border: 1px solid #ced4da;
+  border-radius: .8rem;
+  padding: .2rem .4rem;
+}
+
+#panel-tags .post-tag:hover {
+  background-color: #2a408e;
+  border-color: #2a408e;
+  color: #fff;
+  transition: none;
 }
 
 #panel-update ul>li {
@@ -441,6 +452,10 @@ footer .license a {
   position: relative;
   bottom: .2rem;
   margin-right: .4rem;
+}
+
+#panel-update ul a {
+  color: #6c757d;
 }
 
 /*--- button back-to-top ---*/
@@ -578,7 +593,8 @@ table tbody td {
 .post-meta a:hover,
 .post-content a:hover,
 .post a:hover code,
-footer a:hover {
+footer a:hover,
+#panel-update a:hover {
   color: #d2603a;
   text-decoration: underline;
 }
@@ -726,11 +742,10 @@ footer a:hover {
   line-height: 1.6rem;
 }
 
-.post-tag:hover,
-.tag:hover {
+.tag:hover,
+.post-tag:hover {
   background: rgb(222, 226, 230);
   transition: background 0.35s ease-in-out;
-
 }
 
 .post-tag:hover {

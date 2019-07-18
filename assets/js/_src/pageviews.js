@@ -1,10 +1,10 @@
 /**
-* Count pageviews form GA or local cache file.
-*
-* Dependences:
-*   - jQuery
-*   - countUp.js(https://github.com/inorganik/countUp.js)
-*/
+ * Count pageviews form GA or local cache file.
+ *
+ * Dependences:
+ *   - jQuery
+ *   - countUp.js(https://github.com/inorganik/countUp.js)
+ */
 
 function countUp(min, max, dest) {
   if (min < max) {
@@ -26,10 +26,10 @@ function countPV(path, rows) {
 
   for (var i = 0; i < rows.length; ++i) {
     var gaPath = rows[i][0];
-    if (gaPath == path
-        || gaPath == _v2_url
-        || gaPath.concat('/') == _v2_url
-        || gaPath.slice(gaPath.lastIndexOf('/') + 1) === fileName) {// old permalink record
+    if (gaPath == path ||
+      gaPath == _v2_url ||
+      gaPath.concat('/') == _v2_url ||
+      gaPath.slice(gaPath.lastIndexOf('/') + 1) === fileName) { // old permalink record
       count += parseInt(rows[i][1]);
     }
   }
@@ -39,31 +39,37 @@ function countPV(path, rows) {
 
 function displayPageviews(rows, hasInit) {
   if (rows === undefined) {
-      return;
+    return;
   }
 
   if ($("#post-list").length > 0) { // the Home page
     $(".post-preview").each(function() {
       var path = $(this).children("h1").children("a").attr("href");
       var count = countPV(path, rows);
+      count = (count == 0 ? 1 : count);
 
       if (!hasInit) {
         $(this).find('.pageviews').text(count);
       } else {
-        var initPV = parseInt($(this).find('.pageviews').text() );
-        countUp(initPV, count, $(this).find('.pageviews').attr('id') );
+        var initCount = parseInt($(this).find('.pageviews').text());
+        if (count > initCount) {
+          countUp(initCount, count, $(this).find('.pageviews').attr('id'));
+        }
       }
     });
 
-  } else if ($(".post").length > 0) { // the single post
+  } else if ($(".post").length > 0) { // the post
     var path = window.location.pathname;
     var count = countPV(path, rows);
+    count = (count == 0 ? 1 : count);
 
     if (!hasInit) {
       $('#pv').text(count);
     } else {
-      var initPV = parseInt($('#pv').text());
-      countUp(initPV, count, 'pv');
+      var initCount = parseInt($('#pv').text());
+      if (count > initCount) {
+        countUp(initCount, count, 'pv');
+      }
     }
   }
 
@@ -75,12 +81,12 @@ $(function() {
     var hasInit = false;
 
     // Get data from daily cache.
-    $.getJSON('/norobots/pageviews.json', function(data){
+    $.getJSON('/norobots/pageviews.json', function(data) {
       displayPageviews(data.rows, hasInit);
       hasInit = true;
     });
 
-    $.getJSON('/norobots/data.json', function(data){
+    $.getJSON('/norobots/data.json', function(data) {
       $.ajax({
         url: data.proxyUrl,
         dataType: 'jsonp',
@@ -97,6 +103,6 @@ $(function() {
 
     });
 
-  }// endif
+  } // endif
 
 });

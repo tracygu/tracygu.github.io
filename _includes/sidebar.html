@@ -32,7 +32,7 @@
       {%- if site.data.settings.lang == 'zh' -%}
         {{ item.name.zh }}
       {%- else -%}
-        {{ item.name.en }}
+        {{ item.name.en | upcase }}
       {%- endif -%}
       </a>
     </li> <!-- .nav-item -->

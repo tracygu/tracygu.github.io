@@ -6,4 +6,3 @@
 {% include_relative _commons/sidebar.min.js %}
 {% include_relative _commons/topbar-switch.min.js %}
 {% include_relative _commons/topbar-title.min.js %}
-{% include_relative _commons/syntax.min.js %}

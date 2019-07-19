@@ -60,7 +60,7 @@
 .highlight .vi { color: #033 } /* Name.Variable.Instance */
 .highlight .il { color: #f60 } /* Literal.Number.Integer.Long */
 
-/*-- Begin of source codes style --*/
+/*-- Codes Snippet --*/
 
 div.highlight,
 figure.highlight,
@@ -125,15 +125,15 @@ figure.highlight > code > table.rouge-table {
   margin-bottom: 0;
 }
 
-.code-padding {
-  padding: .8rem 1.1rem;
-}
-
 figure.highlight, .highlighter-rouge { /* code snippet radius */
   border-radius: 3px;
 }
 
-/*-- End of source codes style --*/
+figure.highlight>pre,
+div.highlighter-rouge>div.highlight>pre.highlight {
+  padding: .8rem 1.1rem;
+}
+
 
 /* Override BS Inline-code style */
 .highlighter-rouge {

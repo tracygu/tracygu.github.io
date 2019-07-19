@@ -7,13 +7,13 @@ layout: default
     <div class="post">
       <h1 data-toc-skip>{{ page.title }}</h1>
       <div class="post-meta text-muted d-flex flex-wrap">
-        <!-- date and categoreis -->
+        <!-- Published Date and Categoreis -->
         <div>
         {{ page.date | date: "%-d %b %Y" }} on
         {% if page.categories.size > 0 %}
           {% for category in page.categories %}
-            <a class="post-category" href='/categories/{{ category | replace: ' ', '-' | downcase }}/'>{{ category }}</a>
-          {%- unless forloop.last -%}, {%- endunless -%}
+            <a href='/categories/{{ category | replace: ' ', '-' | downcase }}/'>{{ category }}</a>
+          {%- unless forloop.last -%},&nbsp;{%- endunless -%}
           {% endfor %}
         {% endif %}
         </div>

@@ -615,7 +615,6 @@ footer a:hover,
 }
 
 .pagination a:hover {
-  border-bottom-style: none;
   text-decoration: none;
 }
 
@@ -657,11 +656,16 @@ footer a:hover,
 
 .page-item .page-link {
   color: #555555;
-  line-height: 2.4rem;
   width: 2.5rem;
   height: 2.5rem;
   padding: 0;
   text-align: center;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  align-items: center;
   border-radius: 50%;
   font-family: 'Lato', sans-serif;
 }
@@ -670,7 +674,6 @@ footer a:hover,
   background-color: #2a408e;
   border: 2px solid #4b92d2;
   color: #f8f8f8;
-  line-height: 2rem;
 }
 
 .page-item.disabled .page-link {
@@ -691,10 +694,6 @@ footer a:hover,
 }
 
 /*--- post ---*/
-
-.post i.far, .post i.fas { // fontawesome icons
-  font-size: 86%;
-}
 
 .post-meta {
   font-size: 0.85rem;
@@ -834,6 +833,10 @@ footer a:hover,
 
 /*--- Tab Categories ---*/
 
+.categories {
+  margin-bottom: 2rem;
+}
+
 .categories .card-header>span>i:first-child,
 .categories .list-group-item>i {
   color: gray;
@@ -851,8 +854,9 @@ footer a:hover,
   border-top-right-radius: 0;
 }
 
-.categories {
-  margin-bottom: 2rem;
+.categories i.far,
+.categories i.fas { // fontawesome icons
+  font-size: 86%;
 }
 
 .category-trigger {

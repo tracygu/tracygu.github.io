@@ -7,6 +7,7 @@ comments: true
 toc: true
 ---
 
+
 ## Typograpy
 
 # H1
@@ -19,7 +20,6 @@ toc: true
 
 ##### H5
 
-
 ## Tables
 
 |Company|Contact|Country|
@@ -29,31 +29,17 @@ toc: true
 |Magazzini Alimentari Riuniti | Giovanni Rovelli | Italy
 
 
-* Inbound:
-
-  |Type|Protocol|Port Range|Source|
-  |:---|:---|:--|
-  |Custom UDP Rule|UDP|7890|0.0.0.0/0|
-  |Custom TCP Rule|TCP|7890|0.0.0.0/0|
-
 ## Code Snippet
 
-### highlight-liquid-raw
+### Code hightlight
+
+This is a `sample` to `code hightlight`.
+
+### liquid raw
 
 {% highlight liquid %}
 {% raw %}
 {% highlight html %}
-<p>This is some text in a paragraph.</p>
-{% endhighlight %}
-{% endraw %}
-{% endhighlight %}
-
-### highlight-html
-
-{% highlight html %}
-{% raw %}
-{% highlight html linenos %}
-<p>{% if site.data.showAuthor %}Author:{{ site.data.author }}{% endif %}</p>
 <p>This is some text in a paragraph.</p>
 {% endhighlight %}
 {% endraw %}
@@ -78,9 +64,18 @@ toc: true
 
 ### HTML
 
-#### highlight-html-linenos
+{% highlight html %}
+{% raw %}
+{% highlight html linenos %}
+<p>{% if site.data.showAuthor %}Author:{{ site.data.author }}{% endif %}</p>
+<p>This is some text in a paragraph.</p>
+{% endhighlight %}
+{% endraw %}
+{% endhighlight %}
 
-* width < parent.width
+#### html-linenos
+
+* No-Scrolling
 
 {% capture _code %}
 {% highlight html linenos %}
@@ -99,7 +94,7 @@ toc: true
 {% endhighlight %}
 {% endcapture %}{% include fixlinenos.html %}{{ _code }}
 
-* width > parent.width
+* Scrolling Horizontal
 
 {% capture _code %}
 {% highlight html linenos %}
@@ -107,7 +102,8 @@ toc: true
 <div class="panel-group">
   <div class="panel panel-default">
     <div class="panel-heading" id="{{ category_name }}">
-      <i class="far fa-folder"></i>&nbsp;sndofsafsdfsdaflsdjflksjfsndofsafsdfsdaflsdjdofsafsdfsdaflsdjdofsafsdfsdaflsdj
+      <i class="far fa-folder"></i>
+      <p>This is a very long long long long long long long long long long long long long long long long long long long long long line.</p>
       </a>
     </div>
   </div>
@@ -149,7 +145,7 @@ server {
 
 ## Image Sample
 
-![](http://ww1.sinaimg.cn/large/bd030aafgy1forx33re4mj20o10jztoc.jpg)
+![Desktop View](/assets/img/sample/mockup.jpg)
 
 
 ## Footnote Sample
@@ -157,5 +153,3 @@ server {
 Some long sentence. [^footnote]
 
 [^footnote]: Test, [Link](https://google.com).
-
-

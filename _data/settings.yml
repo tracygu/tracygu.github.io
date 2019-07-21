@@ -5,9 +5,11 @@ logo: "/assets/img/sample/ant.png"
 
 comments: true  # boolean type, the gobal switch of posts' comments.
 
-toc: true # boolean type, gobal switch for ToC in posts.
+toc: true  # boolean type, gobal switch for ToC in posts.
 
-lang: en # Must be 'en' or 'zh'
+pv: false   # Google Analytics pageviews, DO NOT enable it.
+
+lang: en   # Must be 'en' or 'zh'
 
 tabs:
   - { name: {zh: '首页', en: 'Home'}}

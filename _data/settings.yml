@@ -8,8 +8,8 @@ comments: true  # ture - enable, false - disable
 lang: en # Must be 'en' or 'zh'
 
 tabs:
-- {name: {zh: '首页', en: 'Home'}, icon: 'fas fa-home fa-fw'}
-- {name: {zh: '分类', en: 'Categories'}, icon: 'fas fa-list-ul fa-fw', path: 'tabs', url: 'categories'}
-- {name: {zh: '标签', en: 'Tags'}, icon: 'fas fa-tags fa-fw', path: 'tabs', url: 'tags'}
-- {name: {zh: '归档', en: 'Archives'}, icon: 'fas fa-archive fa-fw', path: 'tabs', url: 'archives'}
-- {name: {zh: '关于', en: 'About'}, icon: 'fas fa-info-circle fa-fw', path: 'tabs', url: 'about'}
+  - { name: {zh: '首页', en: 'Home'}}
+  - { name: {zh: '分类', en: 'Categories'}, path: 'tabs', url: 'categories'}
+  - { name: {zh: '标签', en: 'Tags'}, path: 'tabs', url: 'tags'}
+  - { name: {zh: '归档', en: 'Archives'}, path: 'tabs', url: 'archives'}
+  - { name: {zh: '关于', en: 'About'}, path: 'tabs', url: 'about'}

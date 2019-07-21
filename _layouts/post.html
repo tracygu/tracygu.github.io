@@ -17,6 +17,7 @@ layout: default
           {% endfor %}
         {% endif %}
         </div>
+
         <!-- page views -->
         <div>
           <span id="pv" class="pageviews"><i class="fas fa-spinner fa-spin"></i></span> views
@@ -81,7 +82,7 @@ layout: default
 
 <div id="post-panel" class="col-xl-3 pl-2">
   {% include panel.html %}
-  {% if page.toc %}
+  {% if site.data.settings.toc and page.toc %}
   <div id="toc-wrap" class="topbar-down pr-4">
     <h3 data-toc-skip class="pl-3 pt-2">Contents</h3>
     <nav id="toc" data-toggle="toc"></nav>
@@ -93,6 +94,7 @@ layout: default
 <link rel="stylesheet" href="/assets/lib/bootstrap-toc-1.0.1/bootstrap-toc.min.css">
 
 <script src="/assets/lib/bootstrap-toc-1.0.1/bootstrap-toc.min.js" async></script>
-<script src="/assets/js/dist/pageviews.min.js" async></script>
 <script src="/assets/js/dist/countUp.min.js" async></script>
+<script src="/assets/js/dist/pageviews.min.js" async></script>
+
 <!-- <script src="//{{ site.data.meta.disqus-shortname }}.disqus.com/count.js" id="dsq-count-scr" async></script> -->

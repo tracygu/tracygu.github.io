@@ -85,7 +85,10 @@ layout: default
   {% include panel.html %}
   {% if site.data.settings.toc and page.toc %}
   <div id="toc-wrap" class="topbar-down pr-4">
-    <h3 data-toc-skip class="pl-3 pt-2">Contents</h3>
+    <h3 data-toc-skip class="pl-3 pt-2">
+      {% assign lang = site.data.settings.lang %}
+      {{ site.data.settings.panel.toc[lang] }}
+    </h3>
     <nav id="toc" data-toggle="toc"></nav>
   </div>
   {% endif %}

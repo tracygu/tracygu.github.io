@@ -15,10 +15,14 @@ defaults:
       layout: post
       comments: true # Enable comments in posts.
       toc: true  # Display TOC column in posts.
-      location: Post
+      location:
+        en: Post
+        zh: 文章
       breadcrumb:
         -
-          label: Posts
+          label:
+            en: Posts
+            zh: 全部文章
           url: /
   -
     scope:
@@ -29,25 +33,37 @@ defaults:
     scope:
       path: tags
     values:
-      location: Tag
+      location:
+        en: Tag
+        zh: 标签
       breadcrumb:
         -
-          label: Home
+          label:
+            en: Home
+            zh: 首页
           url: /
         -
-          label: Tags
+          label:
+            en: Tags
+            zh: 标签集
           url: /tabs/tags/
   -
     scope:
       path: categories
     values:
-      location: Category
+      location:
+        en: Category
+        zh: 分类
       breadcrumb:
         -
-          label: Home
+          label:
+            en: Home
+            zh: 首页
           url: /
         -
-          label: Categories
+          label:
+            en: Categories
+            zh: 分类总览
           url: /tabs/categories/
   -
     scope:
@@ -56,7 +72,9 @@ defaults:
       dynamic_title: true # hide title in mobile screens.
       breadcrumb:
         -
-          label: Home
+          label:
+            en: Home
+            zh: 首页
           url: /
 
 # RSS 2.0 can be used instead of Atom by uncommenting following two lines

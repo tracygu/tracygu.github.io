@@ -1,7 +1,7 @@
 ---
 layout: page
 title:
-  zh: 分类
+  zh: 分类总览
   en: Categories
 ---
 

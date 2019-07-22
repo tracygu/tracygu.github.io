@@ -1,5 +1,7 @@
 {% assign DATE_FORMAT = "%b %-d, %Y" %}
 
+{% assign lang = site.data.settings.lang %}
+
 <div class="panel-group">
   <div id="panel-update" class="post mb-4"">
     {% capture posts %}
@@ -14,7 +16,9 @@
     {% endfor %}
     {% endcapture %}
 
-    <h3 data-toc-skip>Recent Update</h3>
+    <h3 data-toc-skip>
+      {{ site.data.settings.panel.lastmod[lang] }}
+    </h3>
     <ul class="post-content pl-0 mt-2 pb-1">
     {% assign MAX_SIZE = 5 %}
     {% assign sum = 0 %}
@@ -31,7 +35,9 @@
   </div><!-- #panel-update -->
 
   <div id="panel-tags">
-    <h3 data-toc-skip>Trending Tags</h3>
+    <h3 data-toc-skip>
+      {{ site.data.settings.panel.tags[lang] }}
+    </h3>
     <div class="d-flex flex-wrap mt-2 pb-1 pr-3">
       {% capture tags_array %}
         {% for tag in site.tags %}

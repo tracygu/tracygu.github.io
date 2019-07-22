@@ -9,7 +9,7 @@ $(function(){
   if ($("#page-category").length || $("#page-tag").length) {
     /* The title in Category or Tag page will be '$(title) $(count_of_posts)' */
     if (/\s/.test(title)) {
-      title = title.split(' ')[0];
+      title = title.replace(/[0-9]/g, '');
     }
   }
 

@@ -3,8 +3,7 @@ title: "Example Post"
 date: 2018-01-01 00:00:00 +0800
 categories: [Blog, Example]
 tags: [example]
-comments: true
-toc: true
+comments: false
 ---
 
 
@@ -12,13 +11,12 @@ toc: true
 
 # H1
 
-## H2
+<h2 data-toc-skip>H2</h2>
 
-### H3
+<h3 data-toc-skip>H3</h3>
 
 #### H4
 
-##### H5
 
 ## Tables
 
@@ -28,14 +26,28 @@ toc: true
 |Island Trading | Helen Bennett | UK
 |Magazzini Alimentari Riuniti | Giovanni Rovelli | Italy
 
-
-## Code Snippet
-
-### Code hightlight
+## Hightlight
 
 This is a `sample` to `code hightlight`.
 
-### liquid raw
+## Link
+
+[http://127.0.0.1:4000](http://127.0.0.1:4000)
+
+
+## Footnote
+
+Click the hook will locate the footnote. [^footnote]
+
+
+## Image
+
+![Desktop View](/assets/img/sample/mockup.jpg)
+
+
+## Code Snippet
+
+### Liquid
 
 {% highlight liquid %}
 {% raw %}
@@ -45,37 +57,9 @@ This is a `sample` to `code hightlight`.
 {% endraw %}
 {% endhighlight %}
 
-### XML
-{% capture _code %}
-{% highlight xml linenos %}
-<navMap>
-  <navPoint playOrder="1" id="toc-1">
-    <navLabel>
-      <text>Vol_26</text>
-        <text>No.375 比达、杜拉格斯出发</text>
-      </navLabel>
-      <content src="Text/part0007.xhtml" />
-    </navPoint>
-  </navPoint>
-</navMap>
-{% endhighlight%}
-{% endcapture %}{% include fixlinenos.html %}{{ _code }}
+### Line Number
 
-
-### HTML
-
-{% highlight html %}
-{% raw %}
-{% highlight html linenos %}
-<p>{% if site.data.showAuthor %}Author:{{ site.data.author }}{% endif %}</p>
-<p>This is some text in a paragraph.</p>
-{% endhighlight %}
-{% endraw %}
-{% endhighlight %}
-
-#### html-linenos
-
-* No-Scrolling
+**No Scrolling**
 
 {% capture _code %}
 {% highlight html linenos %}
@@ -94,7 +78,7 @@ This is a `sample` to `code hightlight`.
 {% endhighlight %}
 {% endcapture %}{% include fixlinenos.html %}{{ _code }}
 
-* Scrolling Horizontal
+**Horizontal Scrolling**
 
 {% capture _code %}
 {% highlight html linenos %}
@@ -114,42 +98,10 @@ This is a `sample` to `code hightlight`.
 {% endhighlight %}
 {% endcapture %}{% include fixlinenos.html %}{{ _code }}
 
-#### MarkDown-html
 
-```html
-{% raw %}{% highlight html linenos %}{% endraw %}
-{% raw %}{%{% endraw %} raw {% raw %}%}{% endraw %}
-{% raw %}<p>{% if site.data.showAuthor %}Author:{{ site.data.author }}{% endif %}</p>
-<p>This is some text in a paragraph.</p>{% endraw %}
-{% raw %}{%{% endraw %} endraw {% raw %}%}{% endraw %}
-{% raw %}{% endhighlight %}{% endraw %}
-```
-
-### Bash
-
-{% capture _code %}
-{% highlight bash linenos %}
-server {
-
-  listen   443 ssl;
-
-  ssl on;
-  server_name blog.cotes.in;
-
-  ssl_certificate /etc/letsencrypt/live/blog.cotes.in/fullchain.pem;
-  ssl_certificate_key /etc/letsencrypt/live/blog.cotes.in/privkey.pem;
-}
-
-{% endhighlight %}
-{% endcapture %}{% include fixlinenos.html %}{{ _code }}
-
-## Image Sample
-
-![Desktop View](/assets/img/sample/mockup.jpg)
+***
 
 
-## Footnote Sample
+[^footnote]: The footnote source.
 
-Some long sentence. [^footnote]
 
-[^footnote]: Test, [Link](https://google.com).

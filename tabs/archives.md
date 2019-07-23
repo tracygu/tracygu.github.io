@@ -20,6 +20,7 @@ title:
         {% capture this_day %}{{ post.date | date: "%d" }}{% endcapture %}
         {% capture this_month %}{{ post.date | date: "%b" }}{% endcapture %}
 
+        {% comment %}
         {% if last_day and last_day == this_day %}
           {% assign same_day = true %}
         {% else %}
@@ -35,7 +36,13 @@ title:
         {% endif %}
 
         <span class="date day {% if same_day and same_month %}text-white{% endif %}">{{ this_day }}</span>
-        <span class="date month small {% if same_day and same_month %}text-white{% else %}text-muted{% endif %}">{{ this_month }}</span>
+        <span class="date month small {% if same_day and same_month %}text-white{% else %}text-muted{% endif %}">
+          {{ this_month }}
+        </span>
+        {% endcomment %}
+
+        <span class="date day">{{ this_day }}</span>
+        <span class="date month small text-muted">{{ this_month }}</span>
         <a href="{{ post.url }}">{{ post.title }}</a>
       </div>
     </li>

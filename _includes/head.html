@@ -1,16 +1,12 @@
 <head>
   <title>
-    {%- if page.title.en == "Home" -%}
-      {{ site.data.settings.title }}
+    {%- if page.layout == "home" -%}
+      {{- site.data.settings.title -}}
+    {%- elsif page.title.en or page.title.zh  -%}
+      {%- assign lang = site.data.settings.lang -%}
+      {{ page.title[lang] }} | {{ site.data.settings.title }}
     {%- else -%}
-      {%- if site.data.settings.lang == 'zh' and page.title.zh -%}
-        {%- assign title = page.title.zh -%}
-      {%- elsif site.data.settings.lang == 'en' and page.title.en -%}
-        {%- assign title =  page.title.en -%}
-      {%- else -%}
-        {%- assign title = page.title -%}
-      {%- endif -%}
-      {{ title }} | {{ site.data.settings.title }}
+      {{ page.title }} | {{ site.data.settings.title }}
     {%- endif -%}
   </title>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">

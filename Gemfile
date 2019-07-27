@@ -4,7 +4,6 @@ group :jekyll_plugins do
   gem "jekyll-paginate"
   gem "jekyll-feed", "~> 0.6"
   gem "jekyll-redirect-from"
-  gem "jekyll-last-modified-at"
   gem 'jekyll-timeago'
 end
 

@@ -2,13 +2,22 @@
 # -*- coding: utf-8 -*-
 
 """
-Update (or insert) sitemap:lastmod of posts by their git log date.
 
-Envirnment:
+Author: Cotes Chung
+Date: Jul 5, 2018
+License: MIT
+
+
+Update (create if not existed) YAML 'lastmod' in posts
+according to their last git log date.
+
+Dependencies:
   - git
   - ruamel.yaml
+
 """
 
+import sys
 import glob
 import os
 import subprocess
@@ -20,13 +29,13 @@ from ruamel.yaml import YAML
 POSTS_PATH = "_posts"
 
 
-def main():
+def update_lastmod(verbose):
     count = 0
     yaml = YAML()
 
     for post in glob.glob(os.path.join(POSTS_PATH, "*.md")):
         git_lastmod = subprocess.check_output([
-            "git", "log", "-1", "--pretty=%ad", "--date=short", post]).strip()
+            "git", "log", "-1", "--pretty=%ad", "--date=iso", post]).strip()
 
         if not git_lastmod:
             continue
@@ -34,17 +43,13 @@ def main():
         frontmatter, line_num = get_yaml(post)
         meta = yaml.load(frontmatter)
 
-        if 'sitemap' in meta:
-            if 'lastmod' in meta['sitemap']:
-                if meta['sitemap']['lastmod'] == git_lastmod:
-                    continue
-
-                meta['sitemap']['lastmod'] = git_lastmod
-
+        if 'lastmod' in meta:
+            if meta['lastmod'] == git_lastmod:
+                continue
             else:
-                meta['sitemap'].insert(0, 'lastmod', git_lastmod)
+                meta['lastmod'] = git_lastmod
         else:
-            meta.insert(line_num, 'sitemap', {'lastmod': git_lastmod})
+            meta.insert(line_num, 'lastmod', git_lastmod)
 
         output = 'new.md'
         if os.path.isfile(output):
@@ -67,14 +72,43 @@ def main():
 
         shutil.move(output, post)
         count += 1
-        print "[INFO] update 'lastmod' for: '{}'".format(post)
 
-    print "[NOTICE] Success! Update all posts's lastmod.\n"
+        if verbose:
+            print "[INFO] update 'lastmod' for:" + post
 
-    if count > 0:
-        subprocess.call(["git", "add", POSTS_PATH])
-        subprocess.call(["git", "commit", "-m",
-                         "[Automation] Update lastmod of post(s)."])
+    print ("[INFO] Summary: " +
+           "Success to update lastmod for {} post(s).\n").format(count)
+
+    # I don't even need to commit these. HO HO HO !
+    # if count > 0:
+    #     subprocess.call(["git", "add", POSTS_PATH])
+    #     subprocess.call(["git", "commit", "-m",
+    #                      "[Automation] Update lastmod for post(s)."])
+
+
+def help():
+    print("Usage: "
+          "python update_posts_lastmod.py [ -v | --verbose ]\n\n"
+          "Optional arguments:\n"
+          "-v, --verbose        Print verbose logs\n")
+
+
+def main():
+    verbose = False
+
+    if len(sys.argv) > 1:
+        for arg in sys.argv:
+            if arg == sys.argv[0]:
+                continue
+            else:
+                if arg == '-v' or arg == '--verbose':
+                    verbose = True
+                else:
+                    print("Oops! Unknown argument: '{}'\n".format(arg))
+                    help()
+                    return
+
+    update_lastmod(verbose)
 
 
 main()

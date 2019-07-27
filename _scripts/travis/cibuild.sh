@@ -63,7 +63,8 @@ combine() {
 
 build() {
   cd ${POSTS_CACHE}
-  python ./_scripts/tools/pages_generator.py
+  python _scripts/tools/pages_generator.py
+  python _scripts/tools/update_posts_lastmod.py
 
   # build Jekyll ouput to directory ./_site
   JEKYLL_ENV=production bundle exec jekyll build
@@ -90,7 +91,7 @@ deploy() {
 
   cd $DEPLOY_CACHE
   git add -A
-  git commit -m "Travis-CI automated deployment #${TRAVIS_BUILD_NUMBER} of the framework."
+  git commit -m "Travis-CI automated deployment #${TRAVIS_BUILD_NUMBER} from the Framework."
   git push $GH_DEPLOY master:master
 
   echo "[INFO] Push to remote: ${GH_DEPLOY}"

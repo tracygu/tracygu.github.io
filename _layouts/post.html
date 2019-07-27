@@ -24,8 +24,8 @@ layout: default
         </div>
         {% endif %}
         <!-- lastmod -->
-        {% if page.last_modified_at > page.date %}
-        <div> Updated {{page.last_modified_at | timeago }}</div>
+        {% if page.lastmod > page.date %}
+        <div> Updated {{page.lastmod | timeago }}</div>
         {% endif %}
 
       </div> <!-- .post-meta -->

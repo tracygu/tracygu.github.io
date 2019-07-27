@@ -2,10 +2,13 @@
 # -*- coding: utf-8 -*-
 
 '''
+
 Author: Cotes Chung
 Date: 23 Feb 2018
+License: MIT
 
-Generates html page of categories and tags by posts.
+Generates HTML page for categories and tags by posts.
+
 '''
 
 import os
@@ -100,7 +103,7 @@ def generate_category_pages(is_verbose):
             if is_verbose:
                 print("[INFO] Created page: " + new_page)
 
-    print("Succeed! {} category-pages created."
+    print("[INFO] Succeed! {} category-pages created."
           .format(len(categories)))
 
 
@@ -145,7 +148,7 @@ def generate_tag_pages(is_verbose):
             if is_verbose:
                 print("[INFO] Created page: " + tag_page)
 
-    print("Succeed! {} tag-pages created.".format(len(all_tags)))
+    print("[INFO] Succeed! {} tag-pages created.".format(len(all_tags)))
 
 
 def help():
@@ -158,11 +161,10 @@ def help():
 
 def main():
     is_verbose = False
-    argv_index = 0
 
     if len(sys.argv) > 1:
         for arg in sys.argv:
-            if argv_index > 0:
+            if arg != sys.argv[0]:
                 if arg == '-d' or arg == '--drafts':
                     POSTS_DIR.insert(0, DRAFTS_DIR)
                 elif arg == '-v' or arg == '--verbose':
@@ -171,7 +173,6 @@ def main():
                     print("Oops! Unknown argument: '{}'\n".format(arg))
                     help()
                     return
-            argv_index += 1
 
     generate_category_pages(is_verbose)
     generate_tag_pages(is_verbose)

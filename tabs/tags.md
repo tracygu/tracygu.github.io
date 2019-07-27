@@ -3,8 +3,6 @@ layout: page
 title:
   zh: 标签集
   en: Tags
-sitemap:
-  priority: .5
 ---
 
 

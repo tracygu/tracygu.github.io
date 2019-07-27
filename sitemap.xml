@@ -1,7 +1,5 @@
 ---
 layout: compress
-sitemap:
-  exclude: 'yes'
 ---
 
 <?xml version="1.0" encoding="UTF-8"?>
@@ -27,11 +25,10 @@ sitemap:
 
   {% for page in site.pages %}
 
-    {% if site.blocklist contains page.url %}
+    {% if site.sitemap_exclude contains page.url %}
       {% continue %}
     {% endif %}
 
-    {% unless page.sitemap.exclude == "yes" %}
     <url>
       <loc>{{ site.data.meta.url }}{{ page.url | remove: "index.html" }}</loc>
       {% if page.sitemap.lastmod %}
@@ -54,6 +51,7 @@ sitemap:
         <priority>0.3</priority>
       {% endif %}
     </url>
-    {% endunless %}
+
   {% endfor %}
+
 </urlset>

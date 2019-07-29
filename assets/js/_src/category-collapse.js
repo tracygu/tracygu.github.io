@@ -1,5 +1,7 @@
 /*
-  Tab 'Categories' expand/close effect.
+* Tab 'Categories' expand/close effect.
+* © 2018-2019 Cotes Chung
+* MIT License
 */
 $(function() {
   var child_prefix = "l_";

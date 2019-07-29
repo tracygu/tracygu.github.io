@@ -2,13 +2,9 @@
 # -*- coding: utf-8 -*-
 
 '''
-
-Author: Cotes Chung
-Date: 23 Feb 2018
-License: MIT
-
 Generates HTML page for categories and tags by posts.
-
+© 2018-2019 Cotes Chung
+MIT License
 '''
 
 import os

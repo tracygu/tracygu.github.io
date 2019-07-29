@@ -1,5 +1,7 @@
 /*
- This script make #search-result-wrap switch to hidden or shown automatically.
+* This script make #search-result-wrap switch to hidden or shown automatically.
+* © 2018-2019 Cotes Chung
+* MIT License
 */
 
 $(function() {

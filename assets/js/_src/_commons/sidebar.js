@@ -1,5 +1,7 @@
 /**
  * Expand or close the sidebar in mobile screens.
+ * © 2018-2019 Cotes Chung
+ * MIT License
  */
 $(function(){
 

@@ -1,5 +1,8 @@
 ---
 layout: compress
+# The Sitemap template
+# © 2017-2019 Cotes Chung
+# MIT License
 ---
 
 <?xml version="1.0" encoding="UTF-8"?>

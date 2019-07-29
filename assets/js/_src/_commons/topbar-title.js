@@ -1,5 +1,7 @@
 /*
-*  Topbar title effect in mobile screens.
+* Topbar title effect in mobile screens.
+* © 2018-2019 Cotes Chung
+* MIT License
 */
 $(function(){
 

@@ -3,6 +3,10 @@ layout: page
 title:
   zh: 标签集
   en: Tags
+
+# All the Tags of posts.
+# © 2017-2019 Cotes Chung
+# MIT License
 ---
 
 

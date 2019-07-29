@@ -1,4 +1,8 @@
 #!/bin/bash
+# The Travis CI build work flow.
+# © 2018-2019 Cotes Chung
+# MIT License
+
 
 POSTS_REPOS=https://${GH_TOKEN}@github.com/cotes2020/blog-posts.git
 META_REPOS=https://${GH_TOKEN}@github.com/cotes2020/blog-meta.git

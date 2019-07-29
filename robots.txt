@@ -1,4 +1,7 @@
 ---
+# The robots rules
+# © 2017-2019 Cotes Chung
+# MIT License
 layout: null
 permalink: robots.txt
 ---

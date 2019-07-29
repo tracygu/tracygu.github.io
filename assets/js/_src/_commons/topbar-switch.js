@@ -1,5 +1,7 @@
 /*
- *  Hide Header on scroll down
+ * Hide Header on scroll down
+ * © 2018-2019 Cotes Chung
+ * MIT License
  */
 $(function() {
 

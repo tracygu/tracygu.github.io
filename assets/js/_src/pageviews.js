@@ -4,6 +4,9 @@
  * Dependences:
  *   - jQuery
  *   - countUp.js(https://github.com/inorganik/countUp.js)
+ *
+ * © 2018-2019 Cotes Chung
+ * MIT License
  */
 
 function countUp(min, max, dest) {

@@ -3,6 +3,10 @@ layout: page
 title:
   zh: 分类总览
   en: Categories
+
+# All the Categories of posts
+# © 2017-2019 Cotes Chung
+# MIT License
 ---
 
 {% assign sort_categories = site.categories | sort %}

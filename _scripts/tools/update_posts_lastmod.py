@@ -2,12 +2,6 @@
 # -*- coding: utf-8 -*-
 
 """
-
-Author: Cotes Chung
-Date: Jul 5, 2018
-License: MIT
-
-
 Update (create if not existed) YAML 'lastmod' in posts
 according to their last git log date.
 
@@ -15,6 +9,8 @@ Dependencies:
   - git
   - ruamel.yaml
 
+© 2018-2019 Cotes Chung
+Licensed under MIT
 """
 
 import sys

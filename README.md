@@ -5,7 +5,7 @@
 [![GitHub license](https://img.shields.io/github/license/cotes2020/cotes-blog.svg)](https://github.com/cotes2020/cotes-blog/blob/master/LICENSE)
 [![996.icu](https://img.shields.io/badge/link-996.icu-red.svg)](https://996.icu)
 
-A Jekyll template with responsive web design, and the framework of my personal blog, deployed in: [https://blog.cotes.info](https://blog.cotes.info).
+A Jekyll template with responsive web design is also the framework of my personal blog, deployed in: [https://blog.cotes.info](https://blog.cotes.info).
 
 ## Features
 
@@ -15,7 +15,7 @@ A Jekyll template with responsive web design, and the framework of my personal b
 * Syntax highlighting
 * Two Level Categories
 * Search
-* Dual language (EN & ZH)
+* Support dual language (en-US & zh-CN)
 * HTML compress
 * RSS Feed
 * Google Analytics
@@ -109,9 +109,9 @@ python _scripts/tools/pages_generator.py
 
 Few seconds later, it will create the Categoreis and Tags HTML files automatically.
 
-## Initialization
+## Getting Start
 
-### Install Dependencies
+### Install the Jekyll Plugins
 
 Please execute the following command in the root of the repository.
 
@@ -119,20 +119,20 @@ Please execute the following command in the root of the repository.
 bundle install
 ```
 
-`bundle` will install all dependent plugins declared in `Gemfile` that stored in root automatically.
+`bundle` will install all dependent Jekyll Plugins declared in `Gemfile` that stored in the root automatically.
 
 ### Complete your site
 
-This step is required **EACH TIME** you perform a deployment:
+Run the following script after the posts changes are commited:
 
 ```bash
 python _scripts/tools/init_all.py
 ```
+> **Note**: This step is required before EACH build or run of your site.
 
 The script `init_all.py` (depends on [ruamel.yaml](https://pypi.org/project/ruamel.yaml/)) will create HTML pages for all Categories and Tags, and update the Last Modified Date of posts.
 
 
-## Deployment
 
 ### Run Locally
 
@@ -170,7 +170,7 @@ Step 5. Visit `https://<username>.github.io` and enjoy.
 
 If you want to put the source code and build results in one repository, the **Project Pages sites** is for you.
 
-> **Note**: DO NOT rename your repository to `<username>.github.io` !
+> **Note**: Do NOT rename your repository to `<username>.github.io` !
 
 Step 1. Build project locally and store output to `docs` in the root of repository:
 
@@ -183,5 +183,5 @@ Step 2. Git commit and push the changes of `docs` to GitHub.
 Step 3. Go to GitHub and [set up with your project
 ](https://help.github.com/en/articles/configuring-a-publishing-source-for-github-pages#publishing-your-github-pages-site-from-a-docs-folder-on-your-master-branch).
 
-Step 4. Now your site is published at `https://<username>.github.io/<your-blog>/`
+Step 4. Now your site is published at `https://<username>.github.io/<project>/`
 

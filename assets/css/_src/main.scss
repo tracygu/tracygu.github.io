@@ -716,7 +716,6 @@ table tbody td {
   line-height: 1.8;
   font-size: 1rem;
   margin-top: 3rem;
-  /*letter-spacing: 0.05em;*/
 }
 
 #post-list .post-meta i:not(:first-child) { // post-meta icons on HOME
@@ -1115,6 +1114,11 @@ html, body {
 
 .no-text-decoration {
   text-decoration: none;
+}
+
+div.tooltip-inner { /* Overrided BS4 Tooltip */
+  font-size: .7rem;
+  max-width: 220px;
 }
 
 /*--- Responsive Design ---*/

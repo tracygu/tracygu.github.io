@@ -12,7 +12,10 @@ layout: default
       <div class="post-meta text-muted d-flex flex-wrap">
         <!-- Published Date and Categoreis -->
         <div>
-        {{ page.date | date: "%-d %b %Y" }} on
+          <span data-toggle="tooltip" title="{{ page.date | date: "%a, %e %b %Y, %l:%M %p, %z" }}">
+            {{ page.date | date: "%-d %b %Y" }}
+          </span>
+          on
         {% if page.categories.size > 0 %}
           {% for category in page.categories %}
             <a href='/categories/{{ category | replace: ' ', '-' | downcase }}/'>{{ category }}</a>
@@ -28,7 +31,12 @@ layout: default
         {% endif %}
         <!-- lastmod -->
         {% if page.lastmod > page.date %}
-        <div> Updated {{page.lastmod | timeago }}</div>
+        <div>
+          Updated
+          <span data-toggle="tooltip" title="{{ page.lastmod | date: "%a, %e %b %Y, %l:%M %p, %z" }}">
+            {{ page.lastmod | timeago }}
+          </span>
+        </div>
         {% endif %}
 
       </div> <!-- .post-meta -->

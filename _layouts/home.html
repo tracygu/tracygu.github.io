@@ -20,7 +20,9 @@ layout: page
     <div class="post-meta text-muted pt-1">
       <!-- posted date -->
       <i class="far fa-clock fa-fw"></i>
-      <span>{{ post.date | date: "%-d %b %Y" }}</span>
+      <span data-toggle="tooltip" title="{{ post.date | date: "%a, %e %b %Y, %l:%M %p, %z" }}">
+      {{ post.date | date: "%-d %b %Y" }}
+      </span>
       <!-- page views -->
       {% if site.data.settings.pv %}
       <i class="far fa-eye fa-fw"></i>

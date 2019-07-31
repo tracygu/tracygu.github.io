@@ -74,9 +74,10 @@ figure.highlight,
 }
 
 .highlight .lineno {
-  color: rgba(140, 134, 126, 0.67);
-  text-align: right;
   padding: 1rem .5rem;
+  min-width: 2rem;
+  text-align: right;
+  color: rgba(140, 134, 126, 0.67);
   background: rgb(234, 236, 242);
 }
 

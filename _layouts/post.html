@@ -9,7 +9,7 @@ layout: default
   <div id="post-wrap" class="pl-sm-2 pr-sm-2 pl-md-4 pr-md-4 pl-xl-3">
     <div class="post">
       <h1 data-toc-skip>{{ page.title }}</h1>
-      <div class="post-meta text-muted d-flex flex-wrap">
+      <div class="post-meta text-muted d-flex flex-column">
         <!-- Published Date and Categoreis -->
         <div>
           <span data-toggle="tooltip" title="{{ page.date | date: "%a, %e %b %Y, %l:%M %p, %z" }}">
@@ -23,12 +23,6 @@ layout: default
           {% endfor %}
         {% endif %}
         </div>
-        <!-- page views -->
-        {% if site.data.settings.pv %}
-        <div>
-          <span id="pv" class="pageviews"><i class="fas fa-spinner fa-spin"></i></span> views
-        </div>
-        {% endif %}
         <!-- lastmod -->
         {% if page.lastmod > page.date %}
         <div>
@@ -38,7 +32,12 @@ layout: default
           </span>
         </div>
         {% endif %}
-
+        <!-- page views -->
+        {% if site.data.settings.pv %}
+        <div>
+          <span id="pv" class="pageviews"><i class="fas fa-spinner fa-spin"></i></span> views
+        </div>
+        {% endif %}
       </div> <!-- .post-meta -->
 
       <div class="post-content">

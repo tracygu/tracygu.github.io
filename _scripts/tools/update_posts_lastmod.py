@@ -30,6 +30,15 @@ def update_lastmod(verbose):
     yaml = YAML()
 
     for post in glob.glob(os.path.join(POSTS_PATH, "*.md")):
+
+        ps = subprocess.Popen(("git", "log", "--pretty=%ad", post),
+                              stdout=subprocess.PIPE)
+        git_log_count = subprocess.check_output(('wc', '-l'), stdin=ps.stdout)
+        ps.wait()
+
+        if git_log_count.strip() == "1":
+            continue
+
         git_lastmod = subprocess.check_output([
             "git", "log", "-1", "--pretty=%ad", "--date=iso", post]).strip()
 

@@ -84,12 +84,12 @@ $(function() {
     var hasInit = false;
 
     // Get data from daily cache.
-    $.getJSON('/norobots/pageviews.json', function(data) {
+    $.getJSON('/assets/data/pageviews.json', function(data) {
       displayPageviews(data.rows, hasInit);
       hasInit = true;
     });
 
-    $.getJSON('/norobots/data.json', function(data) {
+    $.getJSON('/assets/data/proxy.json', function(data) {
       $.ajax({
         url: data.proxyUrl,
         dataType: 'jsonp',

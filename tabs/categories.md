@@ -50,11 +50,11 @@ title:
       </span>
 
       <!-- arrow -->
-      <a href="#l_{{ category_name }}" data-toggle="collapse" aria-expanded="true" class="hide-border-bottom">
+      <a href="#l_{{ category_name }}" data-toggle="collapse" aria-expanded="true" class="category-trigger hide-border-bottom">
         {% if sub_categories_size > 0%}
-        <i class="fas fa-angle-up category-trigger"></i>
+        <i class="fas fa-angle-up"></i>
         {% else %}
-        <i class="fas fa-angle-down category-trigger disabled"></i>
+        <i class="fas fa-angle-down disabled"></i>
         {% endif %}
       </a>
 

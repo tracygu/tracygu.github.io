@@ -827,6 +827,10 @@ table tbody td {
   margin-bottom: 2rem;
 }
 
+.categories .card-header {
+  padding-right: 12px;
+}
+
 .categories .card-header>span>i:first-child,
 .categories .list-group-item>i {
   color: gray;
@@ -850,6 +854,22 @@ table tbody td {
 }
 
 .category-trigger {
+  width: 1.7rem;
+  height: 1.7rem;
+  border-radius: 50%;
+  text-align: center;
+  color: #6c757d!important;
+}
+
+@media (hover: hover) { // only works on desktop
+  .category-trigger:hover {
+    background-color: #e9ecef;
+  }
+}
+
+.category-trigger>i.fas.fa-angle-up {
+  position: relative;
+  bottom: 8%;
   transition: 300ms ease all;
 }
 

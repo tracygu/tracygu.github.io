@@ -5,6 +5,8 @@ layout: page
 # MIT License
 ---
 
+{% include date-format.html %}
+
 <div id="post-list">
   {% for post in paginator.posts %}
   <div class="post-preview">
@@ -20,8 +22,8 @@ layout: page
     <div class="post-meta text-muted pt-1">
       <!-- posted date -->
       <i class="far fa-clock fa-fw"></i>
-      <span data-toggle="tooltip" title="{{ post.date | date: "%a, %e %b %Y, %l:%M %p, %z" }}">
-      {{ post.date | date: "%-d %b %Y" }}
+      <span data-toggle="tooltip" title="{{ post.date | date: TOOLTIP_DATE }}">
+      {{ post.date | date: POST_DATE }}
       </span>
       <!-- page views -->
       {% if site.data.settings.pv %}

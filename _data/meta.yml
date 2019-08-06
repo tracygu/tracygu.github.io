@@ -4,8 +4,8 @@
 
 ga_id: 'your_google_analytics_id'
 
-disqus-shortname: 'your_disqus_shortname'
+disqus_shortname: 'your_disqus_shortname'
 
-publication-date: 2017  # The Site's first publication date.
+first_run: 2017  # The year of the site's first run.
 
 url: 'http://localhost:4000' # Replace with your domain

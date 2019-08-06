@@ -1055,8 +1055,13 @@ a.tag:hover {
 }
 
 #page-tag ul>li>a,
-#page-category ul>li>a, {
+#page-category ul>li>a, { /* post's title */
   font-size: 1.1rem;
+}
+
+#page-category ul>li>span:last-child,
+#page-tag ul>li>span:last-child { /* post's date */
+  white-space: nowrap;
 }
 
 #page-tag h1>i { // tag icon

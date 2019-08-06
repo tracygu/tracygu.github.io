@@ -47,13 +47,31 @@ Click the hook will locate the footnote. [^footnote]
 
 ## Code Snippet
 
+### Ruby
+
+```ruby
+def sum_eq_n?(arr, n)
+  return true if arr.empty? && n == 0
+  arr.product(arr).reject { |a,b| a == b }.any? { |a,b| a + b == n }
+end
+```
+
+### Shell
+
+```shell
+if [ $? -ne 0 ]; then
+    echo "The command was not successful.";
+    #do the needful / exit
+fi;
+```
+
 ### Liquid
 
 {% highlight liquid %}
 {% raw %}
-{% highlight html %}
-<p>This is some text in a paragraph.</p>
-{% endhighlight %}
+{% if product.title contains 'Pack' %}
+  This product's title contains the word Pack.
+{% endif %}
 {% endraw %}
 {% endhighlight %}
 
@@ -63,18 +81,18 @@ Click the hook will locate the footnote. [^footnote]
 
 {% capture _code %}
 {% highlight html linenos %}
-{% raw %}
-<div class="panel-group">
-  <div class="panel panel-default">
-    <div class="panel-heading" id="{{ category_name }}">
-      <i class="far fa-folder"></i>&nbsp;
-      </a>
-    </div>
+<div class="sidenav">
+  <a href="#contact">Contact</a>
+  <button class="dropdown-btn">Dropdown 
+    <i class="fa fa-caret-down"></i>
+  </button>
+  <div class="dropdown-container">
+    <a href="#">Link 1</a>
+    <a href="#">Link 2</a>
+    <a href="#">Link 3</a>
   </div>
+  <a href="#contact">Search</a>
 </div>
-  {% endif %}
-{% endfor %}
-{% endraw %}
 {% endhighlight %}
 {% endcapture %}{% include fixlinenos.html %}{{ _code }}
 
@@ -82,7 +100,6 @@ Click the hook will locate the footnote. [^footnote]
 
 {% capture _code %}
 {% highlight html linenos %}
-{% raw %}
 <div class="panel-group">
   <div class="panel panel-default">
     <div class="panel-heading" id="{{ category_name }}">
@@ -92,9 +109,6 @@ Click the hook will locate the footnote. [^footnote]
     </div>
   </div>
 </div>
-  {% endif %}
-{% endfor %}
-{% endraw %}
 {% endhighlight %}
 {% endcapture %}{% include fixlinenos.html %}{{ _code }}
 

@@ -527,8 +527,7 @@ kbd {
   margin: 0 .3rem;
 }
 
-h2, h3, h4,
-a.footnote {
+h2, h3, h4, sup {
   padding-top: 3.5rem;
   margin-top: -2.5rem;
 }
@@ -536,6 +535,12 @@ a.footnote {
 div.footnotes>ol>li {
   padding-top: 1rem;
   margin-top: -.7rem;
+}
+
+a.reversefootnote {
+  font-size: .6rem;
+  border-bottom: none!important;
+  position: absolute;
 }
 
 p>a, span>a,
@@ -574,12 +579,6 @@ footer a:hover,
   color: #d2603a;
   border-bottom: 1px solid #d2603a;
   text-decoration: none;
-}
-
-a.reversefootnote {
-  font-size: .6rem;
-  border-bottom: none!important;
-  position: absolute;
 }
 
 .post em { /* MarkDown italic */

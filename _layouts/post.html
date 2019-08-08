@@ -88,6 +88,8 @@ layout: default
 
     {% if site.data.settings.comments and page.comments %}
       {% include disqus.html %}
+    {% else %}
+      <br>
     {% endif %}
 
   </div> <!-- #post-wrap -->
@@ -103,13 +105,10 @@ layout: default
     </h3>
     <nav id="toc" data-toggle="toc"></nav>
   </div>
+  <link rel="stylesheet" href="/assets/lib/bootstrap-toc-1.0.1/bootstrap-toc.min.css" />
+  <script src="/assets/lib/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script>
   {% endif %}
 </div> <!-- #post-panel -->
-
-
-<link rel="stylesheet" href="/assets/lib/bootstrap-toc-1.0.1/bootstrap-toc.min.css">
-
-<script src="/assets/lib/bootstrap-toc-1.0.1/bootstrap-toc.min.js" async></script>
 
 {% if site.data.settings.pv %}
 <script src="/assets/js/dist/countUp.min.js" async></script>

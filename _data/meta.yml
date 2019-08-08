@@ -8,4 +8,4 @@ disqus_shortname: 'your_disqus_shortname'
 
 first_run: 2017  # The year of the site's first run.
 
-url: 'http://localhost:4000' # Replace with your domain
+url: 'http://127.0.0.1:4000' # Replace with your domain

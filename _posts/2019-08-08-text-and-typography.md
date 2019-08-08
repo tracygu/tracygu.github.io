@@ -1,14 +1,15 @@
 ---
-title: "Example Post"
-date: 2018-01-01 00:00:00 +0800
-categories: [Blog, Example]
-tags: [example]
-comments: false
+title: "Text and Typography"
+date: 2019-08-08 11:33:00 +0800
+categories: [Blogging, Tutorial]
+tags: [typography]
 ---
 
+This Jekyll template totally compatible with Markdown syntax. Now, let me show you what typography will looks like.
 
-## Typograpy
+## Titles
 
+***
 # H1
 
 <h2 data-toc-skip>H2</h2>
@@ -17,6 +18,25 @@ comments: false
 
 #### H4
 
+***
+
+## Paragraph
+
+I wandered lonely as a cloud
+
+That floats on high o'er vales and hills,
+
+When all at once I saw a crowd,
+
+A host, of golden daffodils;
+
+Beside the lake, beneath the trees,
+
+Fluttering and dancing in the breeze.
+
+## Block Quote
+
+> This line to shows the Block Quote.
 
 ## Tables
 
@@ -26,10 +46,6 @@ comments: false
 |Island Trading | Helen Bennett | UK
 |Magazzini Alimentari Riuniti | Giovanni Rovelli | Italy
 
-## Hightlight
-
-This is a `sample` to `code hightlight`.
-
 ## Link
 
 [http://127.0.0.1:4000](http://127.0.0.1:4000)
@@ -37,7 +53,7 @@ This is a `sample` to `code hightlight`.
 
 ## Footnote
 
-Click the hook will locate the footnote. [^footnote]
+Click the hook will locate the footnote[^footnote].
 
 
 ## Image
@@ -45,7 +61,14 @@ Click the hook will locate the footnote. [^footnote]
 ![Desktop View]({{site.baseurl}}/assets/img/sample/mockup.jpg)
 
 
+## Inline code
+
+This is an example of `Inline Code`.
+
+
 ## Code Snippet
+
+Markdown <code class="highlighter-rouge">```</code> can easily create a code block as following examples.
 
 ### Ruby
 
@@ -67,6 +90,8 @@ fi;
 
 ### Liquid
 
+If you want to display the **Liquid** snippet, surround the liquid code with `{% raw %}{%{% endraw %} raw {%raw%}%}{%endraw%}` and `{% raw %}{%{% endraw %} endraw {%raw%}%}{%endraw%}` .
+
 {% highlight liquid %}
 {% raw %}
 {% if product.title contains 'Pack' %}
@@ -75,7 +100,10 @@ fi;
 {% endraw %}
 {% endhighlight %}
 
+
 ### Line Number
+
+The Line number of Code Snippet is not displayed by default. To enable it, you should make your code surrounded with `{% raw %}{%{% endraw %} highlight LANGUAGE linenos {% raw %}%}{% endraw %}` and `{% raw %}{%{% endraw %} endhighlight {% raw %}%}{% endraw %}`
 
 **No Scrolling**
 
@@ -83,7 +111,7 @@ fi;
 {% highlight html linenos %}
 <div class="sidenav">
   <a href="#contact">Contact</a>
-  <button class="dropdown-btn">Dropdown 
+  <button class="dropdown-btn">Dropdown
     <i class="fa fa-caret-down"></i>
   </button>
   <div class="dropdown-container">
@@ -112,9 +140,9 @@ fi;
 {% endhighlight %}
 {% endcapture %}{% include fixlinenos.html %}{{ _code }}
 
+<br>
 
 ***
-
 
 [^footnote]: The footnote source.
 

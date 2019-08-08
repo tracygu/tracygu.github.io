@@ -2,7 +2,7 @@
 # © 2017-2019 Cotes Chung
 # MIT License
 
-name: your_name
-email: your_email@example.com
-github: your_github_id
-twitter: your_twitter_id
+name:  Chirpy                   # change to your full name
+email: email@example.com        # change to your email address
+github: github_username         # change to your github username
+twitter: twitter_username       # change to your twitter username

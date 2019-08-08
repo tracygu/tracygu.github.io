@@ -2,9 +2,9 @@
 # © 2017-2019 Cotes Chung
 # MIT License
 
-title: "The Site Name"
-slogan: "The slogan to your site."
-description: "The site description." # RSS feed
+title: "Chirpy"
+slogan: "A text-based Jekyll theme."
+description: "A text-based Jekyll theme." # RSS feed
 logo: "/assets/img/sample/ant.png"
 
 comments: true  # boolean type, the gobal switch of posts' comments.

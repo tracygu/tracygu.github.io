@@ -168,7 +168,7 @@ Step 5. Visit `https://<username>.github.io` and enjoy.
 
 #### Project Pages sites
 
-If you want to put the source code and build results in one repository, the **Project Pages sites** is for you.
+If you want to put the source code and build results within one repository, the **Project Pages sites** is for you.
 
 > **Note**: Do NOT rename your repository to `<username>.github.io` !
 

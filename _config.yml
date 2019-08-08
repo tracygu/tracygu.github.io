@@ -2,6 +2,8 @@
 # © 2017-2019 Cotes Chung
 # MIT License
 
+baseurl: '' # if your site type is Project Pages in GitHub Pages, change it to '/projectname'
+
 paginate: 10
 
 # Build settings

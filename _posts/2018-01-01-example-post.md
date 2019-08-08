@@ -42,7 +42,7 @@ Click the hook will locate the footnote. [^footnote]
 
 ## Image
 
-![Desktop View](/assets/img/sample/mockup.jpg)
+![Desktop View]({{site.baseurl}}/assets/img/sample/mockup.jpg)
 
 
 ## Code Snippet

@@ -11,7 +11,7 @@ layout: page
   {% for post in paginator.posts %}
   <div class="post-preview">
     <h1>
-      <a href="{{ post.url }}">{{ post.title }}</a>
+      <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
     </h1>
     <div class="post-content">
       <p>
@@ -42,7 +42,7 @@ layout: page
   <!-- left arrow -->
   {% if paginator.previous_page %}
   <li class="page-item">
-    <a class="page-link btn-box-shadow" href="{{ paginator.previous_page_path }}">
+    <a class="page-link btn-box-shadow" href="{{ site.baseurl }}{{ paginator.previous_page_path }}">
       <i class="fas fa-angle-left"></i>
     </a>
   </li>
@@ -84,7 +84,7 @@ layout: page
     {% if show %}
         <!-- show number -->
         <li class="page-item {% if i == paginator.page %} active{% endif %}">
-          <a class="page-link btn-box-shadow" href="/{% if i > 1%}page{{ i }}/{% endif %}">{{ i }}</a>
+          <a class="page-link btn-box-shadow" href="{{ site.baseurl }}/{% if i > 1%}page{{ i }}/{% endif %}">{{ i }}</a>
         </li>
       {% else %}
         <!-- hide number -->
@@ -106,7 +106,7 @@ layout: page
   <!-- right arrow -->
   {% if paginator.next_page %}
   <li class="page-item">
-    <a class="page-link btn-box-shadow" href="{{ paginator.next_page_path }}">
+    <a class="page-link btn-box-shadow" href="{{ site.baseurl }}{{ paginator.next_page_path }}">
       <i class="fas fa-angle-right"></i>
     </a>
   </li>
@@ -122,11 +122,11 @@ layout: page
 
 {% comment %}
 {% if site.data.settings.comments %}
-<script src="/assets/lib/iDisqus/disqus-config.min.js" async></script>
+<script src="{{ site.baseurl }}/assets/lib/iDisqus/disqus-config.min.js" async></script>
 {% endif %}
 {% endcomment %}
 
 {% if site.data.settings.pv %}
-<script src="/assets/js/dist/countUp.min.js" async></script>
-<script src="/assets/js/dist/pageviews.min.js" async></script>
+<script src="{{ site.baseurl }}/assets/js/dist/countUp.min.js" async></script>
+<script src="{{ site.baseurl }}/assets/js/dist/pageviews.min.js" async></script>
 {% endif %}

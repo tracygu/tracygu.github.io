@@ -6,19 +6,23 @@
 <div id="nav-wrap">
   <div id="logo-wrap" class="d-flex justify-content-center">
     <div id="logo">
-      <a href="/" alt="site-logo">
-        <img src="{{ site.data.settings.logo }}"></img>
+      <a href="{{ site.baseurl }}/" alt="site-logo">
+        {% assign logo_url = site.data.settings.logo_url %}
+        {% if logo_url | slice: 0 == '/' %}
+          {% assign logo_url = logo_url | prepend: site.baseurl %}
+        {% endif %}
+        <img src="{{ logo_url }}"></img>
       </a>
     </div>
   </div>
   <div id="site-title" class="d-flex justify-content-center align-items-center">
-    <a href="/">{{- site.data.settings.title -}}</a>
+    <a href="{{ site.baseurl }}/">{{- site.data.settings.title -}}</a>
   </div>
   <div id="site-slogan" class="font-italic">{{ site.data.settings.slogan }}</div>
   <ul class="nav flex-column">
     {% assign page_urls = page.url | split: "/" %}
     {% for item in site.data.settings.tabs %}
-      {% assign ref = "/" %}
+      {% assign ref = site.baseurl | append: "/" %}
       {% if item.path %}
       {% assign ref = ref | append: item.path | append: "/" %}
         {% if item.url %}
@@ -60,7 +64,7 @@
   <a href="javascript:window.open('mailto:' + ['{{ email[0] }}','{{ email[1] }}'].join('@'))">
     <i class="fas fa-envelope"></i>
   </a>
-  <a href="/rss-feed.xml" target="_blank">
+  <a href="{{ site.baseurl }}/rss-feed.xml" target="_blank">
     <i class="fas fa-rss"></i>
   </a>
 </div>

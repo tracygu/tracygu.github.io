@@ -10,7 +10,7 @@ layout: compress
   {% for post in site.posts %}
     {% unless post.published == false %}
     <url>
-      <loc>{{ site.data.meta.url }}{{ post.url }}</loc>
+      <loc>{{ site.data.meta.url }}{{ site.baseurl }}{{ post.url }}</loc>
       <lastmod>{{ post.lastmod | date_to_xmlschema }}</lastmod>
       {% if post.sitemap.changefreq %}
         <changefreq>{{ post.sitemap.changefreq }}</changefreq>
@@ -33,7 +33,7 @@ layout: compress
     {% endif %}
 
     <url>
-      <loc>{{ site.data.meta.url }}{{ page.url | remove: "index.html" }}</loc>
+      <loc>{{ site.data.meta.url }}{{ site.baseurl }}{{ page.url | remove: "index.html" }}</loc>
       {% if page.sitemap.lastmod %}
         <lastmod>{{ page.sitemap.lastmod | date: "%Y-%m-%d" }}</lastmod>
       {% elsif page.date %}

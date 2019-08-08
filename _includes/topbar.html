@@ -13,7 +13,7 @@
       {% for item in page.breadcrumb %}
         {% if item.url %}
         <span>
-          <a href="{{ item.url | remove: '.html'}}">
+          <a href="{{ site.baseurl }}{{ item.url | remove: '.html'}}">
             {{ item.label[lang] }}
           </a>
         </span>

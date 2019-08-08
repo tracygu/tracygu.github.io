@@ -3,7 +3,6 @@
   © 2017-2019 Cotes Chung
   MIT License
 -->
-{% assign DATE_FORMAT = "%b %-d, %Y" %}
 
 {% assign lang = site.data.settings.lang %}
 
@@ -16,8 +15,8 @@
       {% continue %}
     {% endif%}
     {% capture item %}
-      {{ post.lastmod | date: DATE_FORMAT }}::{{ post.title }}::{{ post.url }}
-    {% endcapture%}
+      {{ post.lastmod }}::{{ post.title }}::{{ post.url }}
+    {% endcapture %}
     {% assign lastmod_list = lastmod_list | push: item %}
   {% endfor %}
 
@@ -26,13 +25,13 @@
     <h3 data-toc-skip>
       {{ site.data.settings.panel.lastmod[lang] }}
     </h3>
-     <ul class="post-content pl-0 mt-2 pb-1">
+    <ul class="post-content pl-0 mt-2 pb-1">
     {% assign MAX_SIZE = 5 %}
     {% assign sum = 0 %}
     {% assign sorted_posts = lastmod_list | sort | reverse %}
     {% for post in sorted_posts %}
       {% assign meta = post | split: "::" %}
-      <li><a href="{{ meta[2] }}">{{ meta[1] }}</a></li>
+      <li><a href="{{ meta[2] | prepend: site.baseurl }}">{{ meta[1] }}</a></li>
       {% assign sum = sum | plus: 1 %}
       {% if sum >= MAX_SIZE %}
         {% break %}
@@ -62,7 +61,7 @@
       {% for trend in trends %}
         {% assign count = count | plus: 1 %}
         {% assign tag = trend | split: ":" | last  %}
-        <a class="post-tag" href="/tags/{{ tag | downcase }}/">{{ tag | replace: '-', ' ' }}</a>
+        <a class="post-tag" href="{{ site.baseurl }}/tags/{{ tag | downcase }}/">{{ tag | replace: '-', ' ' }}</a>
         {% if count >= MAX %}
           {% break %}
         {% endif %}

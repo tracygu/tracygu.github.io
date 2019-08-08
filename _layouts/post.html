@@ -20,7 +20,7 @@ layout: default
           on
         {% if page.categories.size > 0 %}
           {% for category in page.categories %}
-            <a href='/categories/{{ category | replace: ' ', '-' | downcase }}/'>{{ category }}</a>
+            <a href='{{ site.baseurl }}/categories/{{ category | replace: ' ', '-' | downcase }}/'>{{ category }}</a>
           {%- unless forloop.last -%},&nbsp;{%- endunless -%}
           {% endfor %}
         {% endif %}
@@ -54,7 +54,7 @@ layout: default
         {% if page.tags.size > 0 %}
         <div class="mb-2">
           {% for tag in page.tags %}
-          <a href="/tags/{{ tag | replace: ' ', '-' | downcase }}/"
+          <a href="{{ site.baseurl }}/tags/{{ tag | replace: ' ', '-' | downcase }}/"
             class="post-tag no-text-decoration" >
             {{- tag -}}
           </a>{%- if forloop.last != true -%}&ensp;{%- endif -%}
@@ -68,7 +68,7 @@ layout: default
 
     <div class="post-pager d-flex justify-content-between">
     {% if page.previous.url %}
-      <a href="{{page.previous.url}}" class="btn btn-outline-primary">
+      <a href="{{ site.baseurl }}{{page.previous.url}}" class="btn btn-outline-primary">
     {% else %}
       <a href="javascript:;" class="btn btn-outline-primary disabled">
     {% endif %}
@@ -76,7 +76,7 @@ layout: default
       </a>
 
     {% if page.next.url %}
-      <a href="{{page.next.url}}" class="btn btn-outline-primary">
+      <a href="{{ site.baseurl }}{{page.next.url}}" class="btn btn-outline-primary">
     {% else %}
       <a href="javascript:;" class="btn btn-outline-primary disabled">
     {% endif %}
@@ -105,14 +105,14 @@ layout: default
     </h3>
     <nav id="toc" data-toggle="toc"></nav>
   </div>
-  <link rel="stylesheet" href="/assets/lib/bootstrap-toc-1.0.1/bootstrap-toc.min.css" />
-  <script src="/assets/lib/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script>
+  <link rel="stylesheet" href="{{ site.baseurl }}/assets/lib/bootstrap-toc-1.0.1/bootstrap-toc.min.css" />
+  <script src="{{ site.baseurl }}/assets/lib/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script>
   {% endif %}
 </div> <!-- #post-panel -->
 
 {% if site.data.settings.pv %}
-<script src="/assets/js/dist/countUp.min.js" async></script>
-<script src="/assets/js/dist/pageviews.min.js" async></script>
+<script src="{{ site.baseurl }}/assets/js/dist/countUp.min.js" async></script>
+<script src="{{ site.baseurl }}/assets/js/dist/pageviews.min.js" async></script>
 {% endif %}
 
 <!-- <script src="//{{ site.data.meta.disqus_shortname }}.disqus.com/count.js" id="dsq-count-scr" async></script> -->

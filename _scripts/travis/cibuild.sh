@@ -3,20 +3,31 @@
 # © 2018-2019 Cotes Chung
 # MIT License
 
+USERNAME=cotes2020
+PROJECT=chirpy
 
-POSTS_REPOS=https://${GH_TOKEN}@github.com/cotes2020/blog-posts.git
-META_REPOS=https://${GH_TOKEN}@github.com/cotes2020/blog-meta.git
+POSTS_REPO=https://${GH_TOKEN}@github.com/${USERNAME}/blog-posts.git
+META_REPO=https://${GH_TOKEN}@github.com/${USERNAME}/blog-meta.git
 
-GH_DEPLOY=https://${GH_TOKEN}@github.com/cotes2020/cotes2020.github.io.git
+BLOG_REPO=https://${GH_TOKEN}@github.com/${USERNAME}/$USERNAME.github.io.git
+DEMO_REPO=https://${GH_TOKEN}@github.com/${USERNAME}/$PROJECT-demo.git
 
-POSTS_CACHE=../blog-posts
-META_CACHE=../blog-meta
+PROJ_LOCAL=$(pwd)   # equls to $TRAVIS_BUILD_DIR/$USERNAME/$PROJECT
+POSTS_LOCAL=../blog-posts
+META_LOCAL=../blog-meta
 DEPLOY_CACHE=../deploy
+
+
+clear() {
+  if [[ -d $1 ]]; then
+    rm -rf $1
+  fi
+}
 
 
 init() {
   # skip if build is triggered by pull request
-  if [ $TRAVIS_PULL_REQUEST == "true" ]; then
+  if [[ $TRAVIS_PULL_REQUEST == "true" ]]; then
     echo "this is PR, exiting"
     exit 0
   fi
@@ -24,89 +35,104 @@ init() {
   # enable error reporting to the console
   set -e
 
-  if [ -d "_site" ]; then
-    rm -rf _site
-  fi
+  clear "_site"
 
-  if [ -d  ${POSTS_CACHE} ]; then
-    rm -rf ${POSTS_CACHE}
-  fi
+  rm -f ./README.md   # $PROJ_LOCAL/README.md
 
-  if [ -d ${META_CACHE} ]; then
-    rm -rf ${META_CACHE}
-  fi
+  # Git settings
+  git config --global user.email "travis@travis-ci.org"
+  git config --global user.name "Travis-CI"
+
+  git clone ${POSTS_REPO} ${POSTS_LOCAL}
+  git clone ${META_REPO} ${META_LOCAL} --depth=1
 }
 
 
 combine() {
+  cd $PROJ_LOCAL
+
   TEMPLATE=(
     "tabs/about.md"
     "LICENSE"
-    "README.md"
     "_posts"
     "categories"
     "tags"
     "assets/data"
-    "assets/img/sample")
+    "assets/img")
 
   for i in "${!TEMPLATE[@]}"
   do
     rm -rf ${TEMPLATE[${i}]}
   done
 
-  git clone ${POSTS_REPOS} ${POSTS_CACHE}
-  cp -a ./* ${POSTS_CACHE}
-  echo "[INFO] Combined posts."
+  cp -a ./* ${POSTS_LOCAL}
+  echo "[INFO] $(date) - Combined posts."
 
-  git clone --depth=1 ${META_REPOS} ${META_CACHE}
-  cp -a ${META_CACHE}/* ${POSTS_CACHE}
-  rm -rf ${META_CACHE}
-  echo "[INFO] Combined meta-data."
+  cp -a ${META_LOCAL}/* ${POSTS_LOCAL}
+  echo "[INFO] $(date) - Combined meta-data."
 }
 
 
 build() {
-  cd ${POSTS_CACHE}
-  python _scripts/tools/pages_generator.py
-  python _scripts/tools/update_posts_lastmod.py
 
-  # build Jekyll ouput to directory ./_site
-  JEKYLL_ENV=production bundle exec jekyll build
+  build_cmd="bundle exec jekyll build"
+
+  if [[ $1 == $POSTS_LOCAL ]]; then
+    combine
+    build_cmd="JEKYLL_ENV=production $build_cmd"
+  fi
+
+  cd $1
+  python _scripts/tools/init_all.py
+
+  echo "\$ $build_cmd"
+  eval $build_cmd
+
+  echo "[INFO] $(date) - Build a site in $(pwd)"
 }
 
 
 deploy() {
-  # Git settings
-  git config --global user.email "travis@travis-ci.org"
-  git config --global user.name "Travis-CI"
+  # $1=build_proj, $2=deploy_repo
 
-  # echo "[INFO] TRAVIS_BUILD_DIR=${TRAVIS_BUILD_DIR}"
-  echo
-  echo "[INFO] \$PWD=$(pwd)"
+  build $1
 
-  if [ -d "$DEPLOY_CACHE" ]; then
-    rm -rf $DEPLOY_CACHE
+  clear $DEPLOY_CACHE
+
+  msg="Travis-CI automated deployment #${TRAVIS_BUILD_NUMBER}"
+
+  git clone $2 $DEPLOY_CACHE --depth=1
+
+  if [[ $2 == $DEMO_REPO ]]; then
+    cp $DEPLOY_CACHE/CNAME _site
+    msg+="."
+  else # deploy the Blog
+    msg+=" from the Framework."
   fi
-
-  git clone --depth=1 $GH_DEPLOY $DEPLOY_CACHE
 
   rm -rf $DEPLOY_CACHE/*
   cp -r _site/* $DEPLOY_CACHE
 
   cd $DEPLOY_CACHE
-  git add -A
-  git commit -m "Travis-CI automated deployment #${TRAVIS_BUILD_NUMBER} from the Framework."
-  git push $GH_DEPLOY master:master
 
-  echo "[INFO] Push to remote: ${GH_DEPLOY}"
+  opt=""
+  count=`git log --pretty=oneline |wc -l`
+
+  if [[ $count > 0 ]]; then
+    git update-ref -d HEAD # Overried the last commit message.
+    opt="-f"
+  fi
+
+  git add -A
+  git commit -m "$msg" -q
+  git push $2 master:master $opt
 }
 
 
 main() {
   init
-  combine
-  build
-  deploy
+  deploy $PROJ_LOCAL $DEMO_REPO
+  deploy $POSTS_LOCAL $BLOG_REPO
 }
 
 

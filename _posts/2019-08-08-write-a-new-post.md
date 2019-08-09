@@ -3,7 +3,6 @@ title: "Write a new Post"
 date: 2019-08-08 14:10:00 +0800
 categories: [Blogging, Tutorial]
 tags: [writting]
-comments: false
 ---
 
 In this section, you will learn how to write a new post.
@@ -68,7 +67,7 @@ tag: flower         # The tag name in post.
 ---
 ```
 
-If you find this to be time consuming, please use the script tool `pages_generator.py` that placed in `_scripts/tools/`.
+If you find this to be time consuming, use the script tool `pages_generator.py` that placed in `_scripts/tools/`.
 
 The python script needs [ruamel.yaml](https://pypi.org/project/ruamel.yaml/), make sure it's installed in your environment. Now run the tool:
 
@@ -92,7 +91,7 @@ It will create the variable `lastmod` that stored the last modified date in the 
 
 ## Table of Contents
 
-By default, the **T**able **o**f **C**ontents (TOC) is displayed on the right panel of the post. If you want to turn it off globally, go to `_data/settings.yml` and set the variable `toc` to `false`. If you want to turn off TOC in a separate post, add the following to post's [Front Matter](https://jekyllrb.com/docs/front-matter/):
+By default, the **T**able **o**f **C**ontents (TOC) is displayed on the right panel of the post. If you want to turn it off globally, go to `_data/settings.yml` and set the variable `toc` to `false`. If you want to turn off TOC for specific post, add the following to post's [Front Matter](https://jekyllrb.com/docs/front-matter/):
 
 ```yaml
 ---
@@ -103,7 +102,7 @@ toc: false
 
 ## Comments
 
-Similar to TOC, the [Disqus](https://disqus.com/) comments is loaded by default in each post, and the global switch is defined by variable `comments` in file `_data/settings.yml` . If you want to close the comment module of a post separately, add the following to the **Front Matter** of the post:
+Similar to TOC, the [Disqus](https://disqus.com/) comments is loaded by default in each post, and the global switch is defined by variable `comments` in file `_data/settings.yml` . If you want to close the comment for specific post, add the following to the **Front Matter** of the post:
 
 ```yaml
 ---
@@ -113,5 +112,5 @@ comments: false
 
 
 ## Learn More
-For more information on writting, please visit the [Jekyll Docs: Posts](https://jekyllrb.com/docs/posts/)
+For more information on writting, visit the [Jekyll Docs: Posts](https://jekyllrb.com/docs/posts/)
 

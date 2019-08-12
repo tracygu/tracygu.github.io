@@ -110,6 +110,8 @@ exclude:
   - vendor/       # Avoid Jekyll mistakenly read the vender directory in Travis-CI's VM .
   - Gemfile.lock
   - Gemfile
+  - run.sh
+  - build.sh
 
 sitemap_exclude:  # Sitemap will exclude the following items.
   - /norobots/

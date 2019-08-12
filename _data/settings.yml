@@ -5,7 +5,7 @@
 title: "Chirpy"
 slogan: "A text-based Jekyll theme."
 description: "A text-based Jekyll theme." # RSS feed
-logo_url: "/assets/img/sample/avatar.jpg"
+profile_url: "/assets/img/sample/profile.jpg"
 
 comments: true  # boolean type, the gobal switch of posts' comments.
 

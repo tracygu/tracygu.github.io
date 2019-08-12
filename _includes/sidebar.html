@@ -4,14 +4,14 @@
   MIT License
 -->
 <div id="nav-wrap">
-  <div id="logo-wrap" class="d-flex justify-content-center">
-    <div id="logo">
-      <a href="{{ site.baseurl }}/" alt="site-logo">
-        {% assign logo_url = site.data.settings.logo_url %}
-        {% if logo_url | slice: 0 == '/' %}
-          {% assign logo_url = logo_url | prepend: site.baseurl %}
+  <div id="profile-wrap" class="d-flex justify-content-center">
+    <div id="profile">
+      <a href="{{ site.baseurl }}/" alt="profile-photo">
+        {% assign profile_url = site.data.settings.profile_url %}
+        {% if profile_url | slice: 0 == '/' %}
+          {% assign profile_url = profile_url | prepend: site.baseurl %}
         {% endif %}
-        <img src="{{ logo_url }}"></img>
+        <img src="{{ profile_url }}"></img>
       </a>
     </div>
   </div>

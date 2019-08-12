@@ -117,12 +117,12 @@ body {
   flex-grow: 1;
 }
 
-#logo-wrap {
+#profile-wrap {
   padding-top: 2rem;
   padding-bottom: 1rem;
 }
 
-#logo {
+#profile {
   width: 6rem;
   height: 6rem;
   border-radius: 50%;
@@ -134,23 +134,22 @@ body {
   transition: border-color 0.35s ease-in-out;
 }
 
-#logo:hover {
+#profile:hover {
   border-color: #fff;
 }
 
-#logo img {
+#profile img {
   width: 100%;
   height: 100%;
   display: block;
   background-size: cover;
   background-repeat: no-repeat;
-  // background-image: url(https://cotes.gitee.io/blog-pics/avatar.jpg);
   -webkit-transition: all .5s !important;
   -moz-transition: all .5s !important;
   transition: all .5s !important;
 }
 
-#logo img:hover {
+#profile img:hover {
   -ms-transform: scale(1.2);
   -moz-transform: scale(1.2);
   -webkit-transform: scale(1.2);

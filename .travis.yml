@@ -13,7 +13,7 @@ branches:
   only: master
 
 git:
-  depth: 1
+  depth: false # for posts lastmod
 
 cache: bundler
 

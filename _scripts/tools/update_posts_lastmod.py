@@ -81,8 +81,7 @@ def update_lastmod(verbose):
         if verbose:
             print "[INFO] update 'lastmod' for:" + post
 
-    print ("[INFO] Summary: " +
-           "Success to update lastmod for {} post(s).\n").format(count)
+    print ("[INFO] Success to update lastmod for {} post(s).").format(count)
 
     # I don't even need to commit these. HO HO HO !
     # if count > 0:

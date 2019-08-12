@@ -83,6 +83,8 @@ build() {
   fi
 
   cd $1
+  echo "\$ cd $(pwd)"
+
   python _scripts/tools/init_all.py
 
   echo "\$ $build_cmd"

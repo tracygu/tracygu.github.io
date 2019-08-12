@@ -17,6 +17,7 @@ POSTS_LOCAL=../blog-posts
 META_LOCAL=../blog-meta
 DEPLOY_CACHE=../deploy
 
+declare -A TASKS
 
 clear() {
   if [[ -d $1 ]]; then
@@ -128,6 +129,38 @@ deploy() {
   git add -A
   git commit -m "$msg" -q
   git push $2 master:master $opt
+
+  repo=$(basename $2)
+  latest_commit=`git log -1 --pretty=oneline |awk '{print $1}'`
+
+  TASKS+=( [${repo%.*}]=$latest_commit )
+}
+
+
+# Keep watching to the builds of GitHub Pages
+oversee_gh_pages() {
+  REPO_NAME=$1
+  LATEST_COMMIT=$2
+
+  CACHE=$REPO_NAME-status.json
+
+  curl -H "Authorization: token $GH_TOKEN" \
+    https://api.github.com/repos/${USERNAME}/${REPO_NAME}/pages/builds/latest \
+    -o $CACHE -s
+
+  pages_commit=`jq -r '.commit' $CACHE`
+  status=`jq -r '.status' $CACHE`
+
+  echo "{ repo: $REPO_NAME, status: $status, pages_commit: $pages_commit }"
+  echo "$REPO_NAME lates commit: $LATEST_COMMIT"
+
+  if [[ $status == 'built' && $LATEST_COMMIT != $pages_commit ]]; then
+    echo "Trigger a fucking GitHub Pages build for $REPO_NAME !"
+    curl -H "Authorization: token $GH_TOKEN" \
+        -H "Accept: application/vnd.github.mister-fantastic-preview+json" \
+        -X POST https://api.github.com/repos/${USERNAME}/${REPO_NAME}/pages/builds \
+        -s > /dev/null
+  fi
 }
 
 
@@ -135,6 +168,23 @@ main() {
   init
   deploy $PROJ_LOCAL $DEMO_REPO
   deploy $POSTS_LOCAL $BLOG_REPO
+
+  wait=10
+  sleep $wait # wait 10 seconds for the GitHub Pages to build.
+
+  echo "Waitting"
+
+  while [[ $wait -gt 0 ]]; do
+    sleep 1
+    echo -ne '.'
+    ((wait--))
+  done
+  echo "" # new line
+
+  cd $TRAVIS_BUILD_DIR
+  for repo in "${!TASKS[@]}"; do
+    oversee_gh_pages $repo ${TASKS[$repo]}
+  done
 }
 
 

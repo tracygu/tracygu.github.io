@@ -3,13 +3,12 @@ title: Getting Started
 date: 2019-08-09 20:55:00 +0800
 categories: [Blogging, Tutorial]
 tags: [usage]
-comments: false
 ---
 
 
 ## Basic Environment
 
-First of all, please follow the [Jekyll Docs](https://jekyllrb.com/docs/installation/)  to complete the basic environment (Ruby, RubyGem, Bundler and Jekyll)  installation.
+First of all, follow the [Jekyll Docs](https://jekyllrb.com/docs/installation/)  to complete the basic environment (Ruby, RubyGem, Bundler and Jekyll)  installation.
 
 In addition, the [Python](https://www.python.org/downloads/) and [ruamel.yaml](https://pypi.org/project/ruamel.yaml/) are required.
 
@@ -26,6 +25,16 @@ _data/
 
 Customize the variables in these files as needed.
 
+## Atom Feed
+
+The Atom feed url of your site will be:
+
+```
+<site_uri>/feed.xml
+```
+
+The `site_uri` was defined by variabel **uri** in `_data/meta.yml`.
+
 ## Install Jekyll Plugins
 
 In the root direcoty of the project, run the following command:
@@ -38,7 +47,7 @@ bundle install
 
 ##  Run Locally
 
-Run the script in the root directory of the repository:
+You may want to preview the site before publishing. Run the script in the root directory:
 
 ```bash
 bash run.sh
@@ -50,7 +59,7 @@ Open the brower and visit [http://127.0.0.1:4000](http://127.0.0.1:4000)
 
 ##  Publish to GitHub Pages
 
-For security reasons, **GitHub Pages** runs on `safe` mode, which means the third-party Jekyll plugins (e.g. `jekyll-timeago`)  doesn't work, so we have to build locally rather than on GitHub.
+For security reasons, GitHub Pages runs on `safe` mode, which means the third-party Jekyll plugins (e.g. `jekyll-timeago`)  doesn't work, so **we have to build locally rather than on GitHub Pages**.
 
 There are two basic types of GitHub Pages sites, so you can choose one of them to finish the publishing.
 
@@ -95,6 +104,6 @@ of the project.
 
 ## See Also
 
-* [Customize the Favicon]({{ site.baseurl }}/posts/customize-the-favicon/)
 * [Write a new post]({{ site.baseurl }}/posts/write-a-new-post/)
 * [Text and Typography]({{ site.baseurl }}/posts/text-and-typography/)
+* [Customize the Favicon]({{ site.baseurl }}/posts/customize-the-favicon/)

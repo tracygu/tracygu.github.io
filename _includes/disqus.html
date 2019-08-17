@@ -15,7 +15,7 @@
     scriptUrl: '//{{ site.data.meta.disqus_shortname }}.disqus.com/embed.js',
 
     disqusConfig: function() {
-      this.page.url = '{{ site.data.meta.url }}{{ site.baseurl }}{{ page.url }}';
+      this.page.url = '{{ site.data.meta.uri | append: site.baseurl | append: page.url }}';
       this.page.identifier = '{{ page.url }}';
     }
   };

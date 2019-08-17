@@ -76,11 +76,10 @@ combine() {
 
 build() {
 
-  build_cmd="bundle exec jekyll build"
+  build_cmd="JEKYLL_ENV=production bundle exec jekyll build"
 
   if [[ $1 == $POSTS_LOCAL ]]; then
     combine
-    build_cmd="JEKYLL_ENV=production $build_cmd"
   fi
 
   cd $1

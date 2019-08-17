@@ -1,11 +1,11 @@
 # The meta-data of site.
 # © 2017-2019 Cotes Chung
-# MIT License
+# MIT Licensed
 
-ga_id: 'your_google_analytics_id'
+ga_id: "UA-*********-*"           # Change to your Google Analytics ID
 
-disqus_shortname: 'your_disqus_shortname'
+disqus_shortname: "disqus"        # Change to your Disqus shortname.
 
-first_run: 2017  # The year of the site's first run.
+uri: "https://www.example.com"    # Replace with your domain, e.g. "https://username.github.io"
 
-url: 'http://127.0.0.1:4000' # Replace with your domain
+first_run: 2019                   # The year your website was first run.

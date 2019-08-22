@@ -5,9 +5,9 @@
 [![GitHub license](https://img.shields.io/github/license/cotes2020/chirpy.svg)](https://github.com/cotes2020/chirpy/blob/master/LICENSE)
 [![996.icu](https://img.shields.io/badge/link-996.icu-red.svg)](https://996.icu)
 
-A Jekyll theme with responsive web design that focuses on text presentation. [Live Demo](https://chirpy.cotes.info).
+A Jekyll theme with responsive web design that focuses on text presentation. [Live Demo »](https://chirpy.cotes.info)
 
-It is also used by my [Chinese blog](https://blog.cotes.info).
+![devices-mockup](assets/img/sample/devices-mockup.png)
 
 ## Features
 
@@ -19,7 +19,7 @@ It is also used by my [Chinese blog](https://blog.cotes.info).
 * Search
 * Support dual language (en-US & zh-CN)
 * HTML compress
-* RSS Feed
+* Atom feeds
 * Google Analytics
 * Pageviews (Advanced)
 
@@ -52,6 +52,9 @@ Now, open your favorite brower and visit [http://127.0.0.1:4000](http://127.0.0.
 
 Refer to the [documentation](https://chirpy.cotes.info/posts/getting-started/) for details. Hope you like it.
 
+## Used by
+
+* [Cotes' Blog](https://blog.cotes.info)
 
 ## License
 

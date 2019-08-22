@@ -38,8 +38,6 @@ init() {
 
   clear "_site"
 
-  rm -f ./README.md   # $PROJ_LOCAL/README.md
-
   # Git settings
   git config --global user.email "travis@travis-ci.org"
   git config --global user.name "Travis-CI"
@@ -53,12 +51,9 @@ combine() {
   cd $PROJ_LOCAL
 
   TEMPLATE=(
-    "tabs/about.md"
-    "LICENSE"
     "_posts"
     "categories"
     "tags"
-    "assets/data"
     "assets/img")
 
   for i in "${!TEMPLATE[@]}"

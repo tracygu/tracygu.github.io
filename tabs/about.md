@@ -21,7 +21,7 @@ title:
 * Search
 * Support dual language (en-US & zh-CN)
 * HTML compress
-* RSS Feed
+* Atom feeds
 * Google Analytics
 * Pageviews (Advanced)
 

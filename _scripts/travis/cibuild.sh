@@ -150,11 +150,10 @@ oversee_gh_pages() {
   pages_commit=`jq -r '.commit' $CACHE`
   status=`jq -r '.status' $CACHE`
 
-  echo "{ repo: $REPO_NAME, status: $status, pages_commit: $pages_commit }"
-  echo "$REPO_NAME lates commit: $LATEST_COMMIT"
-
   if [[ $status == 'built' && $LATEST_COMMIT != $pages_commit ]]; then
-    echo "Trigger a fucking GitHub Pages build for $REPO_NAME !"
+    echo "GH-Pages status: { repo: $REPO_NAME, status: $status, pages_commit: ${pages_commit:0:7} }"
+    echo "Latest commit of $REPO_NAME is: ${LATEST_COMMIT:0:7}"
+    echo "[INFO] Trigger a GitHub Pages build for $REPO_NAME !"
     curl -H "Authorization: token $GH_TOKEN" \
         -H "Accept: application/vnd.github.mister-fantastic-preview+json" \
         -X POST https://api.github.com/repos/${USERNAME}/${REPO_NAME}/pages/builds \

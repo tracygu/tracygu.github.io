@@ -16,13 +16,15 @@ Wait and the website will automatically generate icons of various sizes.
 
 ![download-icons]({{ site.baseurl }}/assets/img/sample/download-icons.png)
 
-Download the generated package and extract the contents and override:
-
-- PNG files in directory `assets/img/favicons`
-- `favicon.ico` in the root directory
+Download the generated package and extract the icons to override the PNG files in directory `assets/img/favicons`
 
 Rebuild the site so that the icon becomes your custom edition.
 
+## See Also
+
+* [Getting Started]({{ site.baseurl }}/posts/getting-started/)
+* [Write a new post]({{ site.baseurl }}/posts/write-a-new-post/)
+* [Text and Typography]({{ site.baseurl }}/posts/text-and-typography/)
 
 <br>
 

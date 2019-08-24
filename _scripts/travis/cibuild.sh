@@ -19,6 +19,7 @@ DEPLOY_CACHE=../deploy
 
 declare -A TASKS
 
+
 clear() {
   if [[ -d $1 ]]; then
     rm -rf $1
@@ -73,9 +74,16 @@ build() {
 
   build_cmd="JEKYLL_ENV=production bundle exec jekyll build"
 
-  if [[ $1 == $POSTS_LOCAL ]]; then
-    combine
-  fi
+  case $1 in
+    $POSTS_LOCAL)
+      combine
+      ;;
+    $PROJ_LOCAL)
+      cp _docs/README.md ./
+      ;;
+    *)
+      # do nothing
+  esac
 
   cd $1
   echo "\$ cd $(pwd)"

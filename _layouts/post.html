@@ -15,7 +15,7 @@ layout: default
         <!-- Published Date and Categoreis -->
         <div>
           <span data-toggle="tooltip" title="{{ page.date | date: TOOLTIP_DATE }}">
-            {{ page.date | date: POST_DATE }}
+            {{ page.date | timeago }}
           </span>
           on
         {% if page.categories.size > 0 %}

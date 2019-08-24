@@ -23,7 +23,7 @@ layout: page
       <!-- posted date -->
       <i class="far fa-clock fa-fw"></i>
       <span data-toggle="tooltip" title="{{ post.date | date: TOOLTIP_DATE }}">
-      {{ post.date | date: POST_DATE }}
+      {{ post.date | timeago }}
       </span>
       <!-- page views -->
       {% if site.data.settings.pv %}

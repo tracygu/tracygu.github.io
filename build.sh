@@ -4,62 +4,82 @@
 # © 2019 Cotes Chung
 # Published under MIT License
 
-BASEURL=""
-BUILD_DIR=`pwd`
 
 help() {
-   echo "Usage: bash ./build.sh [--option <value>]"
+   echo "Usage:"
+   echo
+   echo "   bash build.sh [options]"
+   echo
    echo "Options:"
-   echo "   --baseurl <url>    The site relative url that start with slash, e.g. '/project'"
+   echo "   -b, --baseurl <URL>   The site relative url that start with slash, e.g. '/project'"
+   echo "   -h, --help            Print the help information"
 }
 
-set -eu
 
-if [[ -d ../.chirpy-cache ]]; then
-   rm -rf ../.chirpy-cache
-fi
+init() {
+  set -eu
 
-mkdir ../.chirpy-cache
-cp -r *   ../.chirpy-cache
-cp -r .git ../.chirpy-cache
+  if [[ -d .container ]]; then
+    rm -rf .container
+  fi
 
-if [[ -d .container ]]; then
-   rm -rf .container
-fi
+  if [[ -d _site ]]; then
+    rm -rf _site
+  fi
 
-mv ../.chirpy-cache .container
-cd .container
+  if [[ -d ../.chirpy-cache ]]; then
+    rm -rf ../.chirpy-cache
+  fi
 
-echo "$ cd $(pwd)"
-python _scripts/tools/init_all.py
+  mkdir ../.chirpy-cache
+  cp -r *   ../.chirpy-cache
+  cp -r .git ../.chirpy-cache
+
+  mv ../.chirpy-cache .container
+}
+
+
+CMD="JEKYLL_ENV=production bundle exec jekyll b"
 
 while [[ $# -gt 0 ]]
 do
   opt="$1"
   case $opt in
-    --baseurl)
-    BASEURL="$2"
-    shift # past argument
-    shift # past value
-    ;;
+    -b|--baseurl)
+      if [[ $2 == \/* ]]
+      then
+        CMD+=" -b $2"
+      else
+        help
+        exit 1
+      fi
+      shift
+      shift
+      ;;
+    -h|--help)
+      help
+      exit 0
+      ;;
     *)
-    # unknown option
-    help
-    exit 1
-    ;;
+      # unknown option
+      help
+      exit 1
+      ;;
   esac
 done
 
-CMD="JEKYLL_ENV=production bundle exec jekyll b -d $BUILD_DIR/_site"
+init
 
-if [[ -n $BASEURL ]]; then
-  CMD+=" --baseurl $BASEURL"
-fi
+cd .container
+
+echo "$ cd $(pwd)"
+python _scripts/tools/init_all.py
 
 echo "\$ $CMD"
 eval $CMD
 
 echo "$(date) - Build success, the Site files placed in _site."
 
-cd ..
-rm -rf .container
+mv _site ..
+
+cd .. && rm -rf .container

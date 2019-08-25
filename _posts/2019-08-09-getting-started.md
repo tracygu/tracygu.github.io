@@ -10,7 +10,7 @@ tags: [usage]
 
 First of all, follow the [Jekyll Docs](https://jekyllrb.com/docs/installation/)  to complete the basic environment (Ruby, RubyGem, Bundler and Jekyll)  installation.
 
-In addition, the [Python](https://www.python.org/downloads/) and [ruamel.yaml](https://pypi.org/project/ruamel.yaml/) are required.
+In addition, the [python](https://www.python.org/downloads/) and [ruamel.yaml](https://pypi.org/project/ruamel.yaml/) are also required.
 
 ## Configuration
 
@@ -39,7 +39,7 @@ The `site_uri` was defined by variabel **uri** in `_data/meta.yml`.
 
 In the root direcoty of the project, run the following command:
 
-```bash
+```
 bundle install
 ```
 
@@ -49,31 +49,31 @@ bundle install
 
 You may want to preview the site before publishing. Run the script in the root directory:
 
-```bash
+```
 bash run.sh
 ```
 
->**Note**: Make sure the changes of `_posts` are committed before executing the script. Because the *Recent Update* required the last git log date for the posts.
+>**Note**: Because the *Recent Update* required the latest git-log date of posts, make sure the changes of `_posts` have been committed before running this command. 
 
 Open the brower and visit [http://127.0.0.1:4000](http://127.0.0.1:4000) 
 
-##  Publish to GitHub Pages
+##  Deploying to GitHub Pages
 
-For security reasons, GitHub Pages runs on `safe` mode, which means the third-party Jekyll plugins (e.g. `jekyll-timeago`)  doesn't work, so **we have to build locally rather than on GitHub Pages**.
+For security reasons, GitHub Pages runs on `safe` mode, which means the third-party Jekyll plugins or custom scripts will not work, thus **we have to build locally rather than on GitHub Pages**.
 
-There are two basic types of GitHub Pages sites, so you can choose one of them to finish the publishing.
+There are two basic types of GitHub Pages sites, therefore you can choose one of them to finish the publishing.
 
 ###  User and Organization Pages sites
 
 1) Build your site by:
 
-```bash
+```
 bash build.sh
 ```
 
 The build results will be stored in `_site` of the project's root directory.
 
-2) Go to GitHub and create a new repository named `<username>.github.io`.
+2) Go to GitHub website and create a new repository named `<username>.github.io`.
 
 3) Copy the build results mentioned in **1)** to the new repository.
 
@@ -89,7 +89,7 @@ If you want to put the source code and build results within one repository, the 
 
 1) Build the site with baseurl `/<projectname>`:
 
-```bash
+```
 bash build.sh --baseurl /<projectname>
 ```
 

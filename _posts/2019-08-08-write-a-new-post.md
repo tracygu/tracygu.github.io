@@ -5,11 +5,9 @@ categories: [Blogging, Tutorial]
 tags: [writting]
 ---
 
-In this section, you will learn how to write a new post.
-
 ## Naming and Path
 
-Create a new file name with the format `YYYY-MM-DD-title.md`, then put it in folder `_post` of the root directory.
+Create a new file name with the format `YYYY-MM-DD-title.md` then put it into `_post` of the root directory.
 
 ## Front Matter
 
@@ -24,7 +22,7 @@ tags: [TAG]
 ---
 ```
 
-> **Note**: The `layout` is set to `post` by default, so there is no need to add the variable `layout` in Front Matter block.
+> **Note**: The posts' ***layout*** has been set to `post` by default, so there is no need to add the variable ***layout*** in Front Matter block.
 
 ### Categories and Tags
 
@@ -37,57 +35,11 @@ Let's say there is a post with title `The Beautify Rose`, it's Front Matter as f
 title: "The Beautify Rose"
 categories: [Plant]
 tags: [flower]
-
- ...
-
 ---
 ```
 
 > **Note**: `categories` is designed to contain up to two elements.
 
-Now you need to create two files for `categories` and `tags`:
-
-Step 1. Create **Category** file `categories/Plant.html` and fill:
-
-```yaml
----
-layout: category
-title: Plant        # The title of category page.
-category: Plant     # The category name in post
----
-```
-
-Step 2. Create **Tag** file `tags/flower.html` and fill:
-
-```yaml
----
-layout: tag
-title: Flower       # The title of tag page.
-tag: flower         # The tag name in post.
----
-```
-
-If you find this to be time consuming, use the script tool `pages_generator.py` that placed in `_scripts/tools/`.
-
-The python script needs [ruamel.yaml](https://pypi.org/project/ruamel.yaml/), make sure it's installed in your environment. Now run the tool:
-
-```bash
-python _scripts/tools/pages_generator.py
-```
-
-Few seconds later, it will create the Categoreis and Tags HTML files automatically.
-
-### Last Modified Date
-
-The last modified date of a post is basic on it's last git commit date.
-
-Run the following tool (depends on [ruamel.yaml](https://pypi.org/project/ruamel.yaml/)):
-
-```shell
-python _scripts/tools/update_posts_lastmod.py
-```
-
-It will create the variable `lastmod` that stored the last modified date in the font matter block of a post.
 
 ## Table of Contents
 
@@ -111,6 +63,46 @@ comments: false
 ```
 
 
-## Learn More
-For more information on writting, visit the [Jekyll Docs: Posts](https://jekyllrb.com/docs/posts/)
+## Code Block
 
+Markdown symbols <code class="highlighter-rouge">```</code> can easily create a code block as following examples.
+
+```
+This is a common code snippet, without syntax highlight and line number.
+```
+
+## Specific Language
+
+Using <code class="highlighter-rouge">```Language</code> you will get code snippets with line Numbers and syntax highlight.
+
+> **Note**: The Jekyll style `{% raw %}{%{% endraw %} highlight LANGUAGE {% raw %}%}{% endraw %}` or `{% raw %}{%{% endraw %} highlight LANGUAGE linenos {% raw %}%}{% endraw %}` are not allowed to be used in this theme !
+
+```yaml
+# Yaml code snippet
+items:
+    - part_no:   A4786
+      descrip:   Water Bucket (Filled)
+      price:     1.47
+      quantity:  4
+```
+
+#### Liquid codes
+
+If you want to display the **Liquid** snippet, surround the liquid code with `{% raw %}{%{% endraw %} raw {%raw%}%}{%endraw%}` and `{% raw %}{%{% endraw %} endraw {%raw%}%}{%endraw%}` .
+
+{% raw %}
+```liquid
+{% if product.title contains 'Pack' %}
+  This product's title contains the word Pack.
+{% endif %}
+```
+{% endraw %}
+
+## Learn More
+For more knowledge about Jekyll posts, visit the [Jekyll Docs: Posts](https://jekyllrb.com/docs/posts/).
+
+## See Also
+
+* [Getting Started]({{ site.baseurl }}/posts/getting-started/)
+* [Text and Typography]({{ site.baseurl }}/posts/text-and-typography/)
+* [Customize the Favicon]({{ site.baseurl }}/posts/customize-the-favicon/)

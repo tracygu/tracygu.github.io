@@ -2,7 +2,7 @@
 layout: default
 # The posts' layout
 # © 2017-2019 Cotes Chung
-# MIT License
+# MIT Licensed
 ---
 
 {% include date-format.html %}
@@ -14,8 +14,9 @@ layout: default
       <div class="post-meta text-muted d-flex flex-column">
         <!-- Published Date and Categoreis -->
         <div>
-          <span data-toggle="tooltip" title="{{ page.date | date: TOOLTIP_DATE }}">
-            {{ page.date | timeago }}
+          <span class="timeago" data-toggle="tooltip" title="{{ page.date | date: TOOLTIP_DATE }}">
+            {{ page.date | date: POST_DATE }}
+            <i class="hidden">{{ page.date | date_to_xmlschema }}</i>
           </span>
           on
         {% if page.categories.size > 0 %}
@@ -29,8 +30,9 @@ layout: default
         {% if page.lastmod > page.date %}
         <div>
           Updated
-          <span data-toggle="tooltip" title="{{ page.lastmod | date: TOOLTIP_DATE }}">
-            {{ page.lastmod | timeago }}
+          <span class="timeago lastmod" data-toggle="tooltip" title="{{ page.lastmod | date: TOOLTIP_DATE }}">
+            {{ page.lastmod | date: POST_DATE }}
+            <i class="hidden">{{ page.lastmod | date_to_xmlschema}}</i>
           </span>
         </div>
         {% endif %}
@@ -107,6 +109,8 @@ layout: default
   <script src="{{ site.baseurl }}/assets/lib/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script>
   {% endif %}
 </div> <!-- #post-panel -->
+
+<script src="{{ site.baseurl }}/assets/js/dist/timeago.min.js"></script>
 
 {% if site.data.settings.pv %}
 <script src="{{ site.baseurl }}/assets/js/dist/countUp.min.js" async></script>

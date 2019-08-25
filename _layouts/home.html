@@ -2,7 +2,7 @@
 layout: page
 # The Home page layout
 # © 2017-2019 Cotes Chung
-# MIT License
+# MIT Licensed
 ---
 
 {% include date-format.html %}
@@ -22,8 +22,9 @@ layout: page
     <div class="post-meta text-muted pt-1">
       <!-- posted date -->
       <i class="far fa-clock fa-fw"></i>
-      <span data-toggle="tooltip" title="{{ post.date | date: TOOLTIP_DATE }}">
-      {{ post.date | timeago }}
+      <span class="timeago" data-toggle="tooltip" title="{{ post.date | date: TOOLTIP_DATE }}">
+      {{ post.date | date: POST_DATE }}
+      <i class="hidden">{{ post.date | date_to_xmlschema }}</i>
       </span>
       <!-- page views -->
       {% if site.data.settings.pv %}
@@ -125,6 +126,8 @@ layout: page
 <script src="{{ site.baseurl }}/assets/lib/iDisqus/disqus-config.min.js" async></script>
 {% endif %}
 {% endcomment %}
+
+<script src="{{ site.baseurl }}/assets/js/dist/timeago.min.js"></script>
 
 {% if site.data.settings.pv %}
 <script src="{{ site.baseurl }}/assets/js/dist/countUp.min.js" async></script>

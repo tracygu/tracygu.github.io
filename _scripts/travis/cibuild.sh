@@ -63,10 +63,10 @@ combine() {
   done
 
   cp -a ./* ${POSTS_LOCAL}
-  echo "[INFO] $(date) - Combined posts."
+  echo "[$(date)] Combined posts."
 
   cp -a ${META_LOCAL}/* ${POSTS_LOCAL}
-  echo "[INFO] $(date) - Combined meta-data."
+  echo "[$(date)] Combined meta-data."
 }
 
 
@@ -93,7 +93,7 @@ build() {
   echo "\$ $build_cmd"
   eval $build_cmd
 
-  echo "[INFO] $(date) - Build a site in $(pwd)"
+  echo "[$(date)] Build a site in $(pwd)"
 }
 
 
@@ -139,7 +139,7 @@ deploy() {
 }
 
 
-# Keep watching to the builds of GitHub Pages
+# Keep watching the GitHub Pages build
 oversee_gh_pages() {
   REPO_NAME=$1
   LATEST_COMMIT=$2
@@ -156,7 +156,7 @@ oversee_gh_pages() {
   if [[ $status == 'built' && $LATEST_COMMIT != $pages_commit ]]; then
     echo "GH-Pages status: { repo: $REPO_NAME, status: $status, pages_commit: ${pages_commit:0:7} }"
     echo "Latest commit of $REPO_NAME is: ${LATEST_COMMIT:0:7}"
-    echo "[INFO] Trigger a GitHub Pages build for $REPO_NAME !"
+    echo "[$(date)] Trigger a GitHub Pages build for $REPO_NAME !"
     curl -H "Authorization: token $GH_TOKEN" \
         -H "Accept: application/vnd.github.mister-fantastic-preview+json" \
         -X POST https://api.github.com/repos/${USERNAME}/${REPO_NAME}/pages/builds \

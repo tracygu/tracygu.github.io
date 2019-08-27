@@ -1,8 +1,9 @@
 /*!
 * The syntax highlight.
 * © 2018-2019 Cotes Chung
-* MIT License
+* MIT Licensed
 */
+
 .highlight .hll { background-color: #ffc; }
 .highlight .c { color: #999; } /* Comment */
 .highlight .err { color: #a00; background-color: #faa } /* Error */
@@ -73,14 +74,26 @@ figure.highlight,
   background: #f7f7f7;
 }
 
+.highlight {
+  overflow: auto;
+  -moz-box-shadow: inset 0 0 2px #e9ecef;
+  -webkit-box-shadow: inset 0 0 2px #e9ecef;
+  box-shadow: inset 0 0 2px #e9ecef;
+}
+
 .highlight .lineno {
-  padding: 1rem .5rem;
+  padding: .8rem .5rem;
   min-width: 2rem;
   text-align: right;
   color: rgba(140, 134, 126, 0.67);
   background: rgb(234, 236, 242);
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
 }
-
 .highlight table {
   padding: 0;
   border: 0;
@@ -91,9 +104,22 @@ figure.highlight,
   border: 0;
 }
 
-.highlight>pre>code {
-  font-size: 90%;
-  white-space: pre;
+.highlight pre {
+  margin-bottom: 0;
+  font-size: .85rem;
+  line-height: 1.4rem;
+  word-wrap: normal;  /* Fixed Safari overflow-x */
+}
+
+.highlight table td pre {
+  overflow: visible;  /* Fixed iOS safari overflow-x */
+  word-break: normal; /* Fixed iOS safari linenos code break */
+}
+
+/* Override BS Inline-code style */
+.highlighter-rouge {
+  color: black;
+  margin-bottom: 1.2em;
 }
 
 code.highlighter-rouge {
@@ -103,51 +129,22 @@ code.highlighter-rouge {
   border: 1px solid #e9ecef;
 }
 
-td.code {
-  width: 100%;
-  padding-left: 0.8rem;
+td.rouge-code {
+  padding-left: 1rem;
   padding-right: 1rem;
-  font-size: 100%;
 }
 
-.highlight pre {
-  margin-bottom: 0;
-  font-size: 95%;
-  line-height: 1.4rem;
-  word-wrap: normal; /* Fixed Safari overflow-x */
-}
-
-.highlight table td.code>pre {
-  overflow: visible; /* Fixed iOS safari overflow-x */
-  word-break: normal; /* Fixed iOS safari linenos code break */
-}
-
-figure.highlight {
-  margin-bottom: 1em;
-  overflow: auto;
-}
-
-figure.highlight > code > table.rouge-table {
-  margin-bottom: 0;
-}
-
-figure.highlight, .highlighter-rouge { /* code snippet radius */
-  border-radius: 3px;
-}
-
-figure.highlight>pre,
-div.highlighter-rouge>div.highlight>pre.highlight {
-  padding: .8rem;
+/* code snippet radius */
+.highlighter-rouge,
+.highlight {
+  border-radius: 5px;
 }
 
 
-/* Override BS Inline-code style */
-.highlighter-rouge {
-  color: black;
-  margin-bottom: 1.2em;
-  padding: .1rem .3rem;
+/* Hide line numbers for code snippets without specific language */
+div[class^='highlighter-rouge'] pre.lineno {
+  display: none;
 }
-
-.css .o,
-.css .o + .nt,
-.css .nt + .nt { color: #999; }
+div[class^='highlighter-rouge'] td.rouge-code {
+  padding: .8rem 1rem;
+}

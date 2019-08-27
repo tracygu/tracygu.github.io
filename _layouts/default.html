@@ -2,7 +2,7 @@
 layout: compress
 # Default layout
 # © 2017-2019 Cotes Chung
-# MIT License
+# MIT Licensed
 ---
 
 <!DOCTYPE html>
@@ -18,7 +18,14 @@ layout: compress
       {% include topbar.html %}
       <div id="main">
         <div class="row justify-content-center bg-white">
-        {{ content }}
+
+        {% capture _content %}
+          {{ content }}
+        {% endcapture %}
+
+        {% include fixlinenos.html %}
+        {{ _content }}
+
         </div>
         {% include footer.html %}
       </div>

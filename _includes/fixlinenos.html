@@ -1,7 +1,9 @@
 <!--
-  see: https://github.com/penibelst/jekyll-compress-html/issues/71#issuecomment-188144901
+  Fixed kramdown code highlight rendering:
+  https://github.com/penibelst/jekyll-compress-html/issues/101
+  https://github.com/penibelst/jekyll-compress-html/issues/71#issuecomment-188144901
 -->
-{% if _code contains '<pre class="lineno">' %}
-    {% assign _code = _code | replace: "<pre><code", "<code" %}
-    {% assign _code = _code | replace: "</code></pre>", "</code>" %}
+{% if _content contains '<pre class="highlight">' %}
+  {% assign _content = _content | replace: '<pre class="highlight"><code', '<code' %}
+  {% assign _content = _content | replace: '</code></pre>', '</code>' %}
 {% endif %}

@@ -529,19 +529,48 @@ kbd {
 }
 
 h2, h3, h4, sup {
-  padding-top: 3.5rem;
+  padding-top: 4rem;
   margin-top: -2.5rem;
 }
 
-div.footnotes>ol>li {
-  padding-top: 1rem;
-  margin-top: -.7rem;
+div.footnotes>ol {
+  padding-inline-start: 2rem;
+  margin-top: .5rem;
+}
+
+div.footnotes>ol>li>p {
+  padding-left: .2em;
+}
+
+div.footnotes>ol>li:not(:last-child) {
+  margin-bottom: -.8rem;
+}
+
+div.footnotes>ol>li:target>p {
+  background-color: lightcyan;
+  width: fit-content;
+  -webkit-transition: background-color 1.5s ease-in-out; /* Safari prior 6.1 */
+  transition: background-color 1.5s ease-in-out;
+}
+
+a.footnote {
+  margin: 0 .2em;
+  -webkit-transition: background-color 1.5s ease-in-out; /* Safari prior 6.1 */
+  transition: background-color 1.5s ease-in-out;
+}
+
+sup:target>a.footnote {
+  background-color: lightcyan;
+  padding: 0 2px;
+  outline: thin dotted;
 }
 
 a.reversefootnote {
   font-size: .6rem;
-  border-bottom: none!important;
   position: absolute;
+  line-height: 1;
+  padding-top: .5em;
+  margin-left: .5em;
 }
 
 p>a, span>a,
@@ -584,10 +613,6 @@ footer a:hover,
 
 .post em { /* MarkDown italic */
   padding-right: .2rem;
-}
-
-.post-content .footnotes>ol {
-  padding-inline-start: 2rem;
 }
 
 /*--- Begin of Markdown table style ---*/
@@ -1091,18 +1116,6 @@ a.tag:hover {
 
 /* --- Effects classes --- */
 
-.input-focus {
-/*  -webkit-overflow-scrolling: touch !important;
-  overflow: auto !important;
-  height: 100% !important;*/
-}
-
-html, body {
-/*  -webkit-overflow-scrolling: touch !important;
-  overflow: auto !important;
-  height: 100% !important;*/
-}
-
 .hidden {
   display: none!important;
 }
@@ -1144,8 +1157,8 @@ div.tooltip-inner { /* Overrided BS4 Tooltip */
   max-width: 220px;
 }
 
-/*--- Responsive Design ---*/
 
+/*--- Responsive Design ---*/
 
 @media all and (max-width: 576px) {
 
@@ -1266,11 +1279,6 @@ div.tooltip-inner { /* Overrided BS4 Tooltip */
     transform: translateX(260px) !important;
   }
 
-  div.footnotes>ol>li {
-    padding-top: 3.5rem;
-    margin-top: -2.5rem;
-  }
-
   #sidebar {
     transform: translateX(-260px); /* hide */
     -webkit-transform: translateX(-260px);
@@ -1342,6 +1350,14 @@ div.tooltip-inner { /* Overrided BS4 Tooltip */
     justify-content: center!important;
   }
 
+  sup {
+    padding-top: 3.4rem;
+  }
+
+  div.footnotes>ol>li {
+    padding-top: 3.5rem;
+    margin-top: -4.3rem;
+  }
 }
 
 /* Compact icons in sidebar & TOC hidden */

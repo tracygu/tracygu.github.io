@@ -5,7 +5,7 @@ categories: [Blogging, Tutorial]
 tags: [typography]
 ---
 
-This Jekyll template totally compatible with Markdown syntax. Now, let me show you what typography will looks like.
+This Jekyll template totally compatible with Markdown syntax. Now, let's take a look for the text and typography in this theme.
 
 ## Titles
 
@@ -68,9 +68,15 @@ This is an example of `Inline Code`.
 
 ## Code Snippet
 
-Markdown <code class="highlighter-rouge">```</code> can easily create a code block as following examples.
+### Common
 
-### Ruby
+```
+This is a common code snippet, without syntax highlight and line number.
+```
+
+### Specific Languages
+
+#### Ruby
 
 ```ruby
 def sum_eq_n?(arr, n)
@@ -79,7 +85,7 @@ def sum_eq_n?(arr, n)
 end
 ```
 
-### Shell
+#### Shell
 
 ```shell
 if [ $? -ne 0 ]; then
@@ -88,27 +94,19 @@ if [ $? -ne 0 ]; then
 fi;
 ```
 
-### Liquid
+#### Liquid
 
-If you want to display the **Liquid** snippet, surround the liquid code with `{% raw %}{%{% endraw %} raw {%raw%}%}{%endraw%}` and `{% raw %}{%{% endraw %} endraw {%raw%}%}{%endraw%}` .
-
-{% highlight liquid %}
 {% raw %}
+```liquid
 {% if product.title contains 'Pack' %}
   This product's title contains the word Pack.
 {% endif %}
+```
 {% endraw %}
-{% endhighlight %}
 
+#### HTML
 
-### Line Number
-
-The Line number of Code Snippet is not displayed by default. To enable it, you should make your code surrounded with `{% raw %}{%{% endraw %} highlight LANGUAGE linenos {% raw %}%}{% endraw %}` and `{% raw %}{%{% endraw %} endhighlight {% raw %}%}{% endraw %}`
-
-**No Scrolling**
-
-{% capture _code %}
-{% highlight html linenos %}
+```html
 <div class="sidenav">
   <a href="#contact">Contact</a>
   <button class="dropdown-btn">Dropdown
@@ -121,13 +119,11 @@ The Line number of Code Snippet is not displayed by default. To enable it, you s
   </div>
   <a href="#contact">Search</a>
 </div>
-{% endhighlight %}
-{% endcapture %}{% include fixlinenos.html %}{{ _code }}
+```
 
 **Horizontal Scrolling**
 
-{% capture _code %}
-{% highlight html linenos %}
+```html
 <div class="panel-group">
   <div class="panel panel-default">
     <div class="panel-heading" id="{{ category_name }}">
@@ -137,12 +133,16 @@ The Line number of Code Snippet is not displayed by default. To enable it, you s
     </div>
   </div>
 </div>
-{% endhighlight %}
-{% endcapture %}{% include fixlinenos.html %}{{ _code }}
+```
 
-<br>
 
-***
+## See Also
+
+* [Getting Started]({{ site.baseurl }}/posts/getting-started/)
+* [Write a new post]({{ site.baseurl }}/posts/write-a-new-post/)
+* [Customize the Favicon]({{ site.baseurl }}/posts/customize-the-favicon/)
+
+## Reverse Footnote
 
 [^footnote]: The footnote source.
 

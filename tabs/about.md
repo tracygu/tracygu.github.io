@@ -9,7 +9,7 @@ title:
 # MIT License
 ---
 
-**Chirpy** is a responsive web design Jekyll theme developed using Bootstrap 4, designed by [Cotes Chung](https://github.com/cotes2020).
+**Chirpy** is an responsive web design Jekyll theme developed using Bootstrap 4, designed by [Cotes Chung](https://github.com/cotes2020).
 
 ## Features
 

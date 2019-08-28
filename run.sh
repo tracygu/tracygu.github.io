@@ -5,8 +5,6 @@
 # Published under MIT License
 
 
-set -eu
-
 help() {
    echo "Usage:"
    echo
@@ -19,12 +17,16 @@ help() {
    echo "     -h, --help              Print the help information"
 }
 
+
 cleanup() {
    cd ../
    rm -rf .container
 }
 
+
 init() {
+
+  set -eu
 
   if [[ -d .container ]]; then
     rm -rf .container
@@ -44,6 +46,15 @@ init() {
 }
 
 
+check_unset() {
+  if [[ -z ${1:+unset} ]]
+  then
+    help
+    exit 1
+  fi
+}
+
+
 cmd="bundle exec jekyll s"
 
 while (( $# ))
@@ -51,16 +62,19 @@ do
   opt="$1"
   case $opt in
     -H|--host)
+      check_unset $2
       cmd+=" -H $2"
       shift # past argument
       shift # past value
       ;;
     -P|--port)
+      check_unset $2
       cmd+=" -P $2"
       shift
       shift
       ;;
     -b|--baseurl)
+      check_unset $2
       if [[ $2 == \/* ]]
       then
         cmd+=" -b $2"
@@ -86,7 +100,6 @@ done
 init
 
 cd .container
-
 python _scripts/tools/init_all.py
 
 echo "\$ $cmd"

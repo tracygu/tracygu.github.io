@@ -39,6 +39,15 @@ init() {
 }
 
 
+check_unset() {
+  if [[ -z ${1:+unset} ]]
+  then
+    help
+    exit 1
+  fi
+}
+
+
 CMD="JEKYLL_ENV=production bundle exec jekyll b"
 
 while [[ $# -gt 0 ]]
@@ -46,6 +55,8 @@ do
   opt="$1"
   case $opt in
     -b|--baseurl)
+      check_unset $2
+
       if [[ $2 == \/* ]]
       then
         CMD+=" -b $2"
@@ -53,6 +64,7 @@ do
         help
         exit 1
       fi
+
       shift
       shift
       ;;
@@ -60,8 +72,7 @@ do
       help
       exit 0
       ;;
-    *)
-      # unknown option
+    *) # unknown option
       help
       exit 1
       ;;

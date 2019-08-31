@@ -21,14 +21,16 @@ layout: default
         {% assign title = page.title %}
     {% endcase %}
 
-    <h1 class="hide-title">{{ title }}</h1>
+    <h1 class="dynamic-title">{{ title }}</h1>
     <div class="post-content">
       {{ content }}
     </div>
 
-    {% else %}
-      {{ content }}
-    {% endif %}
+  {% else %}
+
+    {{ content }}
+
+  {% endif %}
 
   </div> <!-- #page -->
 </div><!-- end .col-12 -->

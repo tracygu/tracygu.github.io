@@ -1,17 +1,18 @@
 /*
-* Topbar title effect in mobile screens.
+* Topbar title auto change while scrolling in mobile screens.
 * © 2018-2019 Cotes Chung
 * MIT License
 */
 $(function(){
 
   var DEFAULT = $("#topbar-title").text().trim();
-  var title = $("h1").text().trim();
+  var title = ($("div.post>h1").length > 0) ?
+          $("div.post>h1").text().trim() : $("h1").text().trim();
 
   if ($("#page-category").length || $("#page-tag").length) {
-    /* The title in Category or Tag page will be '$(title) $(count_of_posts)' */
+    /* The title in Category or Tag page will be '<title> <count_of_posts>' */
     if (/\s/.test(title)) {
-      title = title.replace(/[0-9]/g, '');
+      title = title.replace(/[0-9]/g, '').trim();
     }
   }
 

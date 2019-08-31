@@ -122,6 +122,13 @@ figure.highlight,
   margin-bottom: 1.2em;
 }
 
+code {
+  -webkit-hyphens: none;
+  -ms-hyphens: none;
+  -moz-hyphens: none;
+  hyphens: none;
+}
+
 code.highlighter-rouge {
   padding: 2px 4px;
   margin: 0 .3rem;

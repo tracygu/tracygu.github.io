@@ -744,6 +744,16 @@ table tbody td {
   line-height: 1.8;
   font-size: 1rem;
   margin-top: 3rem;
+
+  /* Breaks the word wherever it is without a hyphen */
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+
+  /* Adds a hyphen where the word breaks */
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  hyphens: auto;
 }
 
 #post-list .post-meta i:not(:first-child) { // post-meta icons on HOME

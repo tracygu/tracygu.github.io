@@ -1234,7 +1234,7 @@ div.tooltip-inner { /* Overrided BS4 Tooltip */
 @media all and (min-width: 768px) {
   .post .post-meta>div:not(:first-child)::before {
     content: "\2022";
-    color: #ced4da;
+    color: rgba(158, 158, 158, 0.8);
     font-weight: bold;
     padding-left: .5rem;
     padding-right: .3rem;

@@ -522,6 +522,10 @@ blockquote {
   color: #9a9a9a;
 }
 
+.post-content blockquote a {
+  color: #9a9a9a;
+}
+
 kbd {
   margin: 0 .3rem;
 }
@@ -571,14 +575,19 @@ a.reversefootnote {
   margin-left: .5em;
 }
 
-p>a, span>a,
-.post-content a,
-.post-meta a {
-  color: #2a408e;
+.post-content a {
+  color: #212121;
+  border-bottom: 1px dotted #c2c6cc;
 }
 
-.post-content a {
-  border-bottom: 1px dotted #c2c6cc;
+p>a, span>a,
+.post-preview a,
+.categories a,
+#tags a,
+#page-category a,
+#page-tag a,
+#archives a {
+  color: #2a408e;
 }
 
 .categories a,
@@ -667,10 +676,6 @@ table tbody td {
   margin: 0;
 }
 
-.post-preview h1>a {
-  color: #2a408e;
-}
-
 .post-preview i.far {
   /* fontawesome icons */
   font-size: 86%;
@@ -738,6 +743,11 @@ table tbody td {
 .post-meta {
   font-size: 0.85rem;
   word-spacing: 1px;
+}
+
+.post-meta a {
+  color: inherit;
+  border-bottom: 1px dotted #c2c6cc;
 }
 
 .post-content {

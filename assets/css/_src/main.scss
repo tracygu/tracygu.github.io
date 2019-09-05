@@ -750,6 +750,10 @@ table tbody td {
   border-bottom: 1px dotted #c2c6cc;
 }
 
+.post-meta a:not(:last-child) {
+  margin-right: 2px;
+}
+
 .post-content {
   line-height: 1.8;
   font-size: 1rem;

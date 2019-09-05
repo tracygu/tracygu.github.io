@@ -11,8 +11,9 @@ help() {
    echo "   bash build.sh [options]"
    echo
    echo "Options:"
-   echo "   -b, --baseurl <URL>   The site relative url that start with slash, e.g. '/project'"
-   echo "   -h, --help            Print the help information"
+   echo "   -b, --baseurl <URL>      The site relative url that start with slash, e.g. '/project'"
+   echo "   -h, --help               Print the help information"
+   echo "   -d, --destination <DIR>  Destination directory (defaults to ./_site)"
 }
 
 
@@ -49,6 +50,7 @@ check_unset() {
 
 
 CMD="JEKYLL_ENV=production bundle exec jekyll b"
+DEST=`realpath "./_site"`
 
 while [[ $# -gt 0 ]]
 do
@@ -68,6 +70,15 @@ do
       shift
       shift
       ;;
+    -d|--destination)
+      check_unset $2
+      if [[ -d $2 ]]; then
+        rm -rf $2
+      fi
+      DEST=$2
+      shift;
+      shift;
+      ;;
     -h|--help)
       help
       exit 0
@@ -86,11 +97,10 @@ cd .container
 echo "$ cd $(pwd)"
 python _scripts/tools/init_all.py
 
+CMD+=" -d $DEST"
 echo "\$ $CMD"
 eval $CMD
 
 echo "$(date) - Build success, the Site files placed in _site."
-
-mv _site ..
 
 cd .. && rm -rf .container

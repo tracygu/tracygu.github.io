@@ -5,6 +5,7 @@ layout: compress
 # MIT License
 ---
 
+{% capture source %}
 <feed xmlns="http://www.w3.org/2005/Atom">
   <generator uri="https://jekyllrb.com/" version="{{ jekyll.version }}">Jekyll</generator>
   <link href="{{ site.data.meta.uri }}/feed.xml" rel="self" type="application/atom+xml" />
@@ -36,7 +37,7 @@ layout: compress
   {% endif %}
 
   {% if post.summary %}
-    <summary>{{ post.summary }}</summary>
+    <summary>{{ post.summary | strip }}</summary>
   {% else %}
     <summary>{{ post.content | strip_html | truncate: 200 }}</summary>
   {% endif %}
@@ -44,3 +45,5 @@ layout: compress
   </entry>
 {% endfor %}
 </feed>
+{% endcapture %}
+{{ source | replace: '&', '&amp;' }}

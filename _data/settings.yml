@@ -6,13 +6,18 @@ title: "Chirpy"
 slogan: "A text-based Jekyll theme."
 profile_url: "/assets/img/sample/profile.jpg"
 
-comments: true  # boolean type, the gobal switch of posts' comments.
+# boolean type, the gobal switch of posts' comments.
+comments: true
 
-toc: true  # boolean type, gobal switch for ToC in posts.
+# boolean type, gobal switch for ToC in posts.
+toc: true
 
-pv: false   # Google Analytics pageviews, DO NOT enable it.
+# Google Analytics pageviews and DON'T enable it
+# unless you know how to deploy the Google Analytics superProxy.
+pv: false
 
-lang: en   # Must be 'en' or 'zh'
+# Must be 'en' or 'zh'
+lang: en
 
 tabs:
   - { name: { zh: "首 页", en: "Home" } }

@@ -7,11 +7,19 @@ layout: compress
 
 {% capture source %}
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <generator uri="https://jekyllrb.com/" version="{{ jekyll.version }}">Jekyll</generator>
-  <link href="{{ site.data.meta.uri }}/feed.xml" rel="self" type="application/atom+xml" />
-  <link href="{{ site.data.meta.uri }}" rel="alternate" type="text/html" />
+  <id>{{ site.data.meta.uri }}</id>
+  <title>{{ site.data.settings.title }}</title>
   <updated>{{ site.time | date_to_xmlschema }}</updated>
-  <id>{{ site.data.meta.uri }}/feed.xml</id>
+  <author>
+    <name>{{ site.data.profile.name }}</name>
+    <uri>{{ site.data.meta.uri }}</uri>
+  </author>
+  <link href="/feed.xml" rel="self" type="application/atom+xml" />
+  <link href="{{ site.data.meta.uri }}" rel="alternate" type="text/html" />
+  <generator uri="https://jekyllrb.com/" version="{{ jekyll.version }}">Jekyll</generator>
+  <rights> © {{ 'now' | date: '%Y' }} {{ site.data.profile.name }} </rights>
+  <icon>{{ site.baseurl }}/assets/img/favicons/favicon.ico</icon>
+  <logo>{{ site.baseurl }}/assets/img/favicons/favicon-96x96.png</logo>
 
 {% for post in site.posts limit: 5 %}
   {% assign post_absolute_url = site.data.meta.uri | append: post.url %}

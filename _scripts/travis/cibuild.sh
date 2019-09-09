@@ -8,6 +8,7 @@ PROJECT=chirpy
 
 POSTS_REPO=https://${GH_TOKEN}@github.com/${USERNAME}/blog-posts.git
 META_REPO=https://${GH_TOKEN}@github.com/${USERNAME}/blog-meta.git
+PV_REPO=https://${GH_TOKEN}@github.com/${USERNAME}/ga-pageviews.git
 
 BLOG_REPO=https://${GH_TOKEN}@github.com/${USERNAME}/$USERNAME.github.io.git
 DEMO_REPO=https://${GH_TOKEN}@github.com/${USERNAME}/$PROJECT-demo.git
@@ -15,6 +16,7 @@ DEMO_REPO=https://${GH_TOKEN}@github.com/${USERNAME}/$PROJECT-demo.git
 PROJ_LOCAL=$(pwd)   # equls to $TRAVIS_BUILD_DIR/$USERNAME/$PROJECT
 POSTS_LOCAL=../blog-posts
 META_LOCAL=../blog-meta
+PV_CACHE=../ga-pageviews
 DEPLOY_CACHE=../deploy
 
 
@@ -56,6 +58,7 @@ init() {
 
   git clone ${POSTS_REPO} ${POSTS_LOCAL}
   git clone ${META_REPO} ${META_LOCAL} --depth=1
+  git clone $PV_REPO $PV_CACHE --depth=1
 }
 
 
@@ -78,6 +81,9 @@ combine() {
 
   cp -a ${META_LOCAL}/* ${POSTS_LOCAL}
   echo "[$(date)] Combined meta-data."
+
+  cp $PV_CACHE/* ${POSTS_LOCAL}/assets/data/
+  echo "[$(date)] Combined with pv cache."
 }
 
 

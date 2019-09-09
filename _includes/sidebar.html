@@ -7,21 +7,21 @@
   <div id="profile-wrap" class="d-flex justify-content-center">
     <div id="profile">
       <a href="{{ site.baseurl }}/" alt="profile-photo">
-        {% assign profile_url = site.data.settings.profile_url %}
-        {% if profile_url | slice: 0 == '/' %}
-          {% assign profile_url = profile_url | prepend: site.baseurl %}
+        {% assign profile_img = site.data.meta.profile.img %}
+        {% if profile_img | slice: 0 == '/' %}
+          {% assign profile_img = profile_img | prepend: site.baseurl %}
         {% endif %}
-        <img src="{{ profile_url }}"></img>
+        <img src="{{ profile_img }}"></img>
       </a>
     </div>
   </div>
   <div id="site-title" class="d-flex justify-content-center align-items-center">
-    <a href="{{ site.baseurl }}/">{{- site.data.settings.title -}}</a>
+    <a href="{{ site.baseurl }}/">{{- site.data.meta.title -}}</a>
   </div>
-  <div id="site-slogan" class="font-italic">{{ site.data.settings.slogan }}</div>
+  <div id="site-subtitle" class="font-italic">{{ site.data.meta.subtitle }}</div>
   <ul class="nav flex-column">
     {% assign page_urls = page.url | split: "/" %}
-    {% for item in site.data.settings.tabs %}
+    {% for item in site.data.label.tabs %}
       {% assign ref = site.baseurl | append: "/" %}
       {% if item.path %}
       {% assign ref = ref | append: item.path | append: "/" %}
@@ -40,7 +40,7 @@
       active
       {%- endif -%}">
       <a href="{{ ref }}" class="nav-link d-flex justify-content-center align-items-center w-100"><!-- <i class="{{ item.icon }}"></i> -->
-      {%- if site.data.settings.lang == 'zh' -%}
+      {%- if site.data.meta.lang == 'zh' -%}
         {{ item.name.zh }}
       {%- else -%}
         {{ item.name.en | upcase }}
@@ -54,13 +54,13 @@
 </div><!-- #nav-wrap -->
 
 <div class="contact d-flex justify-content-around mt-3">
-  <a href="https://github.com/{{ site.data.profile.github }}" target="_blank">
+  <a href="https://github.com/{{ site.data.meta.profile.github }}" target="_blank">
     <i class="fab fa-github"></i>
   </a>
-  <a href="https://twitter.com/{{ site.data.profile.twitter }}" target="_blank">
+  <a href="https://twitter.com/{{ site.data.meta.profile.twitter }}" target="_blank">
     <i class="fab fa-twitter"></i>
   </a>
-  {% assign email = site.data.profile.email | split: '@' %}
+  {% assign email = site.data.meta.profile.email | split: '@' %}
   <a href="javascript:window.open('mailto:' + ['{{ email[0] }}','{{ email[1] }}'].join('@'))">
     <i class="fas fa-envelope"></i>
   </a>

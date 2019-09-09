@@ -162,7 +162,6 @@ body {
   font-weight: 900;
   font-size: 1.5rem;
   letter-spacing: .5px;
-  word-spacing: 4px;
 }
 
 #site-title a:hover {
@@ -170,7 +169,7 @@ body {
   text-decoration: none;
 }
 
-#site-slogan {
+#site-subtitle {
   font-size: 95%;
   text-align: center;
   color: #828282;
@@ -1402,7 +1401,7 @@ div.tooltip-inner { /* Overrided BS4 Tooltip */
     margin-left: 0!important;
   }
 
-  #site-slogan {
+  #site-subtitle {
     font-size: 90%;
     padding-left: 1rem;
     padding-right: 1rem;

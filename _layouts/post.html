@@ -35,7 +35,7 @@ layout: default
         </div>
         {% endif %}
         <!-- page views -->
-        {% if site.data.settings.pv %}
+        {% if site.data.meta.pv %}
         <div>
           <span id="pv" class="pageviews"><i class="fas fa-spinner fa-spin"></i></span> views
         </div>
@@ -86,7 +86,7 @@ layout: default
       </a>
     </div> <!-- end .post-pager -->
 
-    {% if site.data.settings.comments and page.comments %}
+    {% if site.data.meta.comments and page.comments %}
       {% include disqus.html %}
     {% else %}
       <br>
@@ -97,11 +97,11 @@ layout: default
 
 <div id="post-panel" class="col-xl-3 pl-2">
   {% include panel.html %}
-  {% if site.data.settings.toc and page.toc %}
+  {% if site.data.meta.toc and page.toc %}
   <div id="toc-wrap" class="topbar-down pr-4">
     <h3 data-toc-skip class="pl-3 pt-2">
-      {% assign lang = site.data.settings.lang %}
-      {{ site.data.settings.panel.toc[lang] }}
+      {% assign lang = site.data.meta.lang %}
+      {{ site.data.label.panel.toc[lang] }}
     </h3>
     <nav id="toc" data-toggle="toc"></nav>
   </div>
@@ -112,7 +112,7 @@ layout: default
 
 <script src="{{ site.baseurl }}/assets/js/dist/timeago.min.js"></script>
 
-{% if site.data.settings.pv %}
+{% if site.data.meta.pv %}
 <script src="{{ site.baseurl }}/assets/js/dist/countUp.min.js" async></script>
 <script src="{{ site.baseurl }}/assets/js/dist/pageviews.min.js" async></script>
 {% endif %}

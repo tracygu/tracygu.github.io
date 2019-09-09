@@ -6,12 +6,12 @@
 <head>
   <title>
     {%- if page.layout == "home" -%}
-      {{- site.data.settings.title -}}
+      {{- site.data.meta.title -}}
     {%- elsif page.title.en or page.title.zh  -%}
-      {%- assign lang = site.data.settings.lang -%}
-      {{ page.title[lang] }} | {{ site.data.settings.title }}
+      {%- assign lang = site.data.meta.lang -%}
+      {{ page.title[lang] }} | {{ site.data.meta.title }}
     {%- else -%}
-      {{ page.title }} | {{ site.data.settings.title }}
+      {{ page.title }} | {{ site.data.meta.title }}
     {%- endif -%}
   </title>
 

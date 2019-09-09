@@ -1,23 +1,6 @@
-# The visible text of site.
+# The label text of site.
 # © 2017-2019 Cotes Chung
-# MIT License
-
-title: "Chirpy"
-slogan: "A text-based Jekyll theme."
-profile_url: "/assets/img/sample/profile.jpg"
-
-# boolean type, the gobal switch of posts' comments.
-comments: true
-
-# boolean type, gobal switch for ToC in posts.
-toc: true
-
-# Google Analytics pageviews and DON'T enable it
-# unless you know how to deploy the Google Analytics superProxy.
-pv: false
-
-# Must be 'en' or 'zh'
-lang: en
+# MIT Licensed
 
 tabs:
   - { name: { zh: "首 页", en: "Home" } }

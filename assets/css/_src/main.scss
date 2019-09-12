@@ -381,7 +381,7 @@ footer .license a {
 .panel-group {
   position: -webkit-sticky; /* Safari */
   position: sticky;
-  top: 1rem;
+  top: 2rem;
   transition: top 0.2s ease-in-out;
   padding-right: 1.5rem;
   margin-top: 3rem;
@@ -390,7 +390,7 @@ footer .license a {
 }
 
 .panel-group.topbar-down {
-  top: 4rem;
+  top: 6rem;
 }
 
 .panel-group>div {

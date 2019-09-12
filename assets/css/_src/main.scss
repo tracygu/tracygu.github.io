@@ -824,12 +824,12 @@ table tbody td {
 }
 
 .post img {
-  filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.08));
-  padding-top: .5rem;
-  padding-bottom: 1.5rem;
+  // filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.08));
+  margin-top: .5rem;
+  margin-bottom: 1.5rem;
   max-width: 100%;
-  max-height: 60rem;
-  display: block;
+  height: auto;
+  filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.08));
 }
 
 #post-panel .panel-group {
@@ -1245,6 +1245,12 @@ div.tooltip-inner { /* Overrided BS4 Tooltip */
 
 }
 
+@media all and (max-width: 768px) {
+  .post img {
+    max-width: calc(100% + 1rem);
+  }
+}
+
 @media all and (min-width: 768px) {
   .post .post-meta>div:not(:first-child)::before {
     content: "\2022";
@@ -1288,6 +1294,14 @@ div.tooltip-inner { /* Overrided BS4 Tooltip */
     max-width: 96%;
   }
 }
+
+
+@media all and (min-width: 768px) and (max-width: 831px) {
+  .post img {
+    max-width: calc(100% + 2rem);
+  }
+}
+
 
 /* Hide SideBar and TOC */
 @media all and (max-width: 831px) {
@@ -1340,6 +1354,14 @@ div.tooltip-inner { /* Overrided BS4 Tooltip */
 
   #main>div.row>div {
     margin-top: 0;
+  }
+
+  .post img {
+    position: relative;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
   }
 
   #topbar-title,

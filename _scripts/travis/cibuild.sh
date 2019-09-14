@@ -4,16 +4,15 @@
 # MIT Licensed
 
 USERNAME=cotes2020
-PROJECT=chirpy
 
 POSTS_REPO=https://${GH_TOKEN}@github.com/${USERNAME}/blog-posts.git
 META_REPO=https://${GH_TOKEN}@github.com/${USERNAME}/blog-meta.git
 PV_REPO=https://${GH_TOKEN}@github.com/${USERNAME}/ga-pageviews.git
 
-BLOG_REPO=https://${GH_TOKEN}@github.com/${USERNAME}/$USERNAME.github.io.git
-DEMO_REPO=https://${GH_TOKEN}@github.com/${USERNAME}/$PROJECT-demo.git
+BLOG_REPO=https://${GH_TOKEN}@github.com/${USERNAME}/${USERNAME}.github.io.git
+DEMO_REPO=https://${GH_TOKEN}@github.com/${USERNAME}/chirpy-demo.git
 
-PROJ_LOCAL=$(pwd)   # equls to $TRAVIS_BUILD_DIR/$USERNAME/$PROJECT
+PROJ_LOCAL=$(pwd)   # equls to $TRAVIS_BUILD_DIR/$USERNAME/$CUR_PROJECT
 POSTS_LOCAL=../blog-posts
 META_LOCAL=../blog-meta
 PV_CACHE=../ga-pageviews

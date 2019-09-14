@@ -1,8 +1,8 @@
-# Chirpy
+# Jekyll Theme Chirpy
 
-[![Build Status](https://travis-ci.org/cotes2020/chirpy.svg?branch=master)](https://travis-ci.org/cotes2020/chirpy)
-[![GitHub release](https://img.shields.io/github/release/cotes2020/chirpy.svg)](https://github.com/cotes2020/chirpy/releases)
-[![GitHub license](https://img.shields.io/github/license/cotes2020/chirpy.svg)](https://github.com/cotes2020/chirpy/blob/master/LICENSE)
+[![Build Status](https://travis-ci.org/cotes2020/jekyll-theme-chirpy.svg?branch=master)](https://travis-ci.org/cotes2020/jekyll-theme-chirpy)
+[![GitHub release](https://img.shields.io/github/release/cotes2020/jekyll-theme-chirpy.svg)](https://github.com/cotes2020/jekyll-theme-chirpy/releases)
+[![GitHub license](https://img.shields.io/github/license/cotes2020/jekyll-theme-chirpy.svg)](https://github.com/cotes2020/jekyll-theme-chirpy/blob/master/LICENSE)
 [![996.icu](https://img.shields.io/badge/link-996.icu-red.svg)](https://996.icu)
 
 A Jekyll theme with responsive web design that focuses on text presentation. [Live Demo »](https://chirpy.cotes.info)

@@ -56,58 +56,39 @@ There are two basic types of GitHub Pages sites, therefore you can choose one of
 
 ###  User and Organization Pages sites
 
-1) Build your site by:
+1) On GitHub website, create a new blank repository named `<username>.github.io`.
+
+2) Build your site by:
 
 ```console
-$ cd /path/to/chirpy/
-$ bash build.sh
+$ cd /path/to/jekyll-theme-chirpy/
+$ bash build.sh -d /path/to/<username>.github.io/
 ```
 
-The build results will be stored in `_site` of the project's root directory.
+The build results will be stored in the root directory of `<username>.github.io`. Do forget to push the changes of `<username>.github.io` to GitHub.
 
-2) Go to GitHub website and create a new repository named `<username>.github.io`.
+3) Go to GitHub website and enable GitHub Pages service for the new repository `<username>.github.io`.
 
-3) Copy the build results mentioned in ***1)*** to the new repository.
-```terminal
-$ pwd
-/path/to/chirpy
-$ cp -r _site/* /path/to/<username>.github.io
-```
+4) Visit `https://<username>.github.io` and enjoy.
 
-Then, push to remote:
-```console
-$ cd /path/to/<username>.github.io
-$ git add -A && git commit -m "Your commit message"
-$ git push origin master
-```
-
-4) Go to GitHub website and enable Pages service for the new repository `<username>.github.io`.
-
-5) Visit `https://<username>.github.io` and enjoy.
 
 ###  Project Pages sites
 
-If you want to put the source code and build results within one repository, the **Project Pages sites** is for you.
-
-> **NOTE**: Do not name your repository `<username>.github.io`.
-
-1) Suppose you have renamed the blog repository to `myblog`. Build the site with base url `/myblog`:
+1) Suppose you create a new repository `myblog` (Do not name it `<username>.github.io`). Build the site with base url `/myblog`:
 
 ```console
-$ cd /path/to/myblog/
-$ bash build.sh --baseurl /myblog
+$ cd /path/to/jekyll-theme-chirpy/
+$ bash build.sh -d /path/to/myblog/ -b /myblog
 ```
 
+> **Tips**: Setting the variable `baseurl` in `_config.yml` can revoke the parameter option `-b /myblog` above.
 
+2) Push site files in repository `myblog` by Git to the remote `master` branch.
 
-> **Tips**: Setting the variable `baseurl` in `_config.yml` can revoke the parameter option `--baseurl /myblog` above .
-
-2) Create a new branch `gh-pages` and ensure that there are no files in the new branch. Place the site files in folder `_site` into the root directory of the new branch, then push the new branch to the remote `origin/gh-pages`.
-
-3) Go to GitHub website and enable Pages servies for the branch `gh-pages`
-of the project.
+3) Go to GitHub website and enable GitHub Pages servies for repository `myblog`.
 
 4) Now your site is published at `https://<username>.github.io/myblog/`
+
 
 ## See Also
 

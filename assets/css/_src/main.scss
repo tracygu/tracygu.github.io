@@ -271,9 +271,8 @@ body {
 }
 
 #search-input:focus {
-  /*outline-style: none;*/
   box-shadow: none;
-  /*border-color: transparent;*/
+  background: center;
 }
 
 #topbar-title {
@@ -1485,8 +1484,8 @@ div.tooltip-inner { /* Overrided BS4 Tooltip */
 
   #search-input {
     width: 15rem;
-    -webkit-transition: width .3s;
-    transition: width .3s;
+    -webkit-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
   }
 
   #search-input:focus {

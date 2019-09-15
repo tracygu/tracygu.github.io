@@ -51,6 +51,8 @@ init() {
   sed -i "/^uri/d" $META_FILE
   echo -e "\nuri: \"https://$CNAME\"" >> $META_FILE
 
+  echo "google-site-verification: ${VERIVICATION}" > "${VERIVICATION}"
+
   # Git settings
   git config --global user.email "travis@travis-ci.org"
   git config --global user.name "Travis-CI"

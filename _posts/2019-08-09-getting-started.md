@@ -14,24 +14,24 @@ In addition, the [python](https://www.python.org/downloads/) and [ruamel.yaml](h
 
 ## Configuration
 
-Customize the variables in file `_data/meta.yml` as needed.
+Customize the variables in file `_config.yml` as needed.
 
 ## Atom Feed
 
 The Atom feed url of your site will be:
 
 ```
-<site_uri>/feed.xml
+<site_url>/feed.xml
 ```
 
-The `site_uri` was defined by variabel **uri** in `_data/meta.yml`.
+The `site_url` was defined by variabel **url** in `_config.yml`.
 
 ## Install Jekyll Plugins
 
 In the root direcoty of the project, run the following command:
 
-```
-bundle install
+```terminal
+$ bundle install
 ```
 
 `bundle` will install all dependent Jekyll Plugins declared in `Gemfile` that stored in the root automatically.
@@ -40,8 +40,8 @@ bundle install
 
 You may want to preview the site before publishing. Run the script in the root directory:
 
-```
-bash run.sh
+```terminal
+$ bash run.sh
 ```
 
 >**Note**: Because the *Recent Update* required the latest git-log date of posts, make sure the changes of `_posts` have been committed before running this command. 

@@ -40,18 +40,14 @@ init() {
 
   # Play trick
   echo "$CNAME" > CNAME
-  META_FILE=_data/meta.yml
 
-  sed -i "/^ga/d" $META_FILE
-  echo -e "\nga_id: \"$GA_ID\"" >> $META_FILE
-
-  sed -i "/^disqus/d" $META_FILE
-  echo -e "\ndisqus_shortname: \"$DISQUS\"" >> $META_FILE
-
-  sed -i "/^uri/d" $META_FILE
-  echo -e "\nuri: \"https://$CNAME\"" >> $META_FILE
-
-  echo "google-site-verification: ${VERIVICATION}" > "${VERIVICATION}"
+  CONFIG=_config.yml
+  sed -i "s/\(^url:.*\)/url: 'https:\/\/${CNAME}'/g" $CONFIG
+  sed -i "s/\(.*id:.*\)/  id: '${GA_ID}'/g" $CONFIG
+  sed -i "s/\(.*shortname:.*\)/  shortname: '${DISQUS}'/g" $CONFIG
+  sed -i \
+      "s/\(^google_site_verification:.*\)/google_site_verification: '${SITE_VERIFICATION}'/g" \
+      $CONFIG
 
   # Git settings
   git config --global user.email "travis@travis-ci.org"
@@ -60,6 +56,7 @@ init() {
   git clone ${POSTS_REPO} ${POSTS_LOCAL}
   git clone ${META_REPO} ${META_LOCAL} --depth=1
   git clone $PV_REPO $PV_CACHE --depth=1
+
 }
 
 

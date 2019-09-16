@@ -48,13 +48,14 @@ def update_lastmod(verbose, commit):
         frontmatter, line_num = get_yaml(post)
         meta = yaml.load(frontmatter)
 
-        if 'lastmod' in meta:
-            if meta['lastmod'] == git_lastmod:
+        if 'seo' in meta and 'date_modified' in meta['seo']:
+            if meta['seo']['date_modified'] == git_lastmod:
                 continue
             else:
-                meta['lastmod'] = git_lastmod
+                meta['seo']['date_modified'] = git_lastmod
         else:
-            meta.insert(line_num, 'lastmod', git_lastmod)
+            meta.insert(line_num, 'seo',
+                        dict(date_modified=git_lastmod))
 
         output = 'new.md'
         if os.path.isfile(output):

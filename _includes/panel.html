@@ -4,8 +4,6 @@
   MIT License
 -->
 
-{% assign lang = site.data.meta.lang %}
-
 <div class="panel-group">
 
   {% assign lastmod_list = "" | split: "" %}
@@ -23,7 +21,7 @@
   {% if lastmod_list.size > 0 %}
   <div id="panel-update" class="post mb-4"">
     <h3 data-toc-skip>
-      {{ site.data.label.panel.lastmod[lang] }}
+      {{ site.data.label.panel.lastmod }}
     </h3>
     <ul class="post-content pl-0 mt-2 pb-1">
     {% assign MAX_SIZE = 5 %}
@@ -43,7 +41,7 @@
 
   <div id="panel-tags">
     <h3 data-toc-skip>
-      {{ site.data.label.panel.tags[lang] }}
+      {{ site.data.label.panel.trending_tags }}
     </h3>
     <div class="d-flex flex-wrap mt-2 pb-1 pr-3">
       {% capture tags_array %}

@@ -3,6 +3,7 @@
   © 2017-2019 Cotes Chung
   MIT License
 -->
+
 <div id="nav-wrap">
   <div id="profile-wrap" class="d-flex justify-content-center">
     <div id="profile">
@@ -40,11 +41,7 @@
       active
       {%- endif -%}">
       <a href="{{ ref }}" class="nav-link d-flex justify-content-center align-items-center w-100"><!-- <i class="{{ item.icon }}"></i> -->
-      {%- if site.data.meta.lang == 'zh' -%}
-        {{ item.name.zh }}
-      {%- else -%}
-        {{ item.name.en | upcase }}
-      {%- endif -%}
+      {{ item.name | upcase }}
       </a>
     </li> <!-- .nav-item -->
     {% endfor %}

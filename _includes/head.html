@@ -3,13 +3,11 @@
   © 2017-2019 Cotes Chung
   MIT License
 -->
+
 <head>
   <title>
     {%- if page.layout == "home" -%}
       {{- site.data.meta.title -}}
-    {%- elsif page.title.en or page.title.zh  -%}
-      {%- assign lang = site.data.meta.lang -%}
-      {{ page.title[lang] }} | {{ site.data.meta.title }}
     {%- else -%}
       {{ page.title }} | {{ site.data.meta.title }}
     {%- endif -%}

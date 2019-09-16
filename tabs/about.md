@@ -1,8 +1,6 @@
 ---
 layout: page
-title:
-  zh: 关于
-  en: About
+title: About
 
 # The About page
 # © 2017-2019 Cotes Chung
@@ -19,7 +17,6 @@ title:
 * Syntax highlighting
 * Two Level Categories
 * Search
-* Support dual language (en-US & zh-CN)
 * HTML compress
 * Atom feeds
 * Google Analytics

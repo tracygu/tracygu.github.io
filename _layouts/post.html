@@ -100,8 +100,7 @@ layout: default
   {% if site.data.meta.toc and page.toc %}
   <div id="toc-wrap" class="topbar-down pr-4">
     <h3 data-toc-skip class="pl-3 pt-2">
-      {% assign lang = site.data.meta.lang %}
-      {{ site.data.label.panel.toc[lang] }}
+      {{ site.data.label.panel.toc }}
     </h3>
     <nav id="toc" data-toggle="toc"></nav>
   </div>

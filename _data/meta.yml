@@ -34,6 +34,3 @@ toc: true
 # Switch for Google Analytics pageviews.
 # DO NOT enable it unless you know how to deploy the Google Analytics superProxy.
 pv: false
-
-# Must be 'en' or 'zh'
-lang: 'en'

@@ -1,5 +1,4 @@
 ---
-layout: page
 title: Tags
 
 # All the Tags of posts.

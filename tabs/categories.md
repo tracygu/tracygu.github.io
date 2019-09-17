@@ -1,5 +1,4 @@
 ---
-layout: page
 title: Categories
 
 # All the Categories of posts

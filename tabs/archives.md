@@ -1,5 +1,4 @@
 ---
-layout: page
 title: Archives
 
 # The Archives of posts.

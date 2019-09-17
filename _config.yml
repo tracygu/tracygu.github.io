@@ -123,6 +123,7 @@ defaults:
     scope:
       path: tabs
     values:
+      layout: page
       dynamic_title: true    # hide title in mobile screens.
       breadcrumb:
         -

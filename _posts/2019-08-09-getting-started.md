@@ -43,52 +43,48 @@ You may want to preview the site before publishing. Run the script in the root d
 ```terminal
 $ bash run.sh
 ```
+>**Note**: Because the *Recent Update* required the latest git-log date of posts, make sure the changes of `_posts` have been committed before running this command.
 
->**Note**: Because the *Recent Update* required the latest git-log date of posts, make sure the changes of `_posts` have been committed before running this command. 
-
-Open the brower and visit [http://127.0.0.1:4000](http://127.0.0.1:4000) 
+Open the brower and visit [http://127.0.0.1:4000](http://127.0.0.1:4000)
 
 ##  Deploying to GitHub Pages
 
+### Option 1: Build locally (Recommend)
+
 For security reasons, GitHub Pages runs on `safe` mode, which means the third-party Jekyll plugins or custom scripts will not work, thus **we have to build locally rather than on GitHub Pages**.
 
-There are two basic types of GitHub Pages sites, therefore you can choose one of them to finish the publishing.
+**1**. On GitHub website, create a new blank repository named `<username>.github.io`.
 
-###  User and Organization Pages sites
-
-1) On GitHub website, create a new blank repository named `<username>.github.io`.
-
-2) Build your site by:
+**2**. Build your site by:
 
 ```console
-$ cd /path/to/jekyll-theme-chirpy/
 $ bash build.sh -d /path/to/<username>.github.io/
 ```
 
-The build results will be stored in the root directory of `<username>.github.io`. Do forget to push the changes of `<username>.github.io` to GitHub.
+The build results will be stored in the root directory of `<username>.github.io` and don't forget to push the changes of `<username>.github.io` to branch `master` on GitHub.
 
-3) Go to GitHub website and enable GitHub Pages service for the new repository `<username>.github.io`.
+**3**. Go to GitHub website and enable GitHub Pages service for the new repository `<username>.github.io`.
 
-4) Visit `https://<username>.github.io` and enjoy.
+**4**. Visit `https://<username>.github.io` and enjoy.
 
 
-###  Project Pages sites
+### Option 2: Build by GitHub Pages
 
-1) Suppose you create a new repository `myblog` (Do not name it `<username>.github.io`). Build the site with base url `/myblog`:
+**Warning**: By deploying your site in this way, you will lose feature `Last Modifed Date`, which means the posts' latest modified date and the **Recent Update** list in the right pannel will never display.
+
+**1**. Rename your repository as `<username>.github.io`.
+
+**2**. Commit the changes of your repository before running the initialization script:
 
 ```console
-$ cd /path/to/jekyll-theme-chirpy/
-$ bash build.sh -d /path/to/myblog/ -b /myblog
+$ bash init.sh
 ```
 
-> **Tips**: Setting the variable `baseurl` in `_config.yml` can revoke the parameter option `-b /myblog` above.
+It will make an automatic initialization for the *Categories*/*Tags* pages for posts.
 
-2) Push site files in repository `myblog` by Git to the remote `master` branch.
+**3**. Push the changes to `origin/master` then go to GitHub website and enable GitHub Pages service for the repository `<username>.github.io`.
 
-3) Go to GitHub website and enable GitHub Pages servies for repository `myblog`.
-
-4) Now your site is published at `https://<username>.github.io/myblog/`
-
+**4**. Visit `https://<username>.github.io` and enjoy.
 
 ## See Also
 

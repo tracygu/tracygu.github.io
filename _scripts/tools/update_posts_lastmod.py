@@ -25,7 +25,7 @@ from ruamel.yaml import YAML
 POSTS_PATH = "_posts"
 
 
-def update_lastmod(verbose, commit):
+def update_lastmod(verbose):
     count = 0
     yaml = YAML()
 
@@ -84,12 +84,6 @@ def update_lastmod(verbose, commit):
 
     print ("[INFO] Success to update lastmod for {} post(s).").format(count)
 
-    if commit:
-        if count > 0:
-            subprocess.call(["git", "add", POSTS_PATH])
-            subprocess.call(["git", "commit", "-m",
-                            "[Automation] Updated lastmod for post(s)."])
-
 
 def help():
     print("Usage: "
@@ -100,7 +94,6 @@ def help():
 
 def main():
     verbose = False
-    commit = False
 
     if len(sys.argv) > 1:
         for arg in sys.argv:
@@ -109,14 +102,12 @@ def main():
             else:
                 if arg == '-v' or arg == '--verbose':
                     verbose = True
-                elif arg == '-c' or arg == '--commit':
-                    commit = True
                 else:
                     print("Oops! Unknown argument: '{}'\n".format(arg))
                     help()
                     return
 
-    update_lastmod(verbose, commit)
+    update_lastmod(verbose)
 
 
 main()

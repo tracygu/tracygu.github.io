@@ -36,4 +36,4 @@ Follow the [tutorial posts]({{ site.baseurl }}/categories/tutorial/), it will he
 
 ## License
 
-This project is published under the [MIT License](https://github.com/cotes2020/cotes-blog/blob/master/LICENSE).
+This project is published under the [MIT License](https://github.com/cotes2020/jekyll-theme-chirpy/blob/master/LICENSE).

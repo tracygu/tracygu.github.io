@@ -1036,7 +1036,7 @@ a.tag:hover {
   width: 6px;
   height: 6px;
   float: left;
-  top: 23px;
+  top: 20px;
   left: 68px;
   background-color: #9e9e9e;
 }
@@ -1044,8 +1044,8 @@ a.tag:hover {
 #archives ul>li::after {
   /* timeline for date */
   content: "";
-  height: 40px;
-  top: -17px;
+  height: 39px;
+  top: -19px;
   left: 72px;
   display: inline-block;
   float: left;
@@ -1057,8 +1057,8 @@ a.tag:hover {
 #archives ul>li:first-child::before {
   content: "";
   width: 2px;
-  height: 48px;
-  top: -25px;
+  height: 44px;
+  top: -24px;
   left: 72px;
   display: inline-block;
   float: left;
@@ -1068,7 +1068,7 @@ a.tag:hover {
 }
 
 #archives ul:not(:last-child)>li:last-child::after {
-  height: 49px;
+  height: 50px;
 }
 
 #archives ul:last-child>li:last-child::after {

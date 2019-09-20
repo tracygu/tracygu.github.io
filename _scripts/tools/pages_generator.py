@@ -2,10 +2,15 @@
 # -*- coding: utf-8 -*-
 
 '''
-Generates HTML page for categories and tags by posts.
+Generates HTML pages for Categories and Tags in posts.
+
+Dependencies:
+  - ruamel.yaml
+
 © 2018-2019 Cotes Chung
 MIT License
 '''
+
 
 import os
 import glob
@@ -13,7 +18,8 @@ import shutil
 import sys
 
 from ruamel.yaml import YAML
-from utils.frontmatter_getter import get_yaml
+from utils.common import get_yaml
+from utils.common import check_py_version
 
 
 DRAFTS_DIR = '_drafts'
@@ -92,8 +98,8 @@ def generate_category_pages(is_verbose):
         with open(new_page, 'w+') as html:
             html.write("---\n")
             html.write("layout: {}\n".format(CATEGORY_LAYOUT))
-            html.write("title: {}\n".format(category.encode('utf-8')))
-            html.write("category: {}\n".format(category.encode('utf-8')))
+            html.write("title: {}\n".format(category))
+            html.write("category: {}\n".format(category))
             html.write("---")
 
             if is_verbose:
@@ -117,7 +123,7 @@ def get_all_tags():
                     if tag not in all_tags:
                         all_tags.append(tag)
             else:
-                raise Exception("Cannot found 'tags' in \
+                raise Exception("Didn't find 'tags' in \
                   post '{}' !".format(file))
 
     return all_tags
@@ -137,8 +143,8 @@ def generate_tag_pages(is_verbose):
         with open(tag_page, 'w+') as html:
             html.write("---\n")
             html.write("layout: {}\n".format(TAG_LAYOUT))
-            html.write("title: {}\n".format(tag.encode('utf-8')))
-            html.write("tag: {}\n".format(tag.encode('utf-8')))
+            html.write("title: {}\n".format(tag))
+            html.write("tag: {}\n".format(tag))
             html.write("---")
 
             if is_verbose:
@@ -156,6 +162,8 @@ def help():
 
 
 def main():
+    check_py_version()
+
     is_verbose = False
 
     if len(sys.argv) > 1:

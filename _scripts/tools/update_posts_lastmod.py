@@ -2,8 +2,8 @@
 # -*- coding: utf-8 -*-
 
 """
-Update (create if not existed) YAML 'lastmod' in posts
-according to their last git log date.
+Update (create if not existed) filed 'seo.date_modified'
+in posts' Front Matter by their latest git commit date.
 
 Dependencies:
   - git
@@ -19,8 +19,10 @@ import os
 import subprocess
 import shutil
 
-from utils.frontmatter_getter import get_yaml
 from ruamel.yaml import YAML
+from utils.common import get_yaml
+from utils.common import check_py_version
+
 
 POSTS_PATH = "_posts"
 
@@ -31,16 +33,14 @@ def update_lastmod(verbose):
 
     for post in glob.glob(os.path.join(POSTS_PATH, "*.md")):
 
-        ps = subprocess.Popen(("git", "log", "--pretty=%ad", post),
-                              stdout=subprocess.PIPE)
-        git_log_count = subprocess.check_output(('wc', '-l'), stdin=ps.stdout)
-        ps.wait()
+        git_log_count = subprocess.getoutput("git log --pretty=%ad {} | wc -l"
+                                             .format(post))
 
-        if git_log_count.strip() == "1":
+        if git_log_count == "1":
             continue
 
-        git_lastmod = subprocess.check_output([
-            "git", "log", "-1", "--pretty=%ad", "--date=iso", post]).strip()
+        git_lastmod = subprocess.getoutput(
+            "git log -1 --pretty=%ad --date=iso " + post)
 
         if not git_lastmod:
             continue
@@ -80,9 +80,9 @@ def update_lastmod(verbose):
         count += 1
 
         if verbose:
-            print "[INFO] update 'lastmod' for:" + post
+            print("[INFO] update 'lastmod' for:" + post)
 
-    print ("[INFO] Success to update lastmod for {} post(s).").format(count)
+    print("[INFO] Success to update lastmod for {} post(s).".format(count))
 
 
 def help():
@@ -93,6 +93,8 @@ def help():
 
 
 def main():
+    check_py_version()
+
     verbose = False
 
     if len(sys.argv) > 1:

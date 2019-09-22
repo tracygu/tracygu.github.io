@@ -5,6 +5,7 @@
 Generates HTML pages for Categories and Tags in posts.
 
 Dependencies:
+  - git
   - ruamel.yaml
 
 © 2018-2019 Cotes Chung
@@ -16,6 +17,7 @@ import os
 import glob
 import shutil
 import sys
+import subprocess
 
 from ruamel.yaml import YAML
 from utils.common import get_yaml
@@ -105,8 +107,10 @@ def generate_category_pages(is_verbose):
             if is_verbose:
                 print("[INFO] Created page: " + new_page)
 
-    print("[INFO] Succeed! {} category-pages created."
-          .format(len(categories)))
+    change = subprocess.getoutput("git status categories -s")
+    if change:
+        print("[INFO] Succeed! {} category-pages created."
+              .format(len(categories)))
 
 
 def get_all_tags():
@@ -150,7 +154,9 @@ def generate_tag_pages(is_verbose):
             if is_verbose:
                 print("[INFO] Created page: " + tag_page)
 
-    print("[INFO] Succeed! {} tag-pages created.".format(len(all_tags)))
+    change = subprocess.getoutput("git status tags -s")
+    if change:
+        print("[INFO] Succeed! {} tag-pages created.".format(len(all_tags)))
 
 
 def help():

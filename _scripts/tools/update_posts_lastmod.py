@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-Update (create if not existed) filed 'seo.date_modified'
+Update (or create if not existed) field 'seo.date_modified'
 in posts' Front Matter by their latest git commit date.
 
 Dependencies:
@@ -45,17 +45,22 @@ def update_lastmod(verbose):
         if not git_lastmod:
             continue
 
+        lates_commit = subprocess.getoutput("git log -1 --pretty=%B " + post)
+
+        if "[Automation]" in lates_commit and "Lastmod" in lates_commit:
+            continue
+
         frontmatter, line_num = get_yaml(post)
         meta = yaml.load(frontmatter)
 
-        if 'seo' in meta and 'date_modified' in meta['seo']:
-            if meta['seo']['date_modified'] == git_lastmod:
+        if 'seo' in meta:
+            if ('date_modified' in meta['seo'] and
+                    meta['seo']['date_modified'] == git_lastmod):
                 continue
             else:
                 meta['seo']['date_modified'] = git_lastmod
         else:
-            meta.insert(line_num, 'seo',
-                        dict(date_modified=git_lastmod))
+            meta.insert(line_num, 'seo', dict(date_modified=git_lastmod))
 
         output = 'new.md'
         if os.path.isfile(output):
@@ -82,7 +87,8 @@ def update_lastmod(verbose):
         if verbose:
             print("[INFO] update 'lastmod' for:" + post)
 
-    print("[INFO] Success to update lastmod for {} post(s).".format(count))
+    if count > 0:
+        print("[INFO] Success to update lastmod for {} post(s).".format(count))
 
 
 def help():

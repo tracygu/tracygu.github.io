@@ -7,6 +7,7 @@
 
 CATEGORIES=false
 TAGS=false
+LASTMOD=false
 
 set -eu
 
@@ -16,7 +17,7 @@ if [[ ! -z $(git status -s) ]]; then
   exit 1
 fi
 
-python _scripts/tools/pages_generator.py
+python _scripts/tools/init_all.py
 
 msg="Updated"
 
@@ -36,9 +37,18 @@ if [[ ! -z $(git status tags -s) ]]; then
   TAGS=true
 fi
 
-if [[ $CATEGORIES = true || $TAGS = true ]]; then
-  msg+=" for post(s)."
+if [[ ! -z $(git status _posts -s) ]]; then
+  git add _posts/
+  if [[ $CATEGORIES = true || $TAGS = true ]]; then
+    msg+=" and"
+  fi
+  msg+=" Lastmod"
+  LASTMOD=true
+fi
+
+if [[ $CATEGORIES = true || $TAGS = true || $LASTMOD = true ]]; then
   git commit -m "[Automation] $msg"
+  msg+=" for post(s)."
 else
   msg="Nothing changed."
 fi

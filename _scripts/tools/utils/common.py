@@ -12,7 +12,9 @@ import sys
 
 
 def get_yaml(path):
-
+    """
+    Return the Yaml block of a post and the linenumbers of it.
+    """
     end = False
     yaml = ""
     num = 0

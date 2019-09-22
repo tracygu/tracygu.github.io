@@ -1394,6 +1394,10 @@ div.tooltip-inner { /* Overrided BS4 Tooltip */
     padding-top: 3.5rem;
     margin-top: -4.3rem;
   }
+
+  div.footnotes>ol>li:first-child {
+    margin-top: -3.5rem;
+  }
 }
 
 /* Compact icons in sidebar & TOC hidden */

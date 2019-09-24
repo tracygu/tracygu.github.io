@@ -34,7 +34,7 @@ init() {
   fi
 
   # enable error reporting to the console
-  set -e
+  set -eu
 
   clear "_site"
 
@@ -45,9 +45,18 @@ init() {
   sed -i "s/\(^url:.*\)/url: 'https:\/\/${CNAME}'/g" $CONFIG
   sed -i "s/\(.*id:.*\)/  id: '${GA_ID}'/g" $CONFIG
   sed -i "s/\(.*shortname:.*\)/  shortname: '${DISQUS}'/g" $CONFIG
+  sed -i "s/\(.*pv:.*\)/  pv: true/g" $CONFIG
   sed -i \
       "s/\(^google_site_verification:.*\)/google_site_verification: '${SITE_VERIFICATION}'/g" \
       $CONFIG
+
+  # PV local cache
+  wget $PV_PROXY_URL -O assets/data/pageviews.json -q
+
+  # Proxy URL
+  URL_FILE=assets/data/proxy.json
+  tmp=$(mktemp)
+  jq -c --arg PV_PROXY_URL $PV_PROXY_URL '.proxyUrl = $PV_PROXY_URL' $URL_FILE > $tmp && mv $tmp $URL_FILE
 
   # Git settings
   git config --global user.email "travis@travis-ci.org"

@@ -158,6 +158,7 @@ exclude:
   - run.sh
   - build.sh
   - init.sh
+  - pv.sh
 
 sitemap_exclude:  # Sitemap will exclude the following items.
   - /norobots/

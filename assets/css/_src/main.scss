@@ -624,7 +624,8 @@ footer a:hover,
 
 /*--- Begin of Markdown table style ---*/
 
-div.post-content>table {
+div.post-content>table,
+div.post-content li>table {
   min-width: 40%;
   border-collapse: collapse;
   border-spacing: 0;

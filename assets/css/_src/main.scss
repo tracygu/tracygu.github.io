@@ -1331,6 +1331,10 @@ div.tooltip-inner { /* Overrided BS4 Tooltip */
     display: none;
   }
 
+  #page h1.dynamic-title ~ .post-content {
+    margin-top: 3rem;
+  }
+
   #breadcrumb,
   #search-wrap {
     display: none;

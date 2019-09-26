@@ -2,7 +2,7 @@
 title: Markdown使用说明
 date: 2019-09-26 15:55:00 +0800
 categories: [Blogging, Tutorial]
-tags: [工具]
+tags: [tools]
 seo:
   date_modified: 2019-09-26 15:55:00 +0800
 ---

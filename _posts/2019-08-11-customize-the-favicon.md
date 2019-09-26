@@ -1,9 +1,11 @@
 ---
-title: "Customize the Favicon"
+title: Customize the Favicon
 date: 2019-08-11 00:34:00 +0800
 categories: [Blogging, Tutorial]
 tags: [favicon]
 toc: false
+seo:
+  date_modified: 2019-08-23 19:27:39 +0800
 ---
 
 The image files of Favicon[^favicon] is placed in `assets/img/favicons`. You may need to replace them with your own. So let's see how to customize these Favicons.
